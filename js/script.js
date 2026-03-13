@@ -22,6 +22,10 @@ setInterval(() => {
 let searchBtn = document.getElementById("searchBtn");
 let searchForm = document.getElementById("searchForm");
 
+searchForm.onsubmit = function (e) {
+  e.preventDefault();
+}
+
 searchBtn.addEventListener("click", function () {
   searchForm.classList.toggle("show");
   searchBtn.classList.toggle("hide");
