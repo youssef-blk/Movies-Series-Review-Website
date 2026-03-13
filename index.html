@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fichier CSS -->
@@ -11,55 +10,39 @@
     <!-- Icons -->
     <link rel="stylesheet" href="css/all.min.css" />
     <title>ShowTime</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <nav id="nav-id" class="hidden-element">
+      <h1 class="title">ShowTime</h1>
 
-    <div class="hero">
-        <nav id="nav-id" class="hidden-element">
-            <div class="nav-left">
-                <a href="#" class="nav-brand">SHOWTIME</a>
-            </div>
+      <ul class="links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Series</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Trending</a></li>
+        <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+        <form action="" id="searchForm">
+          <input
+            type="text"
+            name="search"
+            id="searchInput"
+            placeholder="SearchInput"
+          />
+          <button type="submit" name="searchSubmit" id="searchSubmit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </ul>
+    </nav>
 
-            <ul class="nav_menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Series</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Trending</a></li>
-            </ul>
-
-            <div class="nav-right">
-                <div class="search-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </div>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-        <img id="bg" src="https://i.pinimg.com/1200x/ca/bb/cc/cabbcc4cf78ea75c0039ef4fc90fa4f0.jpg" alt="">
+    <div class="hero" id="hero">
+      <div class="container"></div>
     </div>
-
-
-
-
-
-
-
-
-
 
     <!-- Fichier JS -->
     <script src="js/script.js"></script>
     <!-- Bootsrap -->
     <script src="js/bootstrap.bundle.min.js"></script>
-    <!-- Icons -->
-    <script src="js/all.min.js"></script>
-</body>
-
+  </body>
 </html>
