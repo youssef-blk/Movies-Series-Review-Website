@@ -13,32 +13,38 @@
   </head>
 
   <body>
-    <nav id="nav-id" class="hidden-element">
-      <h1 class="title">ShowTime</h1>
+    
 
-      <ul class="links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Series</a></li>
-        <li><a href="#">Movies</a></li>
-        <li><a href="#">Trending</a></li>
-        <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-        <form action="" id="searchForm">
-          <input
-            type="text"
-            name="search"
-            id="searchInput"
-            placeholder="SearchInput"
-          />
-          <button type="submit" name="searchSubmit" id="searchSubmit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </ul>
+    <div class="hero">
+    <nav id="nav-id">
+        <div class="nav-left">
+            <a href="#" class="nav-brand"><img src="les-img/NicePng_showtime-logo-png_2637644.png" alt=""></a>
+        </div>
+
+        <ul class="nav_menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Series</a></li>
+            <li><a href="#">Movies</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
     </nav>
 
-    <div class="hero" id="hero">
-      <div class="container"></div>
+    <div id="slider-content">
+        <img id="bg" src="https://i.pinimg.com/1200x/ab/93/99/ab9399d4928087e66e3db782b554c70b.jpg" alt="">
+        <div class="hero-info">
+            <h1 id="show-title" >THE JOKER </h1>
+            <p id="desc" style="width: 450px;">A deep and haunting character study of Arthur Fleck, a man disregarded by society who eventually transforms into a criminal mastermind. This story explores the origins of Gotham's most iconic villain ....</p>
+        </div>
     </div>
+</div>
 
     <!-- Fichier JS -->
     <script src="js/script.js"></script>

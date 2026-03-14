@@ -1,105 +1,77 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 50px;
-  background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
-  border-bottom: 1px solid #fff;
-}
-
-nav .title {
-  color: #fff;
-  font-size: 22px;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  align-items: center;
-  margin: 0;
-}
-nav ul a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
-nav ul a:hover {
-  color: #fff;
-}
-
-nav i {
-  color: #fff;
-  cursor: pointer;
-  display: block;
-}
-
-nav form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s;
-  width: 0;
-}
-nav form.show {
-  width: 214px;
-}
-nav i.hide {
-  display: none;
-}
-nav form input {
-  background-color: transparent;
-  color: #fff;
-  padding: 5px 15px;
-  border: 1px solid #fff;
-}
-nav form input:focus {
-  outline: none;
-}
-
-nav form button {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  right: 10px;
-}
+/* --- Global --- */
+* { padding: 0; margin: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
 .hero {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("https://i.pinimg.com/1200x/af/4d/08/af4d086656c120f13960c3f8848cd8f9.jpg");
-  background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: #000;
+    overflow: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 50px;
+}
+
+.nav-left { position: absolute; left: 50px; }
+.nav-left img{
+  max-width:100px;
+ 
+}
+.nav-brand { color: #fff; font-size: 24px; font-weight: bold; letter-spacing: 5px; text-decoration: none; }
+
+.nav_menu { display: flex; gap: 50px; list-style: none; }
+.nav_menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    opacity: 0.7;
+}
+.nav_menu a:hover { opacity: 1; }
+
+.nav-right { position: absolute; right: 50px; }
+
+/* --- Slider & Transition --- */
+#bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s ease-in-out; /* Transition dyal tswira */
 }
 
 .hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
 }
+
+.hero-info {
+    position: absolute;
+    bottom: 15%;
+    left: 50px;
+    z-index: 10;
+    color: white;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.hero-info h1 {
+    font-size: 80px;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+}
+
+/* Class bach n-diro animation fach t-beddel t-tswira */
+.fade-out { opacity: 0; transform: translateY(20px); }
