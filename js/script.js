@@ -70,9 +70,14 @@ function renderSlide(slide) {
   if (categories) categories.textContent = (slide.categories || []).join(", ");
   if (year) year.textContent = slide.year ?? "";
   if (rating)
-    rating.textContent = slide.rating != null ? `${slide.rating}/10` : "";
+    rating.textContent = slide.rating ?? "";
   if (director) director.textContent = slide.director ?? "";
   if (stars) stars.textContent = (slide.stars || []).join(", ");
+  if (slide.rating > 8) {
+  rating.style.color = "#44fe47d9";
+} else {
+  rating.style.color = "yellow";
+}
 }
 
 renderSlide(slides[0]);

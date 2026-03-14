@@ -125,7 +125,7 @@ nav form button {
 
 .hero-info {
   position: absolute;
-  bottom: 15%;
+  bottom: 10%;
   left: 50px;
   z-index: 10;
   color: white;
@@ -175,6 +175,10 @@ nav form button {
   margin: 0 4px;
 }
 
+
+.ten{
+  color: white;
+}
 /* Class bach n-diro animation fach t-beddel t-tswira */
 .fade-out {
   opacity: 0;

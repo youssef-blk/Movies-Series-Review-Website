@@ -1,78 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fichier CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Icons -->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <title>ShowTime</title>
-  </head>
 
-  <body>
-    <div class="hero">
-      <nav id="nav-id" class="hidden-element">
-        <div class="logo">
-          <img src="images/logo.png" alt="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fichier CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="css/all.min.css" />
+  <title>ShowTime</title>
+</head>
+
+<body>
+  <div class="hero">
+    <nav id="nav-id" class="hidden-element">
+      <div class="logo">
+        <img src="images/logo.png" alt="" />
+      </div>
+
+      <ul class="links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Series</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Trending</a></li>
+      </ul>
+
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+        <form action="" id="searchForm">
+          <input type="text" name="search" id="searchInput" placeholder="SearchInput" />
+          <button type="submit" name="searchSubmit" id="searchSubmit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div id="slider-content">
+      <img id="bg" src="images/dark.jpg" alt="" />
+      <div class="hero-info">
+        <div class="show-meta">
+          <span id="show-categories">Sci-Fi, Thriller, Mystery</span>
+          <span class="dot">•</span>
+          <span id="show-year">2017</span>
+          <span class="dot">•</span>
+         <span class="ten"><span id="show-rating"></span>/10</span>
         </div>
-
-        <ul class="links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Series</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Trending</a></li>
-        </ul>
-
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-          <form action="" id="searchForm">
-            <input
-              type="text"
-              name="search"
-              id="searchInput"
-              placeholder="SearchInput"
-            />
-            <button type="submit" name="searchSubmit" id="searchSubmit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
-      </nav>
-
-      <div id="slider-content">
-        <img id="bg" src="images/dark.jpg" alt="" />
-        <div class="hero-info">
-          <div class="show-meta">
-            <span id="show-categories">Sci-Fi, Thriller, Mystery</span>
-            <span class="dot">•</span>
-            <span id="show-year">2017</span>
-            <span class="dot">•</span>
-            <span id="show-rating"><span>8.7</span>/10</span>
-          </div>
-          <h1 id="show-title">DARK</h1>
-          <p id="desc" style="width: 450px">
-            A complex supernatural thriller where the disappearance of two
-            children exposes the double lives and fractured relationships among
-            four families. This mind-bending saga explores the dark secrets of a
-            small town across generations...
-          </p>
-          <div class="show-credits">
-            <span class="label">Director:</span>
-            <span id="show-director">Baran bo Odar</span>
-            <span class="sep">|</span>
-            <span class="label">Main character:</span>
-            <span id="show-stars">Jonas Kahnwald</span>
-          </div>
+        <h1 id="show-title">DARK</h1>
+        <p id="desc" style="width: 450px">
+          A complex supernatural thriller where the disappearance of two
+          children exposes the double lives and fractured relationships among
+          four families. This mind-bending saga explores the dark secrets of a
+          small town across generations...
+        </p>
+        <div class="show-credits">
+          <span class="label">Director:</span>
+          <span id="show-director">Baran bo Odar</span>
+          <span class="sep">|</span>
+          <span class="label">Main character:</span>
+          <span id="show-stars">Jonas Kahnwald</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Fichier JS -->
-    <script src="js/script.js"></script>
-    <!-- Bootsrap -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-  </body>
+  <!-- Fichier JS -->
+  <script src="js/script.js"></script>
+  <!-- Bootsrap -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
