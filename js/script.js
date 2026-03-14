@@ -1,57 +1,113 @@
 const slides = [
-    { 
-        img: "https://i.pinimg.com/1200x/18/db/b2/18dbb2f591bfe59baabd8d77c46f694a.jpg", 
-        title: "DARK", 
-        p: "A complex supernatural thriller where the disappearance of two children exposes the double lives and fractured relationships among four families. This mind-bending saga explores the dark secrets of a small town across generations..." 
-    },
-    { 
-        img: "https://i.pinimg.com/1200x/a4/74/f9/a474f94adc86667848f4681bec86eb77.jpg", 
-        title: "VIKINGS", 
-        p: "The brutal and epic journey of Ragnar Lothbrok, a restless warrior who seeks to explore and raid distant shores across the ocean. Witness the rise of a legendary Norse king and the fierce battles that shaped the Viking Age..." 
-    },
-    { 
-        img: "https://i.pinimg.com/1200x/4d/77/53/4d775329643964a73d3edf5089c039b4.jpg", 
-        title: "FROM", 
-        p: "Unravel the terrifying mystery of a nightmare town in middle America that traps everyone who enters. As the residents struggle to maintain a sense of normalcy, they must also survive the threats of the surrounding forest..." 
-    },
-    { 
-        img: "https://i.pinimg.com/1200x/b3/35/10/b33510f403f7f17c75d4a9a02460099e.jpg", 
-        title: "MINDHUNTER", 
-        p: "Set in the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder. By interviewing imprisoned serial killers, they hope to understand how these monsters think to solve ongoing cases..." 
-    },
-    { 
-        img: "https://i.pinimg.com/1200x/ab/93/99/ab9399d4928087e66e3db782b554c70b.jpg", 
-        title: "THE JOKER", 
-        p: "A deep and haunting character study of Arthur Fleck, a man disregarded by society who eventually transforms into a criminal mastermind. This story explores the origins of Gotham's most iconic villain..." 
-    }
+  {
+    img: "images/dark.jpg",
+    title: "DARK",
+    categories: ["Sci-Fi", "Thriller", "Mystery"],
+    year: 2017,
+    rating: 8.7,
+    director: "Baran bo Odar",
+    stars: ["Jonas Kahnwald"],
+    p: "A complex supernatural thriller where the disappearance of two children exposes the double lives and fractured relationships among four families. This mind-bending saga explores the dark secrets of a small town across generations...",
+  },
+  {
+    img: "images/vikings.jpg",
+    title: "VIKINGS",
+    categories: ["Action", "Drama", "History"],
+    year: 2013,
+    rating: 8.5,
+    director: "Michael Hirst",
+    stars: ["Ragnar Lothbrok"],
+    p: "The brutal and epic journey of Ragnar Lothbrok, a restless warrior who seeks to explore and raid distant shores across the ocean. Witness the rise of a legendary Norse king and the fierce battles that shaped the Viking Age...",
+  },
+  {
+    img: "images/from.jpg",
+    title: "FROM",
+    categories: ["Horror", "Mystery", "Thriller"],
+    year: 2022,
+    rating: 7.8,
+    director: "Jack Bender",
+    stars: ["Boyd Stevens"],
+    p: "Unravel the terrifying mystery of a nightmare town in middle America that traps everyone who enters. As the residents struggle to maintain a sense of normalcy, they must also survive the threats of the surrounding forest...",
+  },
+  {
+    img: "images/mindhunter.jpg",
+    title: "MINDHUNTER",
+    categories: ["Crime", "Drama", "Thriller"],
+    year: 2017,
+    rating: 8.6,
+    director: "David Fincher",
+    stars: ["Holden Ford"],
+    p: "Set in the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder. By interviewing imprisoned serial killers, they hope to understand how these monsters think to solve ongoing cases...",
+  },
+  {
+    img: "images/joker.jpg",
+    title: "THE JOKER",
+    categories: ["Crime", "Drama", "Thriller"],
+    year: 2019,
+    rating: 8.4,
+    director: "Todd Phillips",
+    stars: ["Arthur Fleck"],
+    p: "A deep and haunting character study of Arthur Fleck, a man disregarded by society who eventually transforms into a criminal mastermind. This story explores the origins of Gotham's most iconic villain...",
+  },
 ];
 
-let i = 0;
+let i = 1;
 const bg = document.getElementById("bg");
 const desc = document.getElementById("desc");
 const title = document.getElementById("show-title");
+const categories = document.getElementById("show-categories");
+const year = document.getElementById("show-year");
+const rating = document.getElementById("show-rating");
+const director = document.getElementById("show-director");
+const stars = document.getElementById("show-stars");
 const infoContainer = document.querySelector(".hero-info");
 
+function renderSlide(slide) {
+  bg.src = slide.img;
+  title.innerText = slide.title;
+  desc.textContent = slide.p;
+
+  if (categories) categories.textContent = (slide.categories || []).join(", ");
+  if (year) year.textContent = slide.year ?? "";
+  if (rating)
+    rating.textContent = slide.rating != null ? `${slide.rating}/10` : "";
+  if (director) director.textContent = slide.director ?? "";
+  if (stars) stars.textContent = (slide.stars || []).join(", ");
+}
+
+renderSlide(slides[0]);
+
 setInterval(() => {
-    
-    bg.style.opacity = 0;
-    infoContainer.classList.add("fade-out");
+  bg.style.opacity = 0;
+  infoContainer.classList.add("fade-out");
 
-    setTimeout(() => {
-        
-        
-       
-        bg.src = slides[i].img;
-        title.innerText = slides[i].title;
-        desc.textContent = slides[i].p;
-        
+  setTimeout(() => {
+    renderSlide(slides[i]);
 
-        
-        bg.style.opacity = 1;
-        infoContainer.classList.remove("fade-out");
-        i ++;
-        if(i===4){
-          i=0
-        }
-    }, 800); 
-}, 5000);
+    bg.style.opacity = 1;
+    infoContainer.classList.remove("fade-out");
+    i++;
+    if (i === slides.length) {
+      i = 0;
+    }
+  }, 800);
+}, 15000);
+
+let searchBtn = document.getElementById("searchBtn");
+let searchForm = document.getElementById("searchForm");
+
+searchForm.onsubmit = function (e) {
+  e.preventDefault();
+};
+
+searchBtn.addEventListener("click", function () {
+  searchForm.classList.toggle("show");
+  searchBtn.classList.toggle("hide");
+  searchForm.firstElementChild.focus();
+});
+
+searchForm.firstElementChild.onblur = function () {
+  searchForm.classList.toggle("show");
+  searchBtn.classList.toggle("hide");
+  searchForm.firstElementChild.value = "";
+};
