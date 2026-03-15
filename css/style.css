@@ -184,3 +184,44 @@ nav form button {
   opacity: 0;
   transform: translateY(20px);
 }
+body{
+  background-color: #000;
+}
+/* about */
+.about-site{
+  position: relative;
+  width: 100%;
+  margin: 0 ;
+  padding: 0;
+  background-color: black;
+}
+
+.line{
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 80%;
+  top: 10%;
+  background: rgb(249, 247, 247);
+}
+
+.item{
+  width: 40%;
+  padding: 20px;
+  margin: 40px 0;
+  color: #fff;
+}
+
+.item h3{
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.item.right{
+  margin-left: 55%;
+}
+
+.item.left{
+  margin-right: 55%;
+  text-align: right;
+}
