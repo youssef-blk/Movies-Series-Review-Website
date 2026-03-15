@@ -1,72 +1,75 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fichier CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <title>ShowTime</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Fichier CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <!-- Icons -->
-  <link rel="stylesheet" href="css/all.min.css" />
-  <title>ShowTime</title>
-</head>
-
-<body>
-  <div class="hero">
-    <nav id="nav-id" class="hidden-element">
-      <div class="logo">
-        <img src="images/logo.png" alt="" />
-      </div>
-
-      <ul class="links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Series</a></li>
-        <li><a href="#">Movies</a></li>
-        <li><a href="#">Trending</a></li>
-      </ul>
-
-      <div class="search">
-        <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-        <form action="" id="searchForm">
-          <input type="text" name="search" id="searchInput" placeholder="SearchInput" />
-          <button type="submit" name="searchSubmit" id="searchSubmit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </div>
-    </nav>
-
-    <div id="slider-content">
-      <img id="bg" src="images/dark.jpg" alt="" />
-      <div class="hero-info">
-        <div class="show-meta">
-          <span id="show-categories">Sci-Fi, Thriller, Mystery</span>
-          <span class="dot">•</span>
-          <span id="show-year">2017</span>
-          <span class="dot">•</span>
-          <span class="ten"><span id="show-rating"></span>/10</span>
+  <body>
+    <div class="hero" id="home">
+      <nav id="nav-id" class="hidden-element">
+        <div class="logo">
+          <img src="images/logo.png" alt="" />
         </div>
-        <h1 id="show-title">DARK</h1>
-        <p id="desc" style="width: 450px">
-          A complex supernatural thriller where the disappearance of two
-          children exposes the double lives and fractured relationships among
-          four families. This mind-bending saga explores the dark secrets of a
-          small town across generations...
-        </p>
-        <div class="show-credits">
-          <span class="label">Director:</span>
-          <span id="show-director">Baran bo Odar</span>
-          <span class="sep">|</span>
-          <span class="label">Main character:</span>
-          <span id="show-stars">Jonas Kahnwald</span>
+
+        <ul class="links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#latest-updates">Series</a></li>
+          <li><a href="#latest-updates">Movies</a></li>
+          <li><a href="#latest-updates">Trending</a></li>
+        </ul>
+
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+          <form action="" id="searchForm">
+            <input
+              type="text"
+              name="search"
+              id="searchInput"
+              placeholder="SearchInput"
+            />
+            <button type="submit" name="searchSubmit" id="searchSubmit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+
+      <div id="slider-content">
+        <img id="bg" src="images/dark.jpg" alt="" />
+        <div class="hero-info">
+          <div class="show-meta">
+            <span id="show-categories">Sci-Fi, Thriller, Mystery</span>
+            <span class="dot">•</span>
+            <span id="show-year">2017</span>
+            <span class="dot">•</span>
+            <span class="ten"><span id="show-rating"></span>/10</span>
+          </div>
+          <h1 id="show-title">DARK</h1>
+          <p id="desc" style="width: 450px">
+            A complex supernatural thriller where the disappearance of two
+            children exposes the double lives and fractured relationships among
+            four families. This mind-bending saga explores the dark secrets of a
+            small town across generations...
+          </p>
+          <div class="show-credits">
+            <span class="label">Director:</span>
+            <span id="show-director">Baran bo Odar</span>
+            <span class="sep">|</span>
+            <span class="label">Main character:</span>
+            <span id="show-stars">Jonas Kahnwald</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <section class="about-site">
-
+    <!-- <section class="about-site">
     <div class="line"></div>
 
     <div class="item right">
@@ -94,13 +97,58 @@
       <p>The footer contains information about the website and useful navigation links.</p>
     </div>
 
-  </section>
+  </section> -->
 
-  <!-- Fichier JS -->
-  <script src="js/script.js"></script>
-  <!-- Bootsrap -->
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-</body>
+    <div class="cards-section">
+      <h2 class="section-title">Latest Updates</h2>
+      <div class="container">
+        <div
+          class="card active"
+          style="
+            background-image: url(&quot;https://i.pinimg.com/736x/43/ff/d6/43ffd663f2e6f9c818b284e655a372d1.jpg&quot;);
+          "
+        >
+          <h3>Live Pricing</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background-image: url(&quot;https://i.pinimg.com/1200x/0d/1c/da/0d1cdafb65f1ce66285512ddb442378d.jpg&quot;);
+          "
+        >
+          <h3>Analyst estimates</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background-image: url(&quot;https://i.pinimg.com/736x/f3/fe/c2/f3fec21e2a2e5613eed283690e060378.jpg&quot;);
+          "
+        >
+          <h3>Company financials</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background-image: url(&quot;https://i.pinimg.com/1200x/36/e1/89/36e189a7f432d6d6343b89ddcf02f604.jpg&quot;);
+          "
+        >
+          <h3>Historical Data</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background-image: url(&quot;https://i.pinimg.com/736x/01/b6/94/01b69457b8448d985158a32e83b23fff.jpg&quot;);
+          "
+        >
+          <h3>Insider Trading</h3>
+        </div>
+      </div>
+    </div>
 
+    <!-- Fichier JS -->
+    <script src="js/script.js"></script>
+    <!-- Bootsrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </body>
 </html>

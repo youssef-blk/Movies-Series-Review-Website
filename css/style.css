@@ -3,7 +3,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .hero {
@@ -14,6 +13,9 @@
   overflow: hidden;
 }
 
+body {
+  font-family: "Segoe UI", sans-serif;
+}
 /* --- Navigation --- */
 nav {
   position: fixed;
@@ -175,8 +177,7 @@ nav form button {
   margin: 0 4px;
 }
 
-
-.ten{
+.ten {
   color: white;
 }
 /* Class bach n-diro animation fach t-beddel t-tswira */
@@ -184,32 +185,35 @@ nav form button {
   opacity: 0;
   transform: translateY(20px);
 }
-body{
-  background-color: #000;
-}
+
 /* about */
-.about-site{
+/* .about-site{
   position: relative;
   width: 100%;
-  margin: 0 ;
-  padding: 0;
-  background-color: black;
+  background-color: #131313;
+  padding-block: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .line{
   position: absolute;
   left: 50%;
+  top: 50%;
   width: 2px;
-  height: 80%;
-  top: 10%;
+  transform: translate(-50%, -50%);
+  height: calc(100% - 40px);
   background: rgb(249, 247, 247);
 }
 
-.item{
+.item {
   width: 40%;
   padding: 20px;
-  margin: 40px 0;
   color: #fff;
+  border: 1px solid red;
+  border-radius: 5px;
+  position: relative;
 }
 
 .item h3{
@@ -218,10 +222,100 @@ body{
 }
 
 .item.right{
-  margin-left: 55%;
+  align-self: flex-end;
+  margin-right: 40px;
+  
+}
+
+.item.right::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 4px solid red;
+  left: 50%;
+  transform: translate(-50%);
+
 }
 
 .item.left{
-  margin-right: 55%;
-  text-align: right;
+  align-self: flex-start;
+  margin-left: 40px;
+
+} */
+
+.cards-section {
+  padding: 100px 0;
+  background-color: #000;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+  margin: 0 auto;
+  height: 500px;
+  gap: 20px;
+  animation: fadeInScole linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.card {
+  height: 350px;
+  border-radius: 15px;
+  flex: 2;
+  cursor: pointer;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  flex: 5;
+}
+
+.card h3 {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  opacity: 0.7;
+  transition: 0.5s;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.card:hover h3 {
+  writing-mode: horizontal-tb;
+  transform: rotate(0);
+  opacity: 1;
+  font-size: 20px;
+}
+
+
+@keyframes fadeInScole {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
