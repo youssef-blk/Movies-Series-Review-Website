@@ -1,0 +1,222 @@
+body {
+  margin: 0;
+  background-color: #050505;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.header-image {
+  background:
+    radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%),
+    url("https://i.pinimg.com/1200x/a8/7e/19/a87e19d3c5aad75f0373012428f9e642.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 50px;
+  background: linear-gradient(to bottom, black, transparent);
+}
+
+/* LOGO */
+nav .logo img {
+  width: 90px;
+}
+
+/* LINKS فالنص */
+nav .links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav .links a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+nav .links a:hover {
+  color: #fff;
+}
+
+/* SEARCH */
+.search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search i {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* الفورم مخبية */
+#searchForm {
+  position: absolute;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+#searchForm.show {
+  width: 200px;
+}
+
+#searchForm input {
+  width: 100%;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+#searchForm button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.hidden-element {
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s;
+}
+
+.hidden-element.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav ul a:hover {
+  color: #fff;
+}
+
+/* HERO */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1300px;
+}
+
+#text-wrapper {
+  width: 200px;
+  flex: 2;
+  white-space: nowrap;
+  transition: 0.8s;
+  display: flex;
+  
+}
+
+.fade-text {
+  opacity: 0;
+}
+
+.hero-desc {
+  font-size: 24px;
+}
+
+.cursor {
+  color: red;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* LOGO */
+#logo-reveal {
+  flex: 1;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 1.2s;
+}
+
+#logo-reveal.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.floating-logo {
+  width: 400px;
+  animation: float 4s infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* SECTION THT */
+.after-hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+
+.after-hero.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.after-title {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.after-text {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+}

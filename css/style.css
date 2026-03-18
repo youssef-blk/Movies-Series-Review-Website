@@ -259,3 +259,118 @@ nav form button {
     scale: 1;
   }
 }
+
+/* --- Card Fullscreen Modal --- */
+body.modal-open {
+  overflow: hidden;
+}
+
+.card-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.7s ease,
+    visibility 0s linear 0.7s;
+}
+
+.card-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.7s ease,
+    visibility 0s linear 0s;
+}
+
+.card-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.card-modal.is-open .card-modal__backdrop {
+  opacity: 1;
+}
+
+.card-modal__content {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.98);
+  transition: transform 0.7s ease;
+  will-change: transform;
+}
+
+.card-modal.is-open .card-modal__content {
+  transform: scale(1);
+}
+
+.card-modal__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.card-modal__title {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-weight: 300;
+  padding: 0 24px;
+  font-size: clamp(28px, 5vw, 72px);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.card-modal.is-open .card-modal__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card-modal__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-modal,
+  .card-modal__backdrop,
+  .card-modal__content,
+  .card-modal__title {
+    transition: none !important;
+  }
+}

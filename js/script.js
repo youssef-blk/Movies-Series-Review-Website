@@ -118,42 +118,110 @@ searchForm.firstElementChild.onblur = function () {
 // hero inmation
 
 document.addEventListener("DOMContentLoaded", function () {
-  let tl = gsap.timeline();
+  if (window.gsap) {
+    let tl = gsap.timeline();
 
-  tl.from("#show-title", {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
+    tl.from("#show-title", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    tl.from(
+      "#desc",
+      {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+      },
+      "-=0.5",
+    );
+
+    tl.from(
+      ".show-meta",
+      {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+      },
+      "-=0.4",
+    );
+
+    tl.from(
+      ".show-credits",
+      {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+      },
+      "-=0.3",
+    );
+  }
+
+  const modal = document.getElementById("cardModal");
+  const modalTitle = document.getElementById("cardModalTitle");
+  const modalContent = modal?.querySelector(".card-modal__content");
+  const closeTargets = modal?.querySelectorAll("[data-card-modal-close]");
+
+  if (!modal || !modalTitle || !modalContent) return;
+
+  let lastFocusedElement = null;
+
+  function openCardModal(card) {
+    lastFocusedElement = document.activeElement;
+
+    const bgImage =
+      card.style.backgroundImage || getComputedStyle(card).backgroundImage;
+    const title =
+      card.querySelector("h3")?.textContent?.trim() || "Untitled";
+
+    modalContent.style.backgroundImage = bgImage;
+    modalTitle.textContent = title;
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    modal.querySelector(".card-modal__close")?.focus();
+
+    setTimeout(() => {
+      window.location.href = "dexter/dexter.html";
+    }, 2000)
+
+  }
+
+  function closeCardModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+
+    modalContent.style.backgroundImage = "";
+    modalTitle.textContent = "";
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    }
+  }
+
+  document.querySelectorAll(".cards-section .card").forEach((card) => {
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+
+    card.addEventListener("click", () => openCardModal(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openCardModal(card);
+      }
+    });
   });
 
-  tl.from(
-    "#desc",
-    {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-    },
-    "-=0.5",
-  );
+  closeTargets?.forEach((el) => el.addEventListener("click", closeCardModal));
 
-  tl.from(
-    ".show-meta",
-    {
-      y: 20,
-      opacity: 0,
-      duration: 0.6,
-    },
-    "-=0.4",
-  );
-
-  tl.from(
-    ".show-credits",
-    {
-      y: 20,
-      opacity: 0,
-      duration: 0.6,
-    },
-    "-=0.3",
-  );
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+      closeCardModal();
+    }
+  });
 });
