@@ -1,7 +1,7 @@
 
 
 const fullText =
-  "Tonight’s the night. The air feels heavier, like the world itself is holding its breath. By day, he’s just another forensic technician—quiet, precise, invisible in a room full of noise. He studies blood spatter, traces evidence, and helps uncover the truth behind the worst crimes… all while hiding a truth of his own.";
+  "Tonight’s the night. The air feels heavier, like the world itself is holding its breath. By day, he’s just another forensic technician—quiet, precise, invisible in a room full of noise...";
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
 const logoReveal = document.getElementById("logo-reveal");
@@ -17,7 +17,7 @@ function typeEffect() {
   if (index < fullText.length) {
     typingElement.textContent += fullText.charAt(index);
     index++;
-    typingTimeout = setTimeout(typeEffect, 40);
+    typingTimeout = setTimeout(typeEffect, 50);
   } else {
     finishAnimation();
   }
@@ -42,8 +42,8 @@ function finishAnimation() {
     document.getElementById("after-hero").classList.add("show");
 
     document.body.style.overflow = "auto";
+    document.querySelector('.rating-box').classList.add('show');
   }, 600);
 }
 
 window.onload = typeEffect;
-
