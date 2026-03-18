@@ -194,6 +194,8 @@ nav form button {
 .section-title {
   text-align: center;
   margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
   font-weight: 300;
   letter-spacing: 5px;
   text-transform: uppercase;
