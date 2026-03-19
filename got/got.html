@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShowTime | Dexter</title>
+    <title>ShowTime | Game Of Thrones</title>
 
     <link rel="stylesheet" href="../css/all.min.css" />
 
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="dexter.css" />
+    <link rel="stylesheet" href="got.css" />
   </head>
 
   <body onclick="skipTyping()">
@@ -72,7 +72,27 @@
       </p>
     </div>
 
-    <script src="dexter.js"></script>
+    <script>
+      let searchBtn = document.getElementById("searchBtn");
+      let searchForm = document.getElementById("searchForm");
+
+      searchForm.onsubmit = function (e) {
+        e.preventDefault();
+      };
+
+      searchBtn.addEventListener("click", function () {
+        searchForm.classList.toggle("show");
+        searchBtn.classList.toggle("hide");
+        searchForm.firstElementChild.focus();
+      });
+
+      searchForm.firstElementChild.onblur = function () {
+        searchForm.classList.toggle("show");
+        searchBtn.classList.toggle("hide");
+        searchForm.firstElementChild.value = "";
+      };
+    </script>
+    <script src="got.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <!-- <script src="../js/all.min.js"></script> -->
   </body>

@@ -1,5 +1,6 @@
-const fullText =
-  "Tonight’s the night. The air feels heavier, like the world itself is holding its breath. By day, he’s just another forensic technician—quiet, precise, invisible in a room full of noise...";
+
+
+const fullText = "Power rules everything, and trust is a dangerous game. In Game of Thrones, every choice can cost a life—and no one is ever truly safe.";
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
 const logoReveal = document.getElementById("logo-reveal");
@@ -40,27 +41,8 @@ function finishAnimation() {
     document.getElementById("after-hero").classList.add("show");
 
     document.body.style.overflow = "auto";
-    document.querySelector(".rating-box").classList.add("show");
+    document.querySelector('.rating-box').classList.add('show');
   }, 600);
 }
 
 window.onload = typeEffect;
-
-let searchBtn = document.getElementById("searchBtn");
-let searchForm = document.getElementById("searchForm");
-
-searchForm.onsubmit = function (e) {
-  e.preventDefault();
-};
-
-searchBtn.addEventListener("click", function () {
-  searchForm.classList.toggle("show");
-  searchBtn.classList.toggle("hide");
-  searchForm.firstElementChild.focus();
-});
-
-searchForm.firstElementChild.onblur = function () {
-  searchForm.classList.toggle("show");
-  searchBtn.classList.toggle("hide");
-  searchForm.firstElementChild.value = "";
-};

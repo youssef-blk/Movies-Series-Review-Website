@@ -1,5 +1,5 @@
 const fullText =
-  "Tonight’s the night. The air feels heavier, like the world itself is holding its breath. By day, he’s just another forensic technician—quiet, precise, invisible in a room full of noise...";
+  "The world is a puzzle most people never notice. Sherlock Holmes sees every detail, every clue—turning chaos into answers before anyone else even sees the question.";
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
 const logoReveal = document.getElementById("logo-reveal");

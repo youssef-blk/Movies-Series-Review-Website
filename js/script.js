@@ -173,8 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const bgImage =
       card.style.backgroundImage || getComputedStyle(card).backgroundImage;
-    const title =
-      card.querySelector("h3")?.textContent?.trim() || "Untitled";
+    const title = card.querySelector("h3")?.textContent?.trim() || "Untitled";
 
     modalContent.style.backgroundImage = bgImage;
     modalTitle.textContent = title;
@@ -186,9 +185,8 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.querySelector(".card-modal__close")?.focus();
 
     setTimeout(() => {
-      window.location.href = "dexter/dexter.html";
-    }, 2000)
-
+      window.location.href = `${card.getAttribute("id")}/${card.getAttribute("id")}.html`;
+    }, 2000);
   }
 
   function closeCardModal() {

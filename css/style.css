@@ -82,7 +82,7 @@ nav form {
   width: 0;
 }
 nav form.show {
-  width: 214px;
+  width: 230px;
 }
 nav i.hide {
   display: none;
@@ -103,6 +103,25 @@ nav form button {
   position: absolute;
   right: 10px;
   top: 5px;
+}
+
+nav .links a {
+  position: relative;
+}
+
+nav .links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: red;
+  transition: 0.3s;
+}
+
+nav .links a:hover::after {
+  width: 100%;
 }
 /* --- Slider & Transition --- */
 #bg {

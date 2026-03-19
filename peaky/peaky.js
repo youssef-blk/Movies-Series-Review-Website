@@ -1,5 +1,4 @@
-const fullText =
-  "Tonight’s the night. The air feels heavier, like the world itself is holding its breath. By day, he’s just another forensic technician—quiet, precise, invisible in a room full of noise...";
+const fullText = "The streets run on power and silence. Peaky Blinders follows a gang that moves in the shadows—calm, calculated, and always one step ahead.";
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
 const logoReveal = document.getElementById("logo-reveal");

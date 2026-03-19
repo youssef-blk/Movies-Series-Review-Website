@@ -9,7 +9,7 @@ body {
 .header-image {
   background:
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%),
-    url("../images/dexter-card.jpg");
+    url("../images/got-card.jpg");
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -25,87 +25,39 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 50px;
-  background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+
+  padding: 15px 50px;
+  background: linear-gradient(to bottom, black, transparent);
 }
 
-nav .logo {
-  width: 100px;
-}
-
+/* LOGO */
 nav .logo img {
-  max-width: 100%;
+  width: 90px;
 }
 
-nav ul {
+/* LINKS فالنص */
+nav .links {
+  list-style: none;
   display: flex;
   gap: 30px;
-  list-style: none;
-  align-items: center;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
-nav ul a {
+
+nav .links a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 2px;
-  text-transform: uppercase;
   transition: 0.3s;
 }
-nav ul a:hover {
+
+nav .links a:hover {
   color: #fff;
 }
 
-nav .search {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-nav i {
-  color: #fff;
-  cursor: pointer;
-  display: block;
-}
-
-nav form {
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s;
-  width: 0;
-}
-nav form.show {
-  width: 230px;
-}
-nav i.hide {
-  display: none;
-}
-nav form input {
-  background-color: transparent;
-  color: #fff;
-  padding: 5px 15px;
-  border: 1px solid #fff;
-}
-nav form input:focus {
-  outline: none;
-}
-
-nav form button {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  right: 10px;
-  top: 5px;
-}
 
 nav .links a {
   position: relative;
@@ -125,6 +77,78 @@ nav .links a::after {
 nav .links a:hover::after {
   width: 100%;
 }
+/* SEARCH */
+.search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search i {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* الفورم مخبية */
+#searchForm {
+  position: absolute;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+#searchForm.show {
+  width: 200px;
+}
+
+#searchForm input {
+  width: 100%;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+#searchForm button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.hidden-element {
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s;
+}
+
+.hidden-element.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav ul a:hover {
+  color: #fff;
+}
+
 /* HERO */
 .hero-content {
   display: flex;

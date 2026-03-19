@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShowTime | Dexter</title>
+    <title>ShowTime | Sherlock</title>
 
     <link rel="stylesheet" href="../css/all.min.css" />
 
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="dexter.css" />
+    <link rel="stylesheet" href="sherlock.css" />
   </head>
 
   <body onclick="skipTyping()">
@@ -17,22 +17,27 @@
     <div class="header-image">
       <nav id="nav-id" class="hidden-element">
         <div class="logo">
-          <img src="../images/logo.png" alt="logo" />
+          <img src="../images/logo.png" alt="" />
         </div>
 
         <ul class="links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Series</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Trending</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#latest-updates">Series</a></li>
+          <li><a href="#latest-updates">Movies</a></li>
+          <li><a href="#latest-updates">Trending</a></li>
         </ul>
 
         <div class="search">
           <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-
-          <form id="searchForm">
-            <input type="text" placeholder="Search..." id="searchInput" />
-            <button type="submit">
+          <form action="" id="searchForm">
+            <input
+              type="text"
+              name="search"
+              id="searchInput"
+              plac
+              eholder="SearchInput"
+            />
+            <button type="submit" name="searchSubmit" id="searchSubmit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
@@ -50,18 +55,18 @@
         </div>
       </div>
       <div class="rating-box">
-    <h1 class="rating-number">8,8</h1>
+        <h1 class="rating-number">8,8</h1>
 
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
 
-    <p class="rating-text">MOVIE RATE</p>
-</div>
+        <p class="rating-text">MOVIE RATE</p>
+      </div>
     </div>
 
     <!-- SECTION JDIDA -->
@@ -71,8 +76,7 @@
         Dive into the mind of Dexter Morgan... where justice meets darkness.
       </p>
     </div>
-
-    <script src="dexter.js"></script>
+    <script src="sherlock.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <!-- <script src="../js/all.min.js"></script> -->
   </body>
