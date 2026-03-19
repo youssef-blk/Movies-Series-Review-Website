@@ -134,6 +134,31 @@ nav .links a:hover::after {
   max-width: 1300px;
 }
 
+.rating-box {
+  transform: translateY(50px);
+}
+
+.rating-box.show {
+  transform: translateY(0);
+}
+nav .links a {
+  position: relative;
+}
+
+nav .links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: red;
+  transition: 0.3s;
+}
+
+nav .links a:hover::after {
+  width: 100%;
+}
 #text-wrapper {
  flex: 2;
   max-width: 700px;
@@ -156,7 +181,8 @@ nav .links a:hover::after {
   font-size: 28px;
   font-weight: 300;
   letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  
+  text-shadow: 0 0 15px rgba(229,9,20,0.6);
 }
 
 .cursor {

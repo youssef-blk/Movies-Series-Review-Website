@@ -19,6 +19,7 @@ function typeEffect() {
   } else {
     finishAnimation();
   }
+ 
 }
 
 function skipTyping() {
@@ -26,6 +27,7 @@ function skipTyping() {
   isSkipped = true;
   clearTimeout(typingTimeout);
   finishAnimation();
+  
 }
 
 function finishAnimation() {
@@ -42,6 +44,12 @@ function finishAnimation() {
     document.body.style.overflow = "auto";
     document.querySelector(".rating-box").classList.add("show");
   }, 600);
+  setTimeout(() => {
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+}, 3000);
 }
 
 window.onload = typeEffect;
