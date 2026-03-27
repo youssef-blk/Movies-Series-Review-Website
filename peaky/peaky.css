@@ -5,6 +5,7 @@
 }
 
 body {
+  background-color: #fff;
   color: white;
   font-family: "Poppins", sans-serif;
 }
@@ -138,8 +139,22 @@ nav ul li a:hover {
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
+  position: relative;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px; 
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8),  
+    rgba(0, 0, 0, 0)    
+  );
+}
 .hero .container {
   height: 100%;
   display: flex;
@@ -189,4 +204,41 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+
+/* Start Episodes */
+
+.episodes {
+  padding-block: 20px;
+  padding-top: 60px;
+  background-color: #000000;
+}
+
+.season-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.season-line select {
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 50px;
+  position: relative;
+}
+
+.season-line select::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 300px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -300px;
+  background-color: #fff;
 }
