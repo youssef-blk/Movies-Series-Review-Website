@@ -17,7 +17,7 @@
     <div class="header-image">
       <nav id="nav-id" class="hidden-element">
         <div class="logo">
-          <img src="../images/logo.png" alt="logo" />
+          <img src="imag-got/logohbo.png" alt="logo" />
         </div>
 
         <ul class="links">
@@ -26,17 +26,6 @@
           <li><a href="#">Movies</a></li>
           <li><a href="#">Trending</a></li>
         </ul>
-
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-
-          <form id="searchForm">
-            <input type="text" placeholder="Search..." id="searchInput" />
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
       </nav>
 
       <div class="hero-content">
@@ -46,7 +35,8 @@
         </div>
 
         <div id="logo-reveal">
-          <img src="title.png" class="floating-logo" />
+          <span class="season-tag">SEASON 7 - COMING SOON</span>
+          <img src="imag-got/logogot.png" class="floating-logo" />
         </div>
       </div>
       <div class="rating-box">
@@ -72,26 +62,7 @@
       </p>
     </div>
 
-    <script>
-      let searchBtn = document.getElementById("searchBtn");
-      let searchForm = document.getElementById("searchForm");
-
-      searchForm.onsubmit = function (e) {
-        e.preventDefault();
-      };
-
-      searchBtn.addEventListener("click", function () {
-        searchForm.classList.toggle("show");
-        searchBtn.classList.toggle("hide");
-        searchForm.firstElementChild.focus();
-      });
-
-      searchForm.firstElementChild.onblur = function () {
-        searchForm.classList.toggle("show");
-        searchBtn.classList.toggle("hide");
-        searchForm.firstElementChild.value = "";
-      };
-    </script>
+    
     <script src="got.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <!-- <script src="../js/all.min.js"></script> -->

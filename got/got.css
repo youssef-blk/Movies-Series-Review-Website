@@ -197,27 +197,44 @@ nav ul a:hover {
 
 /* LOGO */
 #logo-reveal {
-  flex: 1;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: 1.2s;
+    position: relative; 
+    display: inline-block; /* باش ياخد غير المساحة ديال اللوغو */
+    transition: 1.2s;
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 #logo-reveal.visible {
-  opacity: 1;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
+    display: flex; /* كيرجع flex فاش كيبان باش يسهل الترتيب */
+    align-items: center;
+    justify-content: center;
 }
+
+/* Style dyal SEASON 7 */
+.season-tag {
+    position: absolute;
+    left: -60px; /* كيبعد لليسر على اللوغو */
+    color: rgba(255, 255, 255, 0.5); /* لون شفاف شوية */
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    /* السحر هنا: كيرد الكابة عمودية */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); * كيبدا القراية من التحت للفوق */
+}
+
 
 .floating-logo {
-  width: 400px;
-  animation: float 4s infinite;
+    width: 400px; 
+    height: auto;
 }
 
-@keyframes float {
-  50% {
-    transform: translateY(-20px);
-  }
-}
+
 
 /* SECTION THT */
 .after-hero {
@@ -253,7 +270,7 @@ nav ul a:hover {
 .rating-box {
     position: absolute;
     right: 80px;
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
 
     text-align: center;
@@ -270,7 +287,7 @@ nav ul a:hover {
 
 
 .rating-number {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
     font-size: 150px;
     font-weight: 700;
     color: transparent;
