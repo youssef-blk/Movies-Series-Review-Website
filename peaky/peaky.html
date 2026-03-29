@@ -14,67 +14,66 @@
 
   <body onclick="skipTyping()">
     <!-- HERO -->
-    <div class="header-image">
-      <nav id="nav-id" class="hidden-element">
-        <div class="logo">
-          <img src="../images/logo.png" alt="" />
-        </div>
-
-        <ul class="links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#latest-updates">Series</a></li>
-          <li><a href="#latest-updates">Movies</a></li>
-          <li><a href="#latest-updates">Trending</a></li>
-        </ul>
-
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-          <form action="" id="searchForm">
-            <input
-              type="text"
-              name="search"
-              id="searchInput"
-              plac
-              eholder="SearchInput"
-            />
-            <button type="submit" name="searchSubmit" id="searchSubmit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
-      </nav>
-
-      <div class="hero-content">
-        <div id="text-wrapper">
-          <span id="typing-text" class="hero-desc"></span>
-          <span class="cursor">|</span>
-        </div>
-
-        <div id="logo-reveal">
-          <img src="title.png" class="floating-logo" />
-        </div>
+    <nav id="nav-id" class="hidden-element">
+      <div class="logo">
+        <img src="imgs/peaky-blinders-seeklogo-2.svg" alt="" />
       </div>
-      <div class="rating-box">
-        <h1 class="rating-number">8,8</h1>
 
-        <div class="stars">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-regular fa-star"></i>
+      <ul class="links">
+        <li><a href="#hero">Cast</a></li>
+        <li><a href="#episodes">Episodes</a></li>
+        <li><a href="#galleries">Galleries</a></li>
+        <li><a href="#musics">Musics</a></li>
+      </ul>
+    </nav>
+
+    <!-- <div id="text-wrapper">
+        <span id="typing-text" class="hero-desc"></span>
+        <span class="cursor">|</span>
+      </div> -->
+
+    <div class="hero">
+      <div class="container">
+        <div class="cast">
+          <h1>Peaky Blinders</h1>
+          <p class="info">Language : English | 5 Seasons | 2013~2019</p>
+          <p class="description">
+            Follows the Shelby family as they rise to power in post-war
+            Birmingham, led by the cold and strategic Tommy Shelby, navigating a
+            brutal world of crime, politics, and betrayal where every move
+            brings both greater control and heavier consequences.
+          </p>
+          <p class="source">
+            Stars: Cillian Murphy, Paul Anderson, Helen McCrory, Sophie Rundle,
+            Finn Cole, Tom Hardy <br />Creator: Steven Knight
+          </p>
+          <a
+            href="https://www.youtube.com/watch?v=Ruyl8_PT_y8"
+            class="trailer"
+            target="_blank"
+          >
+            <button>
+              <i class="fa-solid fa-play"></i>
+              Watch Season 5 Trailer
+            </button>
+          </a>
         </div>
-
-        <p class="rating-text">MOVIE RATE</p>
       </div>
     </div>
 
-    <!-- SECTION JDIDA -->
-    <div id="after-hero" class="after-hero">
-      <h1 class="after-title">Welcome to the Dark Side</h1>
-      <p class="after-text">
-        Dive into the mind of Dexter Morgan... where justice meets darkness.
-      </p>
+    <div class="episodes">
+      <div class="container">
+        <div class="season-line">
+          <select class="season" id="season">
+            <option value="Season 1">Season 1</option>
+            <option value="Season 2">Season 2</option>
+            <option value="Season 3">Season 3</option>
+            <option value="Season 4">Season 4</option>
+            <option value="Season 5">Season 5</option>
+            <option value="Season 6">Season 6</option>
+          </select>
+        </div>
+      </div>
     </div>
     <script src="peaky.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
