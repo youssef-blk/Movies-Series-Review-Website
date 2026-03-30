@@ -1,99 +1,184 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SeriesFlix | Dexter</title>
 
-    <link rel="stylesheet" href="../css/all.min.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeriesFlix | Joker</title>
+  <link rel="stylesheet" href="../css/all.min.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="joker.css" />
+</head>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+<body onclick="skipTyping()">
+  <div class="header-image">
+    <nav id="nav-id" class="hidden-element custom-nav">
+      <div class="nav-logo">
+        <img src="imag-joker/logodc.png" alt="HBO Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Series</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Trending</a></li>
+      </ul>
+    </nav>
 
-    <link rel="stylesheet" href="joker.css" />
-  </head>
+    <div class="hero-content">
+      <div id="text-wrapper">
+        <span id="typing-text" class="hero-desc"></span>
+        <span class="cursor">|</span>
+      </div>
 
-  <body onclick="skipTyping()">
-    <!-- HERO -->
-    <div class="header-image">
-      <nav id="nav-id" class="hidden-element">
-        <div class="logo">
-          <img src="../images/logo.png" alt="logo" />
-        </div>
-
-        <ul class="links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Series</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Trending</a></li>
-        </ul>
-
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-
-          <form id="searchForm">
-            <input type="text" placeholder="Search..." id="searchInput" />
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
-      </nav>
-
-      <div class="hero-content">
-        <div id="text-wrapper">
-          <span id="typing-text" class="hero-desc"></span>
-          <span class="cursor">|</span>
-        </div>
-
-        <div id="logo-reveal">
-          <img src="title.png" class="floating-logo" />
+      <div class="video-preview-box">
+        <div class="video-hero-bottom" id="video-bottom-id">
+          <div class="video-frame" id="videoBox">
+            <div class="video-label">Official Promo Video</div>
+            <video id="myHeroVideo" loop>
+              <source src="imag-joker/vidiointro.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
-      <div class="rating-box">
-    <h1 class="rating-number">8,8</h1>
 
-    <div class="stars">
+      <div id="logo-reveal" class="logo-centered-wrapper">
+        <p class="film-credit">A Todd Phillips Film</p>
+        <img src="imag-joker/logojoker.png" class="floating-logo" alt="Joker Logo" />
+      </div>
+    </div>
+
+    <div class="rating-box" id="rating-id">
+      <h1 class="rating-number">8,8</h1>
+      <div class="stars">
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-regular fa-star"></i>
+      </div>
+      <p class="rating-text">MOVIE RATE</p>
+    </div>
+  </div>
+  <section id="after-hero" class="show-info-section">
+    <div class="side-band left-band"></div>
+
+    <div class="container-fluid content-container">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 col-md-12 text-center img-side p-0">
+          <img src="https://i.pinimg.com/avif/1200x/e6/01/23/e601237f787d4c123bd1b2984f4495b3.avf" alt="Night King"
+            class="king-image">
+        </div>
+
+        <div class="col-lg-6 col-md-12 text-side">
+          <div class="text-wrapper-info">
+            <h2 class="main-quote">s it just me, or is it getting crazier out there?</h2>
+            <div class="divider"></div>
+            <p class="description-text">
+              Joker is a psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay
+              with Scott Silver.
+            </p>
+            <p class="description-text">
+              It was filmed across New York City and Jersey City, capturing the gritty, decaying streets of a fictional
+              1980s Gotham.
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <p class="rating-text">MOVIE RATE</p>
-</div>
+    <div class="side-band right-band"></div>
+  </section>
+  <section id="after-hero2" class="joker-cast">
+    <div class="section-number-bg">01</div>
+    <h2 class="section-title">
+      Acting energy</h2>
+    <div class="cast-grid">
+      <div class="cast-card">
+        <img src="https://i.pinimg.com/1200x/af/f9/2a/aff92a9278505cb70817adfd541e78fb.jpg" alt="Joaquin">
+        <h3>Joaquin Phoenix</h3>
+        <p>Arthur Fleck (Joker)</p>
+      </div>
+      <div class="cast-card">
+        <img src="https://i.pinimg.com/1200x/97/e2/71/97e271664d5ea62cbf074a3259383617.jpg" alt="Robert">
+        <h3>Robert De Niro</h3>
+        <p>Murray Franklin</p>
+      </div>
+      <div class="cast-card">
+        <img src="https://i.pinimg.com/1200x/95/b4/82/95b482a5cdb1abba9ceebeb3845b4bd3.jpg" alt="Zazie">
+        <h3>Zazie Beetz</h3>
+        <p>Sophie Dumond</p>
+      </div>
     </div>
+  </section>
+  <section class="books-section">
+    <div class="section-number-bg">02</div>
 
-    <!-- SECTION JDIDA -->
-    <div id="after-hero" class="after-hero">
-      <h1 class="after-title">Welcome to the Dark Side</h1>
-      <p class="after-text">
-        Dive into the mind of Dexter Morgan... where justice meets darkness.
-      </p>
+    <div class="container">
+      <div class="section-header">
+        <p class="sub-label">LATEST WORKS</p>
+        <h2 class="main-title">
+          Staff</h2>
+        <div class="line-decorator"></div>
+      </div>
+
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/1200x/ef/e9/fb/efe9fb13beea9034f80277c3514881e8.jpg" alt="The Immoralist">
+          </div>
+          <div class="book-info">
+            <span>Director/Writer/Producer</span>
+            <h4>Todd Phillips</h4>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/736x/38/af/16/38af16365f2a7d91e736038dd45ef559.jpg" alt="Roots">
+          </div>
+          <div class="book-info">
+            <span>Co-Writer</span>
+            <h4>Scott Silver</h4>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/1200x/0f/6f/5d/0f6f5d104aced0c830bf906865e9de84.jpg" alt="Food of Love">
+          </div>
+          <div class="book-info">
+            <span>Composer</span>
+            <h4>Hildur Guðnadóttir</h4>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+  <section class="awards-section">
+  <div class="container text-center">
+    <div class="awards-grid">
+      <div class="award-item">
+        <i class="fa-solid fa-trophy award-icon"></i>
+        <h4>Academy Awards (Oscars)</h4>
+        <p>Best Actor & Best Original Score</p>
+      </div>
+      <div class="award-item">
+        <i class="fa-solid fa-award award-icon"></i>
+        <h4>Golden Globes</h4>
+        <p>Best Actor in a Drama</p>
+      </div>
+      <div class="award-item">
+        <i class="fa-solid fa-mask award-icon"></i>
+        <h4>Venice Film Festival</h4>
+        <p>Golden Lion for Best Film</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <script src="joker.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
 
-    <script>
-      let searchBtn = document.getElementById("searchBtn");
-      let searchForm = document.getElementById("searchForm");
-
-      searchForm.onsubmit = function (e) {
-        e.preventDefault();
-      };
-
-      searchBtn.addEventListener("click", function () {
-        searchForm.classList.toggle("show");
-        searchBtn.classList.toggle("hide");
-        searchForm.firstElementChild.focus();
-      });
-
-      searchForm.firstElementChild.onblur = function () {
-        searchForm.classList.toggle("show");
-        searchBtn.classList.toggle("hide");
-        searchForm.firstElementChild.value = "";
-      };
-    </script>
-    <script src="joker.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../js/all.min.js"></script> -->
-  </body>
 </html>

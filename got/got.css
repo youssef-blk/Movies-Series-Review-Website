@@ -3,9 +3,27 @@ body {
   background-color: #050505;
   color: white;
   font-family: "Poppins", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #050505; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a; 
+  border-radius: 10px; 
+  border: 2px solid #050505; 
+  transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #035ab7; 
+}
 .header-image {
   background:
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%),
@@ -19,27 +37,22 @@ body {
   justify-content: center;
 }
 
-/* NAVBAR */
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 15px 50px;
   background: linear-gradient(to bottom, black, transparent);
 }
 
-/* LOGO */
 nav .logo img {
   width: 90px;
 }
 
-/* LINKS فالنص */
 nav .links {
   list-style: none;
   display: flex;
@@ -52,15 +65,11 @@ nav .links a {
   font-size: 14px;
   letter-spacing: 2px;
   transition: 0.3s;
+  position: relative;
 }
 
 nav .links a:hover {
   color: #fff;
-}
-
-
-nav .links a {
-  position: relative;
 }
 
 nav .links a::after {
@@ -70,53 +79,12 @@ nav .links a::after {
   bottom: -5px;
   width: 0;
   height: 2px;
-  background: red;
+  background: rgb(0, 55, 255);
   transition: 0.3s;
 }
 
 nav .links a:hover::after {
   width: 100%;
-}
-/* SEARCH */
-.search {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.search i {
-  color: #fff;
-  cursor: pointer;
-}
-
-/* الفورم مخبية */
-#searchForm {
-  position: absolute;
-  right: 0;
-  width: 0;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-#searchForm.show {
-  width: 200px;
-}
-
-#searchForm input {
-  width: 100%;
-  padding: 5px 10px;
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
-#searchForm button {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  background: none;
-  border: none;
-  color: white;
 }
 
 .hidden-element {
@@ -130,26 +98,6 @@ nav .links a:hover::after {
   pointer-events: auto;
 }
 
-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-nav ul a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-nav ul a:hover {
-  color: #fff;
-}
-
-/* HERO */
 .hero-content {
   display: flex;
   align-items: center;
@@ -159,17 +107,13 @@ nav ul a:hover {
 }
 
 #text-wrapper {
- flex: 2;
+  flex: 2;
   max-width: 700px;
-
   text-align: center;
-
   white-space: normal;
   line-height: 1.8;
-
   position: relative;
-  left: 20%;
-  
+  left: 10%;
 }
 
 .fade-text {
@@ -179,12 +123,13 @@ nav ul a:hover {
 .hero-desc {
   font-size: 28px;
   font-weight: 300;
+  
   letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .cursor {
-  color: red;
+  color: rgb(51, 0, 255);
   font-size: 30px;
   animation: blink 0.7s infinite;
 }
@@ -195,117 +140,397 @@ nav ul a:hover {
   }
 }
 
-/* LOGO */
 #logo-reveal {
-    position: relative; 
-    display: inline-block; /* باش ياخد غير المساحة ديال اللوغو */
-    transition: 1.2s;
-    opacity: 0;
-    transform: scale(0.8);
+  position: relative;
+  transition: 1.2s;
+  opacity: 0;
+  top:50px;
+  transform: scale(0.8);
+  display: none;
 }
 
 #logo-reveal.visible {
-    opacity: 1;
-    transform: scale(1);
-    display: flex; /* كيرجع flex فاش كيبان باش يسهل الترتيب */
-    align-items: center;
-    justify-content: center;
+  opacity: 1;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Style dyal SEASON 7 */
 .season-tag {
-    position: absolute;
-    left: -60px; /* كيبعد لليسر على اللوغو */
-    color: rgba(255, 255, 255, 0.5); /* لون شفاف شوية */
-    font-size: 14px;
-    letter-spacing: 4px;
-    font-weight: 300;
-    text-transform: uppercase;
-    white-space: nowrap;
-
-    /* السحر هنا: كيرد الكابة عمودية */
-    writing-mode: vertical-rl;
-    transform: rotate(180deg); * كيبدا القراية من التحت للفوق */
+  position: absolute;
+  left: -30px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  letter-spacing: 4px;
+  font-weight: 300;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
-
 
 .floating-logo {
-    width: 400px; 
-    height: auto;
+  width: 450px;
+  height: auto;
 }
 
-
-
-/* SECTION THT */
-.after-hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+.rating-box {
+  position: absolute;
+  right: 80px;
+  top: 80%;
+  transform: translateY(-50%);
   text-align: center;
+  color: white;
+  z-index: 10;
   opacity: 0;
-  transform: translateY(50px);
   transition: 1s;
 }
 
-.after-hero.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.after-title {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-.after-text {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
-}
-
-
-.rating-box {
-    position: absolute;
-    right: 80px;
-    top: 80%;
-    transform: translateY(-50%);
-
-    text-align: center;
-    color: white;
-    z-index: 10;
-
-    opacity: 0;
-    transition: 1s;
-}
-
 .rating-box.show {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 .rating-number {
   margin-bottom: 0px;
-    font-size: 150px;
-    font-weight: 700;
-    color: transparent;
-    -webkit-text-stroke: 2px white;
+  font-size: 150px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px white;
 }
 
 .stars {
-    margin: 10px 0;
+  margin: 10px 0;
+}
+.stars i {
+  color: #fff;
+  opacity: 0.8;
+}
+.rating-text {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+.explore-section {
+    background-color: #ffffff !important;
+    color: #000;
+    padding: 80px 0;
 }
 
-.stars i {
+.main-title {
+    font-family: 'Oswald', sans-serif; /* خط عريض بحال التصويرة */
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* الـ Calendar */
+.cal-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.cal-icon {
+    width: 50px;
+    height: 50px;
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: #888;
+}
+
+.cal-info h5 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.cal-info span {
+    color: #bbb;
+    font-size: 0.85rem;
+}
+
+/* الـ Episode Cards */
+.episode-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px; /* زوايا حادة شوية بحال التصويرة */
+    margin-bottom: 15px;
+}
+
+.episode-card h4 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.episode-card span {
+    color: #bbb;
+    font-size: 0.85rem;
+}
+/* siction2 !!!!! */
+/* Section principale */
+.show-info-section {
+    background-color: #ffffff !important;
+    color: #000;
+    padding: 100px 0;
+    opacity: 1; /* Rendu visible directement pour corriger le problème d'affichage */
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Les bandes noires sur les côtés (image_b924be.jpg) */
+.side-band {
+    position: absolute;
+    top: 20;
+    width: 80px; /* Largeur des bandes noires */
+    height: 71%;
+    background-color: #000;
+    z-index: 10;
+   
+}
+
+.left-band {
+    left: 0;
+}
+
+.right-band {
+    right: 0;
+}
+
+/* Ajustement du container pour laisser de la place aux bandes */
+.content-container {
+    padding: 0 150px;
+    width: 100%;
+}
+
+/* Style de l'image */
+.king-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+/* Style du texte */
+.text-side {
+    padding-left: 50px;
+}
+
+.main-quote {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 25px;
+    font-family: "Poppins", sans-serif;
+}
+
+.divider {
+    width: 35px;
+    height: 1.5px;
+    background-color: #000;
+    margin-bottom: 30px;
+}
+
+.description-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+/* section 3 */
+.cast-section {
+    background-color: #ffffff; /* Bla image, ghi lon k7el */
+    min-height: 600px;
+    color: rgb(0, 0, 0);
+}
+
+.char-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: 0.4s;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.char-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.char-thumb.active {
+    border-color: #00d2ff; /* Dak l-khit l-zre9 */
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.char-main-fade {
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
+    transition: 0.5s ease-in-out;
+}
+
+.description-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc !important;
+}
+/* section 4 */
+.season-box {
+    position: relative;
+    padding: 60px 30px;
+    background: #fff;
+    border: 1px solid #eee;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.season-bg-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 180px;
+    font-weight: 900;
+    color: #f5f5f5;
+    z-index: 1;
+    line-height: 1;
+}
+
+/* L-ktiba lli fo9 r9m */
+.season-info {
+    position: relative;
+    z-index: 2; 
+}
+
+.season-label {
+    letter-spacing: 5px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.season-title {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: #111;
+}
+
+.season-text {
+    font-size: 14px;
+    color: #666;
+    max-width: 250px;
+    margin: 15px auto;
+}
+
+.episodes {
+    font-size: 11px;
+    font-weight: 700;
+    color: #bbb;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+/* Hover effect */
+.season-box:hover {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    border-color: #000;
+    transform: translateY(-5px);
+}
+
+.season-box:hover .season-bg-number {
+    color: #f0f0f0; 
+}
+.season-bg-number {
+    color: transparent;
+    -webkit-text-stroke: 1px #eee; 
+}
+/* footer */
+.got-footer {
+    background-color: #050505; /* K7el ghame9 b7al l-hero */
     color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-logo {
+    width: 150px;
+    filter: brightness(0) invert(1); /* Bach l-logo i-ban abiad */
     opacity: 0.8;
 }
 
+.footer-slogan {
+    font-size: 13px;
+    color: #555;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
-.rating-text {
+.footer-links a {
+    color: #888;
+    text-decoration: none;
     font-size: 12px;
+    font-weight: 600;
     letter-spacing: 2px;
-    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* Social Icons Styling */
+.social-icons a {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.social-icons a:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-5px);
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.copyright-text {
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 1px;
+}
+
+.designer-name {
+    color: #fff;
+    font-weight: 700;
 }

@@ -1,70 +1,309 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShowTime | Game Of Thrones</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../css/all.min.css" />
-
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
-
     <link rel="stylesheet" href="got.css" />
-  </head>
+</head>
 
-  <body onclick="skipTyping()">
-    <!-- HERO -->
+<body onclick="skipTyping()">
     <div class="header-image">
-      <nav id="nav-id" class="hidden-element">
-        <div class="logo">
-          <img src="imag-got/logohbo.png" alt="logo" />
+        <nav id="nav-id" class="hidden-element">
+            <div class="logo">
+                <img src="imag-got/logohbo.png" alt="logo" />
+            </div>
+            <ul class="links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Trending</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <div id="text-wrapper">
+                <span id="typing-text" class="hero-desc"></span>
+                <span class="cursor">|</span>
+            </div>
+
+            <div id="logo-reveal">
+                <span class="season-tag">SEASON 7 - Hover Effect</span>
+                <img src="imag-got/logogot.png" class="floating-logo" />
+            </div>
         </div>
 
-        <ul class="links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Series</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Trending</a></li>
-        </ul>
-      </nav>
+        <div class="rating-box">
+            <h1 class="rating-number">8,8</h1>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p class="rating-text">MOVIE RATE</p>
+        </div>
+    </div>
 
-      <div class="hero-content">
-        <div id="text-wrapper">
-          <span id="typing-text" class="hero-desc"></span>
-          <span class="cursor">|</span>
+    <section class="explore-section py-5">
+    <div class="container-fluid px-5">
+        <div class="row">
+            <div class="col-lg-4 calendar-wrapper">
+                <h2 class="main-title">Top 3 Episode</h2>
+                <div class="calendar-list">
+                    <div class="cal-item">
+                        <div class="cal-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                        <div class="cal-info">
+                            <h5>The Rains of Castamere</h5>
+                            <span>Season 03 - Episode 09</span>
+                        </div>
+                    </div>
+                    <div class="cal-item">
+                        <div class="cal-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                        <div class="cal-info">
+                            <h5>Battle of the Bastards</h5>
+                            <span>Season 06 - Episode 09</span>
+                        </div>
+                    </div>
+                    <div class="cal-item">
+                        <div class="cal-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                        <div class="cal-info">
+                            <h5>Hardhome</h5>
+                            <span>Season 05 - Episode 08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 explore-wrapper position-relative">
+                <h2 class="main-title">EXPLORE EPISODES</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="episode-card">
+                                <img src="https://i.pinimg.com/736x/c2/54/80/c254808d483ccc2ef49dfddbaa50e7f1.jpg" alt="">
+                                <h4>Iron Throne</h4>
+                                <span>Season 02 - Episode 06</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="episode-card">
+                                <img src="https://i.pinimg.com/1200x/6f/d3/d4/6fd3d4bcc6736770ca97ca10836f193d.jpg" alt="">
+                                <h4>The Red Woman</h4>
+                                <span>Season 02 - Episode 07</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="episode-card">
+                                <img src="https://i.pinimg.com/736x/44/bb/d9/44bbd93049b6075f9971a581291e93b4.jpg" alt="">
+                                <h4>Oathbreaker</h4>
+                                <span>Season 02 - Episode 08</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<section id="after-hero" class="show-info-section">
+    <div class="side-band left-band"></div>
+
+    <div class="container-fluid content-container">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-6 col-md-12 text-center img-side p-0">
+                <img src="https://i.pinimg.com/736x/05/91/45/05914567560bb38a869fc2dfda4380e6.jpg" alt="Night King" class="king-image">
+            </div>
+
+            <div class="col-lg-6 col-md-12 text-side">
+                <div class="text-wrapper-info">
+                    <h2 class="main-quote">Summers span decades. Winters can last a lifetime.</h2>
+                    <div class="divider"></div>
+                    <p class="description-text">
+                        Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss.
+                    </p>
+                    <p class="description-text">
+                        It is filmed in Belfast and elsewhere in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, Spain, and the United States.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="side-band right-band"></div>
+</section>
+<section class="cast-section py-5">
+    <div class="container">
+        <h3 class="text-uppercase mb-5 text-secondary" style="letter-spacing: 3px;">The most important actors</h3>
+        
+        <div class="row align-items-center">
+            <div class="col-md-2 d-flex flex-column align-items-center gap-4 character-nav">
+                <div class="char-thumb active" data-target="tyrion">
+                    <img src="https://i.pinimg.com/736x/d4/19/0c/d4190cffb4c5ddaae39ad6632c2be2fe.jpg" alt="Tyrion">
+                </div>
+                <div class="char-thumb" data-target="jaime">
+                    <img src="https://i.pinimg.com/1200x/7c/15/09/7c15099c373eb9528bdb6293aac3f2bb.jpg" alt="Jaime">
+                </div>
+                <div class="char-thumb" data-target="cersei">
+                    <img src="https://i.pinimg.com/avif/1200x/4f/ef/65/4fef6568fe55439881443271511b701d.avf" alt="Cersei">
+                </div>
+                <div class="char-thumb" data-target="daenerys">
+                    <img src="https://i.pinimg.com/736x/c8/87/b0/c887b06ad71195db6a1a70623e05953e.jpg" alt="Daenerys">
+                </div>
+            </div>
+
+            <div class="col-md-5 ps-md-5">
+                <div id="character-info">
+                    <h2 id="char-name" class="fw-bold mb-3">Tyrion Lannister</h2>
+                    <p id="char-desc" class="description-text text-light">
+                        Lord Tyrion Lannister is the youngest child of Lord Tywin Lannister and younger brother of Cersei and Jaime Lannister. A dwarf, he uses his wit and intellect to overcome the prejudice he faces.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-5 text-center">
+                <img id="char-big-img" src="https://i.pinimg.com/736x/d4/19/0c/d4190cffb4c5ddaae39ad6632c2be2fe.jpg" class="img-fluid char-main-fade" alt="Main">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="seasons-section py-5 bg-white">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="season-box">
+                    <span class="season-bg-number">01</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">Winter is Coming</h3>
+                        <p class="season-text">Ned Stark struggles with a Night's Watch deserter.</p>
+                        <span class="episodes">10 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="season-box">
+                    <span class="season-bg-number">02</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">The War of Five Kings</h3>
+                        <p class="season-text">Tyrion arrives to save Joffrey's crown from threats.</p>
+                        <span class="episodes">10 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="season-box">
+                    <span class="season-bg-number">03</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">Rains of Castamere</h3>
+                        <p class="season-text">The Starks and Lannisters face a shocking betrayal.</p>
+                        <span class="episodes">10 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="season-box">
+                    <span class="season-bg-number">04</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">All Men Must Die</h3>
+                        <p class="season-text">The royal wedding brings chaos to King's Landing.</p>
+                        <span class="episodes">10 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="season-box">
+                    <span class="season-bg-number">05</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">Dance of Dragons</h3>
+                        <p class="season-text">Jon Snow takes command as Lord Commander.</p>
+                        <span class="episodes">10 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="season-box">
+                    <span class="season-bg-number">06</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">Winds of Winter</h3>
+                        <p class="season-text">Cersei takes revenge on all her enemies.</p>
+                        <span class="episodes">10 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mx-auto">
+                <div class="season-box">
+                    <span class="season-bg-number">07</span>
+                    <div class="season-info">
+                        <h6 class="season-label">SEASON</h6>
+                        <h3 class="season-title">Winter is Here</h3>
+                        <p class="season-text">Daenerys arrives in Westeros to reclaim the throne.</p>
+                        <span class="episodes">7 EPISODES</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<footer class="got-footer py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                <img src="imag-got/logogot.png" alt="GOT Logo" class="footer-logo">
+                <p class="mt-3 footer-slogan">Winter is here. The final battle begins.</p>
+            </div>
+
+            <div class="col-md-4 text-center mb-4 mb-md-0">
+                <ul class="footer-links d-flex justify-content-center gap-4 list-unstyled">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">CAST</a></li>
+                    <li><a href="#">SEASONS</a></li>
+                    <li><a href="#">EPISODES</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end">
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
         </div>
 
-        <div id="logo-reveal">
-          <span class="season-tag">SEASON 7 - COMING SOON</span>
-          <img src="imag-got/logogot.png" class="floating-logo" />
+        <hr class="footer-divider my-5">
+
+        <div class="row">
+            <div class="col-12 text-center copyright-text">
+                <p>&copy; 2026 SHOWTIME | All Rights Reserved. Created by <span class="designer-name">Mohamed cheffou</span></p>
+            </div>
         </div>
-      </div>
-      <div class="rating-box">
-    <h1 class="rating-number">8,8</h1>
-
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
     </div>
-
-    <p class="rating-text">MOVIE RATE</p>
-</div>
-    </div>
-
-    <!-- SECTION JDIDA -->
-    <div id="after-hero" class="after-hero">
-      <h1 class="after-title">Welcome to the Dark Side</h1>
-      <p class="after-text">
-        Dive into the mind of Dexter Morgan... where justice meets darkness.
-      </p>
-    </div>
-
-    
-    <script src="got.js"></script>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../js/all.min.js"></script> -->
-  </body>
+    <script src="got.js"></script>
+</body>
 </html>
