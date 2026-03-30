@@ -1,0 +1,250 @@
+{
+  "seasons": [
+    {
+      "season": 1,
+      "episodes": [
+        {
+          "id": 101,
+          "episodeNumber": 1,
+          "title": "The Shelby Rise",
+          "img": "imgs/101.jpg"
+        },
+        {
+          "id": 102,
+          "episodeNumber": 2,
+          "title": "Blood and Business",
+          "img": "imgs/102.jpg"
+        },
+        {
+          "id": 103,
+          "episodeNumber": 3,
+          "title": "Shadows of Birmingham",
+          "img": "imgs/103.jpg"
+        },
+        {
+          "id": 104,
+          "episodeNumber": 4,
+          "title": "Deals and Deception",
+          "img": "imgs/104.jpg"
+        },
+        {
+          "id": 105,
+          "episodeNumber": 5,
+          "title": "The Enemy Within",
+          "img": "imgs/105.jpg"
+        },
+        {
+          "id": 106,
+          "episodeNumber": 6,
+          "title": "War Begins",
+          "img": "imgs/106.jpg"
+        }
+      ]
+    },
+    {
+      "season": 2,
+      "episodes": [
+        {
+          "id": 201,
+          "episodeNumber": 1,
+          "title": "London Calling",
+          "img": "imgs/201.jpg"
+        },
+        {
+          "id": 202,
+          "episodeNumber": 2,
+          "title": "New Territory",
+          "img": "imgs/202.jpg"
+        },
+        {
+          "id": 203,
+          "episodeNumber": 3,
+          "title": "Power Games",
+          "img": "imgs/203.jpg"
+        },
+        {
+          "id": 204,
+          "episodeNumber": 4,
+          "title": "Lines Are Drawn",
+          "img": "imgs/204.jpg"
+        },
+        {
+          "id": 205,
+          "episodeNumber": 5,
+          "title": "No Turning Back",
+          "img": "imgs/205.jpg"
+        },
+        {
+          "id": 206,
+          "episodeNumber": 6,
+          "title": "Empire Expands",
+          "img": "imgs/206.jpg"
+        }
+      ]
+    },
+    {
+      "season": 3,
+      "episodes": [
+        {
+          "id": 301,
+          "episodeNumber": 1,
+          "title": "The Wedding",
+          "img": "imgs/301.jpg"
+        },
+        {
+          "id": 302,
+          "episodeNumber": 2,
+          "title": "Broken Trust",
+          "img": "imgs/302.jpg"
+        },
+        {
+          "id": 303,
+          "episodeNumber": 3,
+          "title": "Dangerous Deals",
+          "img": "imgs/303.jpg"
+        },
+        {
+          "id": 304,
+          "episodeNumber": 4,
+          "title": "Enemies Everywhere",
+          "img": "imgs/304.jpg"
+        },
+        {
+          "id": 305,
+          "episodeNumber": 5,
+          "title": "The Trap",
+          "img": "imgs/305.jpg"
+        },
+        {
+          "id": 306,
+          "episodeNumber": 6,
+          "title": "Paid in Blood",
+          "img": "imgs/306.jpg"
+        }
+      ]
+    },
+    {
+      "season": 4,
+      "episodes": [
+        {
+          "id": 401,
+          "episodeNumber": 1,
+          "title": "Vendetta",
+          "img": "imgs/401.jpg"
+        },
+        {
+          "id": 402,
+          "episodeNumber": 2,
+          "title": "The Mafia Arrives",
+          "img": "imgs/402.jpg"
+        },
+        {
+          "id": 403,
+          "episodeNumber": 3,
+          "title": "Eye for an Eye",
+          "img": "imgs/403.jpg"
+        },
+        {
+          "id": 404,
+          "episodeNumber": 4,
+          "title": "Family First",
+          "img": "imgs/404.jpg"
+        },
+        {
+          "id": 405,
+          "episodeNumber": 5,
+          "title": "The War Escalates",
+          "img": "imgs/405.jpg"
+        },
+        {
+          "id": 406,
+          "episodeNumber": 6,
+          "title": "The Reckoning",
+          "img": "imgs/406.jpg"
+        }
+      ]
+    },
+    {
+      "season": 5,
+      "episodes": [
+        {
+          "id": 501,
+          "episodeNumber": 1,
+          "title": "The New World",
+          "img": "imgs/501.jpg"
+        },
+        {
+          "id": 502,
+          "episodeNumber": 2,
+          "title": "Politics and Power",
+          "img": "imgs/502.jpg"
+        },
+        {
+          "id": 503,
+          "episodeNumber": 3,
+          "title": "Ghosts of the Past",
+          "img": "imgs/503.jpg"
+        },
+        {
+          "id": 504,
+          "episodeNumber": 4,
+          "title": "The Plan",
+          "img": "imgs/504.jpg"
+        },
+        {
+          "id": 505,
+          "episodeNumber": 5,
+          "title": "Betrayal Again",
+          "img": "imgs/505.jpg"
+        },
+        {
+          "id": 506,
+          "episodeNumber": 6,
+          "title": "The Fall",
+          "img": "imgs/506.jpg"
+        }
+      ]
+    },
+    {
+      "season": 6,
+      "episodes": [
+        {
+          "id": 601,
+          "episodeNumber": 1,
+          "title": "Darkness Rising",
+          "img": "imgs/601.jpg"
+        },
+        {
+          "id": 602,
+          "episodeNumber": 2,
+          "title": "No Peace",
+          "img": "imgs/602.jpg"
+        },
+        {
+          "id": 603,
+          "episodeNumber": 3,
+          "title": "The Final Moves",
+          "img": "imgs/603.jpg"
+        },
+        {
+          "id": 604,
+          "episodeNumber": 4,
+          "title": "Secrets Revealed",
+          "img": "imgs/604.jpg"
+        },
+        {
+          "id": 605,
+          "episodeNumber": 5,
+          "title": "The Last Enemy",
+          "img": "imgs/605.jpg"
+        },
+        {
+          "id": 606,
+          "episodeNumber": 6,
+          "title": "End of the Road",
+          "img": "imgs/606.jpg"
+        }
+      ]
+    }
+  ]
+}

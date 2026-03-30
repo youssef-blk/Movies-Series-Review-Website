@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="peaky.css" />
   </head>
 
-  <body onclick="skipTyping()">
+  <body>
     <!-- HERO -->
     <nav id="nav-id" class="hidden-element">
       <div class="logo">
@@ -21,7 +21,7 @@
 
       <ul class="links">
         <li><a href="#hero">Cast</a></li>
-        <li><a href="#episodes">Episodes</a></li>
+        <li><a href="#episodes-container">Episodes</a></li>
         <li><a href="#galleries">Galleries</a></li>
         <li><a href="#musics">Musics</a></li>
       </ul>
@@ -32,7 +32,7 @@
         <span class="cursor">|</span>
       </div> -->
 
-    <div class="hero">
+    <div class="hero" id="hero">
       <div class="container">
         <div class="cast">
           <h1>Peaky Blinders</h1>
@@ -61,20 +61,226 @@
       </div>
     </div>
 
-    <div class="episodes">
+    <div class="episodes-container" id="episodes-container">
       <div class="container">
         <div class="season-line">
           <select class="season" id="season">
-            <option value="Season 1">Season 1</option>
-            <option value="Season 2">Season 2</option>
-            <option value="Season 3">Season 3</option>
-            <option value="Season 4">Season 4</option>
-            <option value="Season 5">Season 5</option>
-            <option value="Season 6">Season 6</option>
+            <option value="1">Season 1</option>
+            <option value="2">Season 2</option>
+            <option value="3">Season 3</option>
+            <option value="4">Season 4</option>
+            <option value="5">Season 5</option>
+            <option value="6">Season 6</option>
           </select>
         </div>
+
+        <div class="episodes"></div>
       </div>
     </div>
+
+    <section id="galleries" class="galleries">
+      <div class="container">
+        <header class="section-header">
+          <h2>Galleries</h2>
+          <p>Actors, characters, and details.</p>
+        </header>
+
+        <div class="gallery-grid">
+          <!-- Copy a card and change the <img src="imgs/..."> + the text info -->
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Thomas Shelby.webp"
+                alt="Thomas Shelby"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Cillian Murphy</h3>
+              <p class="actor-role">Thomas Shelby</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> May 25, 1976</li>
+                <li><span>Known for:</span> Oppenheimer, Inception</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Arthur Shelby.webp"
+                alt="Arthur Shelby"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Paul Anderson</h3>
+              <p class="actor-role">Arthur Shelby</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> February 12, 1978</li>
+                <li><span>Known for:</span> Legend, The Revenant</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Ada Shelby.webp"
+                alt="Ada Shelby"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Sophie Rundle</h3>
+              <p class="actor-role">Ada Shelby</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> April 21, 1988</li>
+                <li><span>Known for:</span> Bodyguard, Gentleman Jack</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Polly Gray.webp"
+                alt="Polly Gray"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Helen McCrory</h3>
+              <p class="actor-role">Polly Gray</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> August 17, 1968</li>
+                <li><span>Known for:</span> Harry Potter, Skyfall</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Michael Gray.webp"
+                alt="Michael Gray"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Finn Cole</h3>
+              <p class="actor-role">Michael Gray</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> November 9, 1995</li>
+                <li>
+                  <span>Known for:</span> Animal Kingdom, Slaughterhouse Rulez
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Finn Shelby.webp"
+                alt="Finn Shelby"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Harry Kirton</h3>
+              <p class="actor-role">Finn Shelby</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> July 17, 1998</li>
+                <li><span>Known for:</span> We Can Be Heroes</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Charlie Strong.webp"
+                alt="Charlie Strong"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Ned Dennehy</h3>
+              <p class="actor-role">Charlie Strong</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> December 8, 1965</li>
+                <li><span>Known for:</span> Harry Potter, Good Omens</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Curly.webp"
+                alt="Curly"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Ian Peck</h3>
+              <p class="actor-role">Curly</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> 1970</li>
+                <li><span>Known for:</span> Lady Macbeth, Robin Hood</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/John Shelby.webp"
+                alt="John Shelby"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Joe Cole</h3>
+              <p class="actor-role">John Shelby</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> November 28, 1988</li>
+                <li><span>Known for:</span> Gangs of London, Black Mirror</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img
+                class="actor-photo-img"
+                src="imgs/Lizzie Stark.webp"
+                alt="Lizzie Stark"
+                loading="lazy"
+              />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Natasha O'Keeffe</h3>
+              <p class="actor-role">Lizzie Stark</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> December 1, 1986</li>
+                <li><span>Known for:</span> Sherlock, Misfits</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
     <script src="peaky.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <!-- <script src="../js/all.min.js"></script> -->

@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: clamp(14px, 0.3vw + 12px, 16px);
+}
+
 body {
   background-color: #fff;
   color: white;
   font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 }
 
 .container {
@@ -34,7 +39,7 @@ body {
 }
 
 .hero-desc {
-  font-size: 28px;
+  font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.4rem);
   font-weight: 300;
   letter-spacing: 1px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -42,7 +47,7 @@ body {
 
 .cursor {
   color: red;
-  font-size: 30px;
+  font-size: clamp(1.1rem, 0.7vw + 0.9rem, 1.5rem);
   animation: blink 0.7s infinite;
 }
 
@@ -110,7 +115,7 @@ nav ul li {
 nav ul li a {
   color: #bdbdbd;
   text-decoration: none;
-  font-size: 26px;
+  font-size: clamp(1rem, 0.5vw + 0.85rem, 1.25rem);
   transition: 0.3s;
 }
 nav ul li a:hover {
@@ -126,9 +131,6 @@ nav ul li a:hover {
   nav ul {
     gap: 10px;
   }
-  nav ul li a {
-    font-size: 20px;
-  }
 }
 
 .hero {
@@ -139,6 +141,7 @@ nav ul li a:hover {
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
+  min-height: 100svh;
   position: relative;
 }
 
@@ -148,12 +151,8 @@ nav ul li a:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 180px; 
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8),  
-    rgba(0, 0, 0, 0)    
-  );
+  height: 180px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
 }
 .hero .container {
   height: 100%;
@@ -164,11 +163,11 @@ nav ul li a:hover {
 
 .hero .cast {
   width: 60%;
-  font-size: 20px;
+  font-size: clamp(0.95rem, 0.2vw + 0.9rem, 1.05rem);
 }
 
 .cast h1 {
-  font-size: 60px;
+  font-size: clamp(1.8rem, 2.2vw + 1rem, 3rem);
 }
 
 .cast .source {
@@ -206,14 +205,18 @@ nav ul li a:hover {
   align-items: center;
 }
 
-
-
 /* Start Episodes */
 
-.episodes {
-  padding-block: 20px;
-  padding-top: 60px;
-  background-color: #000000;
+.episodes-container {
+  padding-block: clamp(28px, 4vw, 70px);
+  padding-top: clamp(70px, 7vw, 110px);
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(0, 0, 0, 0) 55%
+    ),
+    #000;
 }
 
 .season-line {
@@ -221,24 +224,366 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  gap: 16px;
+}
+
+.season-line::before,
+.season-line::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.7;
 }
 
 .season-line select {
-  padding: 5px 10px;
+  padding: 8px 14px;
   background-color: transparent;
   border: 1px solid #fff;
   color: #fff;
   border-radius: 50px;
-  position: relative;
+  background-color: #000;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.season-line select::after {
-  content: '';
+.episodes {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  align-items: stretch;
+}
+
+.episodes .episode {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.06);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.episodes .episode::before {
+  content: "";
   position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.28) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.episodes .episode h3,
+.episodes .episode h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+}
+
+.episodes .episode h3 {
+  font-size: 0.95em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.episodes .episode h2 {
+  margin-top: 6px;
+  font-size: 1.15em;
+  font-weight: 600;
+  color: #fff;
+}
+
+.episodes .episode:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.55);
+}
+
+/* Galleries */
+.galleries {
+  background-color: #000;
+  padding-block: clamp(40px, 5vw, 90px);
+}
+
+.section-header {
+  text-align: left;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 1.1vw + 1.1rem, 2.1rem);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-header h2::after {
+  content: "";
   height: 2px;
-  width: 300px;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -300px;
-  background-color: #fff;
+  width: clamp(40px, 8vw, 90px);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0.7;
+}
+
+.section-header p {
+  margin: 8px 0 0;
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 6px 4px 14px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.actor-card {
+  flex: 0 0 auto;
+  width: clamp(280px, 32vw, 360px);
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.actor-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.36);
+}
+
+.actor-photo {
+  width: 92px;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.actor-photo-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.actor-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0) 55%
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.actor-info {
+  padding: 0;
+  min-width: 0;
+}
+
+.actor-name {
+  margin: 0;
+  font-size: 1.12em;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actor-role {
+  margin: 2px 0 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1em;
+}
+
+.actor-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95em;
+}
+
+.actor-meta span {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 10px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container {
+    padding-inline: 40px;
+  }
+
+  nav {
+    padding-inline: 40px;
+  }
+
+  nav ul {
+    gap: 32px;
+  }
+
+  .hero .cast {
+    width: 70%;
+  }
+}
+
+@media (max-width: 840px) {
+  .container {
+    padding-inline: 24px;
+  }
+
+  nav {
+    padding-inline: 24px;
+  }
+
+  nav .logo {
+    width: 170px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+  }
+
+  #text-wrapper {
+    left: 0;
+    margin-inline: auto;
+  }
+
+  .hero .cast {
+    width: 100%;
+  }
+
+  .episodes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .actor-card {
+    width: clamp(260px, 70vw, 340px);
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    gap: 14px;
+  }
+
+  nav ul li a {
+    padding: 6px 8px;
+  }
+
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .hero .cast {
+    text-align: center;
+  }
+
+  .cast .trailer button {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+  }
+
+  .cast .trailer button i {
+    height: 36px;
+    width: 36px;
+  }
+
+  .season-line::before,
+  .season-line::after {
+    display: none;
+  }
+
+  .episodes {
+    grid-template-columns: 1fr;
+  }
+
+  .episodes .episode {
+    aspect-ratio: 16 / 11;
+    padding: 14px;
+  }
+
+  .actor-photo {
+    width: 80px;
+  }
+
+  .gallery-grid {
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 0;
+    scroll-snap-type: none;
+  }
+
+  .actor-card {
+    width: 100%;
+  }
 }
