@@ -1,79 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShowTime | Dexter</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowTime | Dexter: Resurrection</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="dexter.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body onclick="skipTyping()">
 
-    <link rel="stylesheet" href="../css/all.min.css" />
-
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-
-    <link rel="stylesheet" href="dexter.css" />
-  </head>
-
-  <body onclick="skipTyping()">
-    <!-- HERO -->
     <div class="header-image">
-      <nav id="nav-id" class="hidden-element">
-        <div class="logo">
-          <img src="../images/logo.png" alt="logo" />
-        </div>
+        <nav id="nav-id" class="custom-nav">
+            <div class="nav-logo">
+                <img src="imag-dexter/logoshowtime.png" alt="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">The Code</a></li>
+                <li><a href="#">Kill Room</a></li>
+                <li><a href="#">Miami Metro</a></li>
+                <li><a href="#">Trending</a></li>
+            </ul>
+            
+        </nav>
 
-        <ul class="links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Series</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Trending</a></li>
-        </ul>
-
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-
-          <form id="searchForm">
-            <input type="text" placeholder="Search..." id="searchInput" />
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
-      </nav>
-
-      <div class="hero-content">
-        <div id="text-wrapper">
-          <span id="typing-text" class="hero-desc"></span>
-          <span class="cursor">|</span>
-        </div>
-
-        <div id="logo-reveal">
-          <img src="title.png" class="floating-logo" />
-        </div>
-      </div>
-      <div class="rating-box">
-    <h1 class="rating-number">8,8</h1>
-
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
+        <div class="hero-content">
+    <div id="text-wrapper">
+        <span id="typing-text" class="hero-desc"></span>
+        <span class="cursor">|</span>
     </div>
-
-    <p class="rating-text">new show | rate</p>
+    
+    <div id="logo-reveal" class="logo-centered-wrapper">
+        <img src="imag-dexter/title.png" class="floating-logo" alt="Dexter Logo">
+       
+    </div>
 </div>
+        <div class="rating-box" id="rating-id">
+            <h1 class="rating-number">8,8</h1>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p class="rating-text">BLOOD SPATTER ANALYSIS</p>
+        </div>
+
+        <div class="video-hero-bottom" id="video-bottom-id">
+            <div class="video-frame" id="videoBox">
+               
+                <video id="myHeroVideo" loop muted autoplay>
+                    <source src="imag-dexter/vidoidexter.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
     </div>
 
-    <!-- SECTION JDIDA -->
-    <div id="after-hero" class="after-hero">
-      <h1 class="after-title">Welcome to the Dark Side</h1>
-      <p class="after-text">
-        Dive into the mind of Dexter Morgan... where justice meets darkness.
-      </p>
+    <section class="dexter-cast" id="after-hero">
+        <div class="split-bg"></div>
+        <div class="container cast-wrapper">
+            <h2 class="cast-title">C A S T</h2>
+            <div class="carousel-container">
+                <button class="nav-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="cast-track-container">
+                    <div class="cast-track">
+                        <div class="cast-item">
+                            <div class="circle-frame">
+                                <div class="inner-rings"></div>
+                                <img src="https://i.pinimg.com/736x/4c/0c/80/4c0c80febe79b941c2f4851c765f1076.jpg" alt="Michael C. Hall">
+                            </div>
+                            <div class="actor-meta">
+                                <h4>MICHAEL C. HALL</h4>
+                                <p>DEXTER MORGAN</p>
+                            </div>
+                        </div>
+                        <div class="cast-item">
+                            <div class="circle-frame">
+                                <div class="inner-rings"></div>
+                                <img src="https://i.pinimg.com/1200x/9f/17/50/9f17508008e928cef3b5ae5a38fe98ec.jpg" alt="Jennifer Carpenter">
+                            </div>
+                            <div class="actor-meta">
+                                <h4>JENNIFER CARPENTER</h4>
+                                <p>DEBRA MORGAN</p>
+                            </div>
+                        </div>
+                        <div class="cast-item">
+                            <div class="circle-frame">
+                                <div class="inner-rings"></div>
+                                <img src="https://i.pinimg.com/736x/00/4b/37/004b375597e4a06d1a345da2b4d97cf3.jpg" alt="David Zayas">
+                            </div>
+                            <div class="actor-meta">
+                                <h4>DAVID ZAYAS</h4>
+                                <p>ANGEL BATISTA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <div id="videoModal" class="video-overlay">
+        <span class="close-video" onclick="closeFullVideo()">&times;</span>
+        <div class="overlay-content">
+            <video id="fullVideo" controls>
+                <source src="imag-dexter/vidoidexter.mp4" type="video/mp4">
+            </video>
+            <div class="video-info-overlay">
+                <p class="subtitle">CRIME SCENE EVIDENCE</p>
+                <h2 class="title">DEXTER: RESURRECTION</h2>
+                <p class="description">Tonight's the night. The dark passenger returns.</p>
+            </div>
+        </div>
     </div>
 
     <script src="dexter.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../js/all.min.js"></script> -->
-  </body>
+</body>
 </html>
