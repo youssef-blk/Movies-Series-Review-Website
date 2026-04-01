@@ -8,13 +8,18 @@ const videoBottom = document.getElementById("video-bottom-id");
 const afterHero = document.getElementById("after-hero");
 const afterHero2 = document.getElementById("after-hero2");
 
+const modal = document.getElementById("videoModal");
+const fullVid = document.getElementById("fullVideo");
+const heroVid = document.getElementById("myHeroVideo");
+const vBox = document.getElementById('videoBox');
+
 let index = 0;
 let isSkipped = false;
 let typingTimeout;
 
+// SECTION 1: TYPING
 function typeEffect() {
     if (isSkipped) return;
-
     if (index < fullText.length) {
         typingElement.textContent += fullText.charAt(index);
         index++;
@@ -34,40 +39,50 @@ function skipTyping() {
 
 function finishAnimation() {
     textWrapper.classList.add("fade-text");
-
     setTimeout(() => {
         textWrapper.style.display = "none";
-
         logoReveal.classList.add("visible");
         nav.classList.add("visible");
-
         if(ratingBox) ratingBox.classList.add("show");
         if(videoBottom) videoBottom.classList.add("show");
-
         if(afterHero) afterHero.classList.add("show");
         if(afterHero2) afterHero2.classList.add("show");
 
-        // HNA L-ISLAH: Rej3i l-scroll l-kollchi fach tsali l-ktiba
         document.body.style.overflow = "auto";
-        document.documentElement.style.overflow = "auto"; 
-        
-        // Ila bghiti t-7afdi 3la l-mchkila d l-jenb li t-sl7at:
         document.body.style.overflowX = "hidden";
-        document.documentElement.style.overflowX = "hidden";
     }, 600);
 }
-const vBox = document.getElementById('videoBox');
-const vPlayer = document.getElementById('myHeroVideo');
 
-if(vBox && vPlayer) {
+// SECTION 2: MODAL CONTROL
+if(vBox) {
     vBox.addEventListener('click', (e) => {
         e.stopPropagation(); 
-        if (vPlayer.paused) {
-            vPlayer.play();
-        } else {
-            vPlayer.pause();
-        }
+        openFullVideo();
     });
 }
+
+function openFullVideo() {
+    if(modal) {
+        modal.style.display = "flex";
+        fullVid.play();
+        heroVid.pause(); 
+    }
+}
+
+function closeFullVideo() {
+    if(modal) {
+        modal.style.display = "none";
+        fullVid.pause();
+        fullVid.currentTime = 0; 
+        heroVid.play(); 
+    }
+}
+
+// SECTION 3: WINDOW EVENTS
+window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+        closeFullVideo();
+    }
+});
 
 window.onload = typeEffect;
