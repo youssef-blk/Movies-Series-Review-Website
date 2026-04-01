@@ -267,25 +267,6 @@ nav .links a:hover::after {
   flex: 5;
 }
 
-.card h3 {
-  position: absolute;
-  bottom: 30px;
-  left: 20px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  opacity: 0.7;
-  transition: 0.5s;
-  font-size: 16px;
-  letter-spacing: 2px;
-  color: #fff;
-}
-
-.card:hover h3 {
-  writing-mode: horizontal-tb;
-  transform: rotate(0);
-  opacity: 1;
-  font-size: 20px;
-}
 
 
 @keyframes fadeInScole {

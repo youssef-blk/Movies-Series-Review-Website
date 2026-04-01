@@ -535,6 +535,85 @@ nav .links a:hover::after {
         padding-top: 10px; /* Jib l-ktiba m9adda m3a l-card l-ula */
     }
 }
+/* sectin fin  */
+.stats-section {
+    background-color: #ffffff;
+    padding: 140px 0;
+    color: rgb(0, 0, 0);
+}
+
+.stats-container {
+    position: relative;
+    padding: 60px 20px;
+}
+
+/* L-9nat l-khdrin (Corners) */
+.corner-green {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-color: #494a49;
+    border-style: solid;
+    transition: 0.4s ease;
+}
+
+.corner-tl {
+    top: 0;
+    left: 0;
+    border-width: 3px 0 0 3px; /* Top u Left */
+}
+
+.corner-br {
+    bottom: 0;
+    right: 0;
+    border-width: 0 3px 3px 0; /* Bottom u Right */
+}
+
+/* Stat Items */
+.stat-item {
+    padding: 10px 40px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 200px;
+}
+
+.first-item {
+    border-left: none; /* Box l-uwwla bla border isir */
+}
+
+.stat-number {
+    font-size: 5.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    transition: 0.4s;
+}
+
+.stat-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.stat-text {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 240px;
+}
+
+/* Hover Effects */
+.stat-item:hover .stat-number {
+    color: #0073ff;
+    transform: translateY(-5px);
+}
+
+.stats-container:hover .corner-green {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 10px rgba(3, 183, 36, 0.5));
+}
 /* footer */
 .got-footer {
     background-color: #050505; /* K7el ghame9 b7al l-hero */
