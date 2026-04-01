@@ -42,6 +42,25 @@
 
 let container = document.querySelector(".episodes");
 
+function initGalleryMarquee() {
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+
+  let track = document.querySelector(".gallery-grid.is-marquee .gallery-track");
+  if (!track) return;
+
+  let cards = Array.from(track.children);
+  if (cards.length === 0) return;
+
+  let clones = cards.map((card) => {
+    let clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("img").forEach((img) => img.setAttribute("alt", ""));
+    return clone;
+  });
+
+  track.append(...clones);
+}
+
 function renderEpisodes(seasons, seasonId) {
   container.innerHTML = "";
 
@@ -86,3 +105,4 @@ async function getData() {
 }
 
 getData();
+initGalleryMarquee();
