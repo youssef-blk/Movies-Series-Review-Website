@@ -15,6 +15,16 @@ body {
   font-size: 1rem;
 }
 
+body.intro-active {
+  background-color: #050505;
+  overflow: hidden;
+}
+
+body.intro-active .hero {
+  opacity: 0;
+  visibility: hidden;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -41,32 +51,36 @@ body {
 }
 
 #text-wrapper {
-  flex: 2;
-  max-width: 700px;
-
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(90vw, 880px);
+  height: fit-content;
+  z-index: 2000;
+  padding-inline: 16px;
   text-align: center;
-
-  white-space: normal;
-  line-height: 1.8;
-
-  position: relative;
-  left: 20%;
+  line-height: 1.7;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
 .fade-text {
   opacity: 0;
+  transform: scale(0.94);
+  pointer-events: none;
 }
 
 .hero-desc {
-  font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.4rem);
+  font-size: clamp(1.2rem, 1.25vw + 0.85rem, 2rem);
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 0.02em;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .cursor {
-  color: red;
-  font-size: clamp(1.1rem, 0.7vw + 0.9rem, 1.5rem);
+  color: #fff;
+  font-size: clamp(1.2rem, 1.3vw + 0.9rem, 2rem);
   animation: blink 0.7s infinite;
 }
 
@@ -99,13 +113,13 @@ nav {
   justify-content: space-between;
   padding: 10px 70px;
   background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
-  /* opacity: 0;
-  transform: translateY(-100%);
-  transition: 0.8s; */
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.8s ease;
 }
 nav.visible {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
 }
 
 nav .logo {
@@ -166,6 +180,10 @@ nav ul li a:hover {
   nav ul {
     gap: 10px;
   }
+
+  #text-wrapper {
+    width: min(92vw, 700px);
+  }
 }
 
 .hero {
@@ -178,6 +196,9 @@ nav ul li a:hover {
   height: 100vh;
   min-height: 100svh;
   position: relative;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
 }
 
 .hero::after {
@@ -188,56 +209,178 @@ nav ul li a:hover {
   width: 100%;
   height: 180px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  pointer-events: none;
 }
 .hero .container {
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
 .hero .cast {
-  width: 60%;
-  font-size: clamp(0.95rem, 0.2vw + 0.9rem, 1.05rem);
+  width: min(760px, 100%);
+  text-align: center;
 }
 
-.cast h1 {
-  font-size: clamp(1.8rem, 2.2vw + 1rem, 3rem);
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.8vw, 5.4rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(0, 0, 0, 0.7);
 }
 
-.cast .source {
-  color: #bdbdbd;
+.rating-box {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-left: 4px solid rgba(255, 255, 255, 0.7);
+  padding-left: 22px;
+  text-align: left;
 }
 
-.cast .trailer {
-  text-decoration: none;
+.rating-number {
+  font-size: clamp(4rem, 6vw, 6.8rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  line-height: 1;
+  margin: 0;
 }
 
-.cast .trailer button {
-  background-color: #ffffff8c;
+.stars {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 10px;
   color: #fff;
-  padding: 10px;
-  border-radius: 100px;
-  border: 2px solid transparent;
-  display: flex;
-  align-items: center;
-  transition: 0.3s;
-  gap: 10px;
 }
 
-.cast .trailer button:hover {
-  border-color: #fff;
+.rating-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
-.cast .trailer button i {
-  background-color: #fff;
-  color: black;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  display: flex;
+.video-hero-bottom {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  width: min(320px, 30vw);
+  z-index: 2;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.video-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.25) 55%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.video-frame video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(22%) contrast(1.05);
+  transition: filter 0.25s ease;
+}
+
+.video-hero-bottom:hover .video-frame {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.52);
+}
+
+.video-hero-bottom:hover .video-frame video {
+  filter: grayscale(0%) contrast(1.1);
+}
+
+.video-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 10000;
+  backdrop-filter: blur(8px);
   justify-content: center;
   align-items: center;
+}
+
+.overlay-content {
+  width: min(92vw, 1120px);
+  position: relative;
+}
+
+.overlay-content video {
+  width: 100%;
+  max-height: 70vh;
+  display: block;
+  border: 1px solid rgba(248, 248, 248, 0.75);
+  box-shadow: 0 26px 58px rgba(0, 0, 0, 0.6);
+  background-color: #000;
+}
+
+.video-info-overlay {
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.video-info-overlay .subtitle {
+  margin: 0 0 8px;
+  color: rgba(154, 154, 154, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.video-info-overlay .title {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.video-info-overlay .description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(0.95rem, 1vw, 1.25rem);
 }
 
 /* Start Episodes */
@@ -1046,6 +1189,15 @@ nav ul li a:hover {
   .hero .cast {
     width: 70%;
   }
+
+  .rating-box {
+    left: 40px;
+  }
+
+  .video-hero-bottom {
+    right: 40px;
+    width: min(280px, 34vw);
+  }
 }
 
 @media (max-width: 840px) {
@@ -1066,12 +1218,26 @@ nav ul li a:hover {
   }
 
   #text-wrapper {
-    left: 0;
-    margin-inline: auto;
+    width: min(92vw, 700px);
   }
 
   .hero .cast {
     width: 100%;
+  }
+
+  .rating-box {
+    left: 24px;
+    padding-left: 14px;
+  }
+
+  .rating-text {
+    letter-spacing: 2px;
+  }
+
+  .video-hero-bottom {
+    right: 24px;
+    width: min(240px, 42vw);
+    bottom: 36px;
   }
 
   .episodes {
@@ -1145,15 +1311,43 @@ nav ul li a:hover {
     text-align: center;
   }
 
-  .cast .trailer button {
-    width: 100%;
-    justify-content: center;
-    padding: 10px 14px;
+  .rating-box,
+  .video-hero-bottom {
+    position: static;
+    transform: none;
+    margin-inline: auto;
   }
 
-  .cast .trailer button i {
-    height: 36px;
-    width: 36px;
+  .rating-box {
+    border-left: none;
+    border-top: 3px solid rgba(255, 255, 255, 0.72);
+    padding-left: 0;
+    padding-top: 12px;
+    margin-top: 18px;
+    text-align: center;
+    width: fit-content;
+  }
+
+  .stars {
+    justify-content: center;
+  }
+
+  .video-hero-bottom {
+    margin-top: 14px;
+    width: min(340px, 100%);
+  }
+
+  .overlay-content {
+    width: 94vw;
+  }
+
+  .overlay-content video {
+    max-height: 56vh;
+  }
+
+  .video-info-overlay .subtitle {
+    letter-spacing: 0.22em;
+    font-size: 0.62rem;
   }
 
   .season-line::before,
