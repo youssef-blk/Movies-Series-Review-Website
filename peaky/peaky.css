@@ -15,6 +15,27 @@ body {
   font-size: 1rem;
 }
 
+
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #050505; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a; 
+  border-radius: 10px; 
+  border: 2px solid #050505; 
+  transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fcfcfc; 
+}
+
+
 .container {
   max-width: 1400px;
   width: 100%;
@@ -117,7 +138,23 @@ nav ul li a {
   text-decoration: none;
   font-size: clamp(1rem, 0.5vw + 0.85rem, 1.25rem);
   transition: 0.3s;
+  position: relative;
 }
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #fefefe;
+  transition: 0.3s;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
 nav ul li a:hover {
   color: #fff;
 }
@@ -135,7 +172,7 @@ nav ul li a:hover {
 
 .hero {
   background:
-    radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(circle, rgba(0, 0, 0, 0.078) 0%, rgba(0, 0, 0, 0.297) 100%),
     url("../images/peaky-card.jpg");
   background-size: cover;
   background-position: center;
