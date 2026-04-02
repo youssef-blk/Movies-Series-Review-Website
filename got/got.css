@@ -118,6 +118,7 @@ nav .links a:hover::after {
 
 .fade-text {
   opacity: 0;
+  transition: 0.8s ease;
 }
 
 .hero-desc {
@@ -141,33 +142,21 @@ nav .links a:hover::after {
 }
 
 #logo-reveal {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   transition: 1.2s;
   opacity: 0;
-  top:50px;
-  transform: scale(0.8);
+  transform: translate(-50%, -50%) scale(0.8);
   display: none;
 }
 
 #logo-reveal.visible {
   opacity: 1;
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.season-tag {
-  position: absolute;
-  left: -30px;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 16px;
-  letter-spacing: 4px;
-  font-weight: 300;
-  text-transform: uppercase;
-  white-space: nowrap;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
 }
 
 .floating-logo {
@@ -177,14 +166,16 @@ nav .links a:hover::after {
 
 .rating-box {
   position: absolute;
-  right: 80px;
-  top: 80%;
+  right: 60px;
+  top: 50%;
   transform: translateY(-50%);
-  text-align: center;
+  text-align: right;
   color: white;
   z-index: 10;
   opacity: 0;
-  transition: 1s;
+  transition: 1.2s;
+  border-right: 3px solid #1f66ff;
+  padding-right: 20px;
 }
 
 .rating-box.show {
@@ -203,13 +194,145 @@ nav .links a:hover::after {
   margin: 10px 0;
 }
 .stars i {
-  color: #fff;
+  color: #73a9ff;
   opacity: 0.8;
 }
 .rating-text {
   font-size: 12px;
   letter-spacing: 2px;
-  opacity: 0.6;
+  color: #89b8ff;
+  opacity: 0.8;
+}
+
+.video-hero-bottom {
+  position: absolute;
+  left: 60px;
+  bottom: 50px;
+  width: 320px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1.2s;
+  z-index: 15;
+}
+
+.video-hero-bottom.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.got-video-frame {
+  width: 100%;
+  border: 1px solid rgba(42, 119, 255, 0.6);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.55);
+  background: transparent;
+  padding: 0;
+}
+
+.video-frame img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: brightness(0.72) saturate(1.1);
+  transition: 0.35s ease;
+}
+
+.video-frame:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.86) saturate(1.25);
+}
+
+.video-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #1f66ff;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.play-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgba(20, 93, 251, 0.8);
+  background: radial-gradient(circle, rgba(16, 77, 205, 0.32) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+.video-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 8, 20, 0.95);
+  z-index: 10000;
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.overlay-content {
+  width: min(980px, 92vw);
+  position: relative;
+}
+
+.overlay-content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(48, 120, 255, 0.6);
+  box-shadow: 0 0 42px rgba(10, 90, 250, 0.22);
+}
+
+.close-video {
+  position: absolute;
+  top: -52px;
+  right: 0;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.close-video:hover {
+  color: #69a6ff;
+  transform: rotate(90deg);
+}
+
+.video-info-overlay {
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 3px solid #2b76ff;
+}
+
+.video-info-overlay .subtitle {
+  color: #76aeff;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.video-info-overlay .title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.video-info-overlay .description {
+  color: rgba(255, 255, 255, 0.75);
 }
 .explore-section {
     background-color: #ffffff !important;
@@ -681,4 +804,52 @@ nav .links a:hover::after {
 .designer-name {
     color: #fff;
     font-weight: 700;
+}
+
+@media (max-width: 992px) {
+    .rating-box {
+        right: 24px;
+    }
+
+    .rating-number {
+        font-size: 95px;
+    }
+
+    .video-hero-bottom {
+        left: 24px;
+        width: 260px;
+    }
+}
+
+@media (max-width: 680px) {
+    .header-image {
+        min-height: 100svh;
+        padding: 95px 0 26px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .rating-box,
+    .video-hero-bottom {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        margin: 16px auto 0;
+    }
+
+    .rating-number {
+        font-size: 68px;
+    }
+
+    .video-hero-bottom {
+        width: min(330px, 90vw);
+    }
+
+    .close-video {
+        top: -42px;
+        font-size: 34px;
+    }
 }

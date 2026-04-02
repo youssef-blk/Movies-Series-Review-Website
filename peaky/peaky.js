@@ -1,44 +1,51 @@
-// const fullText = "The streets run on power and silence. Peaky Blinders follows a gang that moves in the shadows—calm, calculated, and always one step ahead.";
-// const typingElement = document.getElementById("typing-text");
-// const textWrapper = document.getElementById("text-wrapper");
-// const nav = document.getElementById("nav-id");
+const fullText = "The streets run on power and silence. Peaky Blinders follows a gang that moves in the shadows - calm, calculated, and always one step ahead.";
+const typingElement = document.getElementById("typing-text");
+const textWrapper = document.getElementById("text-wrapper");
+const nav = document.getElementById("nav-id");
 
-// let index = 0;
-// let isSkipped = false;
-// let typingTimeout;
+let typingIndex = 0;
+let isSkipped = false;
+let hasFinished = false;
+let typingTimeoutId;
 
-// function typeEffect() {
-//   if (isSkipped) return;
+function typeEffect() {
+  if (!typingElement || isSkipped || hasFinished) return;
 
-//   if (index < fullText.length) {
-//     typingElement.textContent += fullText.charAt(index);
-//     index++;
-//     typingTimeout = setTimeout(typeEffect, 50);
-//   } else {
-//     finishAnimation();
-//   }
-// }
+  if (typingIndex < fullText.length) {
+    typingElement.textContent += fullText.charAt(typingIndex);
+    typingIndex += 1;
+    typingTimeoutId = setTimeout(typeEffect, 40);
+    return;
+  }
 
-// function skipTyping() {
-//   if (isSkipped || index >= fullText.length) return;
-//   isSkipped = true;
-//   clearTimeout(typingTimeout);
-//   finishAnimation();
-// }
+  finishAnimation();
+}
 
-// function finishAnimation() {
-//   textWrapper.classList.add("fade-text");
+function finishAnimation() {
+  if (hasFinished) return;
+  hasFinished = true;
 
-//   setTimeout(() => {
-//     textWrapper.style.display = "none";
+  if (!textWrapper) return;
 
-//     nav.classList.add("visible");
+  textWrapper.classList.add("fade-text");
+  setTimeout(() => {
+    textWrapper.style.display = "none";
+    document.body.classList.remove("intro-active");
+    nav?.classList.add("visible");
+    document.body.style.overflow = "auto";
+    document.body.style.overflowX = "hidden";
+  }, 600);
+}
 
-//     document.body.style.overflow = "auto";
-//   }, 600);
-// }
+function skipTyping() {
+  if (!typingElement || hasFinished) return;
+  isSkipped = true;
+  clearTimeout(typingTimeoutId);
+  typingElement.textContent = fullText;
+  finishAnimation();
+}
 
-// window.onload = typeEffect;
+window.skipTyping = skipTyping;
 
 let container = document.querySelector(".episodes");
 
@@ -59,6 +66,40 @@ function initGalleryMarquee() {
   });
 
   track.append(...clones);
+}
+
+function initVideoModal() {
+  let modal = document.getElementById("videoModal");
+  let fullVid = document.getElementById("fullVideo");
+  let heroVid = document.getElementById("myHeroVideo");
+  let videoBox = document.getElementById("videoBox");
+
+  if (!modal || !videoBox) return;
+
+  function closeFullVideo() {
+    modal.style.display = "none";
+    if (fullVid) fullVid.pause();
+    if (heroVid) heroVid.play().catch(() => {});
+  }
+
+  videoBox.addEventListener("click", () => {
+    modal.style.display = "flex";
+    if (fullVid) {
+      fullVid.currentTime = 0;
+      fullVid.play().catch(() => {});
+    }
+    if (heroVid) heroVid.pause();
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeFullVideo();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "flex") {
+      closeFullVideo();
+    }
+  });
 }
 
 function renderEpisodes(seasons, seasonId) {
@@ -106,3 +147,19 @@ async function getData() {
 
 getData();
 initGalleryMarquee();
+initVideoModal();
+
+window.addEventListener("load", () => {
+  if (typingElement && textWrapper) {
+    document.body.classList.add("intro-active");
+    document.body.style.overflow = "hidden";
+    typeEffect();
+    return;
+  }
+
+  document.body.classList.remove("intro-active");
+  nav?.classList.add("visible");
+  document.body.style.overflow = "auto";
+});
+
+

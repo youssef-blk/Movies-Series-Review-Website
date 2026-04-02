@@ -31,12 +31,11 @@
             </div>
 
             <div id="logo-reveal">
-                <span class="season-tag">SEASON 7 - Hover Effect</span>
                 <img src="imag-got/logogot.png" class="floating-logo" />
             </div>
         </div>
 
-        <div class="rating-box">
+        <div class="rating-box" id="rating-id">
             <h1 class="rating-number">8,8</h1>
             <div class="stars">
                 <i class="fa-solid fa-star"></i>
@@ -46,6 +45,14 @@
                 <i class="fa-regular fa-star"></i>
             </div>
             <p class="rating-text">MOVIE RATE</p>
+        </div>
+
+        <div class="video-hero-bottom" id="video-bottom-id">
+            <button class="video-frame got-video-frame" id="videoBox" type="button" aria-label="Watch trailer">
+                
+                <img src="../images/got-card.jpg" alt="Game of Thrones trailer preview">
+                <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+            </button>
         </div>
     </div>
 
@@ -304,6 +311,23 @@
         </div>
     </div>
 </footer>
+    <div id="videoModal" class="video-overlay" aria-hidden="true">
+        <span class="close-video" id="closeVideoBtn" role="button" aria-label="Close trailer">&times;</span>
+        <div class="overlay-content">
+            <iframe
+                id="trailerFrame"
+                src=""
+                title="Game of Thrones Trailer"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <div class="video-info-overlay">
+                <p class="subtitle">WINTER IS HERE</p>
+                <h2 class="title">GAME OF THRONES</h2>
+                <p class="description">Watch the official trailer and enter the Seven Kingdoms.</p>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="got.js"></script>
