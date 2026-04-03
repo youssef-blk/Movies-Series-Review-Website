@@ -11,16 +11,16 @@
 </head>
 <body onclick="skipTyping()">
 
-    <div class="header-image">
+    <div class="header-image" id="home">
         <nav id="nav-id" class="custom-nav">
             <div class="nav-logo">
                 <img src="imag-dexter/logoshowtime.png" alt="logo">
             </div>
             <ul class="nav-links">
-                <li><a href="#">The Code</a></li>
-                <li><a href="#">Kill Room</a></li>
-                <li><a href="#">Miami Metro</a></li>
-                <li><a href="#">Trending</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#video-bottom-id">Trailer</a></li>
+                <li><a href="#after-hero">Cast</a></li>
+                <li><a href="#rating-id">Rating</a></li>
             </ul>
             
         </nav>
@@ -50,10 +50,11 @@
 
         <div class="video-hero-bottom" id="video-bottom-id">
             <div class="video-frame" id="videoBox">
-               
+                <span class="video-label">Official Trailer</span>
                 <video id="myHeroVideo" loop muted autoplay>
                     <source src="imag-dexter/vidoidexter.mp4" type="video/mp4">
                 </video>
+                <span class="play-icon"><i class="fa-solid fa-play"></i></span>
             </div>
         </div>
     </div>

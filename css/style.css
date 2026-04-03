@@ -74,6 +74,7 @@ nav ul a {
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: 0.3s;
+  position: relative;
 }
 nav ul a:hover {
   color: #fff;
@@ -131,10 +132,10 @@ nav .links a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -8px;
   width: 0;
-  height: 2px;
-  background: red;
+  height: 4px;
+  background: #fefefe;
   transition: 0.3s;
 }
 

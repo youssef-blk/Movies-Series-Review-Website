@@ -90,11 +90,26 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: 0.4s;
+  position: relative;
 }
 
 .nav-links a:hover {
-  color: #9b0000;
-  text-shadow: 0 0 10px #9b0000;
+  color: #fff;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 4px;
+  background: #fefefe;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* ================================================================
@@ -106,18 +121,23 @@ body {
 }
 
 #text-wrapper {
+  width: min(92vw, 860px);
+  margin: 0 auto;
+  padding-inline: 8px;
   transition: 0.8s ease;
 }
 
 .hero-desc {
-  font-size: 32px;
+  font-size: clamp(1.35rem, 1.3vw + 1rem, 2.15rem);
   font-weight: 300;
   line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
 }
 
 .cursor {
   color: #9b0000;
-  font-size: 35px;
+  font-size: clamp(1.5rem, 1.6vw + 1rem, 2.3rem);
   animation: blink 0.8s infinite;
 }
 
@@ -198,7 +218,7 @@ body {
   position: absolute;
   right: 50px; /* Positioned Right */
   bottom: 50px;
-  width: 300px;
+  width: min(320px, 30vw);
   opacity: 0;
   transform: translateY(30px);
   transition: 1.5s;
@@ -216,17 +236,42 @@ body {
   cursor: pointer;
   position: relative;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.video-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.24) 58%,
+    rgba(0, 0, 0, 0.04) 100%
+  );
+  pointer-events: none;
 }
 
 .video-frame video {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   display: block;
   filter: grayscale(40%) contrast(1.1);
-  transition: 0.5s;
+  transition: 0.35s;
 }
 
 .video-frame:hover video {
   filter: grayscale(0%) contrast(1.2);
+}
+
+.video-frame:hover {
+  transform: translateY(-3px);
+  border-color: rgba(155, 0, 0, 0.7);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.62);
 }
 
 .video-label {
@@ -239,8 +284,20 @@ body {
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 0.08em;
   border-radius: 3px;
   z-index: 2;
+}
+
+.play-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 20px;
+  z-index: 2;
+  text-shadow: 0 0 18px rgba(155, 0, 0, 0.9);
 }
 
 /* ================================================================
@@ -336,6 +393,9 @@ body {
 
 .video-info-overlay .description {
   color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
 }
 
 .stars {
@@ -485,7 +545,7 @@ body {
 
   .video-hero-bottom {
     right: 24px;
-    width: 240px;
+    width: 260px;
   }
 
   .cast-item {

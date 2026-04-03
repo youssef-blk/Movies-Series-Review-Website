@@ -64,17 +64,22 @@ if(vBox) {
 function openFullVideo() {
     if(modal) {
         modal.style.display = "flex";
-        fullVid.play();
-        heroVid.pause(); 
+        if (fullVid) {
+            fullVid.currentTime = 0;
+            fullVid.play().catch(() => {});
+        }
+        heroVid?.pause(); 
     }
 }
 
 function closeFullVideo() {
     if(modal) {
         modal.style.display = "none";
-        fullVid.pause();
-        fullVid.currentTime = 0; 
-        heroVid.play(); 
+        if (fullVid) {
+            fullVid.pause();
+            fullVid.currentTime = 0;
+        }
+        heroVid?.play().catch(() => {}); 
     }
 }
 

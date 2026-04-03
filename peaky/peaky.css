@@ -17,12 +17,25 @@ body {
 
 body.intro-active {
   background-color: #050505;
-  overflow: hidden;
+  overflow: hidden !important;
+  height: 100svh;
+  touch-action: none;
 }
 
-body.intro-active .hero {
+body.intro-active .hero .cast,
+body.intro-active .rating-box,
+body.intro-active .video-hero-bottom {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+}
+
+.hero .cast,
+.rating-box,
+.video-hero-bottom {
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
 }
 
 ::-webkit-scrollbar {
@@ -57,7 +70,7 @@ body.intro-active .hero {
   width: min(90vw, 880px);
   height: fit-content;
   z-index: 2000;
-  padding-inline: 16px;
+  padding-inline: 8px;
   text-align: center;
   line-height: 1.7;
   transition:
@@ -72,10 +85,11 @@ body.intro-active .hero {
 }
 
 .hero-desc {
-  font-size: clamp(1.2rem, 1.25vw + 0.85rem, 2rem);
+  font-size: clamp(1.3rem, 1.25vw + 0.9rem, 2.1rem);
   font-weight: 300;
   letter-spacing: 0.02em;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  line-height: 1.65;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
 }
 
 .cursor {
@@ -104,7 +118,7 @@ body.intro-active .hero {
 }
 
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -216,24 +230,33 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 2;
 }
 
 .hero .cast {
-  width: min(760px, 100%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
 .hero-title {
   margin: 0;
-  font-size: clamp(2.2rem, 4.8vw, 5.4rem);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  text-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.55),
-    0 0 25px rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+}
+
+.hero-title-logo {
+  width: clamp(260px, 46vw, 760px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  filter:
+    drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 25px rgba(0, 0, 0, 0.7));
 }
 
 .rating-box {
@@ -306,6 +329,7 @@ nav ul li a:hover {
     rgba(0, 0, 0, 0.25) 55%,
     rgba(0, 0, 0, 0.05) 100%
   );
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -326,6 +350,32 @@ nav ul li a:hover {
 
 .video-hero-bottom:hover .video-frame video {
   filter: grayscale(0%) contrast(1.1);
+}
+
+.video-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  color: #060606;
+  padding: 4px 11px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.play-icon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 20px;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.62);
 }
 
 .video-overlay {
@@ -380,7 +430,9 @@ nav ul li a:hover {
 .video-info-overlay .description {
   margin: 0;
   color: rgba(255, 255, 255, 0.74);
-  font-size: clamp(0.95rem, 1vw, 1.25rem);
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
 }
 
 /* Start Episodes */
@@ -562,10 +614,21 @@ nav ul li a:hover {
 }
 
 .description-text {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #555;
+  font-size: clamp(0.98rem, 0.35vw + 0.9rem, 1.08rem);
+  line-height: 1.9;
+  letter-spacing: 0.015em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.74);
   margin-bottom: 20px;
+}
+
+.section-header p,
+.video-info-overlay .description,
+.music-card > p:not(.music-label),
+.staff-intro p,
+.stat-text {
+  line-height: 1.9;
+  letter-spacing: 0.015em;
 }
 
 /* Galleries */

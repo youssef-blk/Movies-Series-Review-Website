@@ -11,16 +11,16 @@
 </head>
 
 <body onclick="skipTyping()">
-  <div class="header-image">
+  <div class="header-image" id="home">
     <nav id="nav-id" class="hidden-element custom-nav">
       <div class="nav-logo">
         <img src="imag-joker/logodc.png" alt="Logo">
       </div>
       <ul class="nav-links">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Series</a></li>
-        <li><a href="#">Movies</a></li>
-        <li><a href="#">Trending</a></li>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#video-bottom-id">Trailer</a></li>
+        <li><a href="#cast">Cast</a></li>
+        <li><a href="#awards">Awards</a></li>
       </ul>
     </nav>
 
@@ -33,10 +33,11 @@
       <div class="video-preview-box">
         <div class="video-hero-bottom" id="video-bottom-id">
           <div class="video-frame" id="videoBox">
-           
-            <video id="myHeroVideo" loop muted>
+            <span class="video-label">Official Trailer</span>
+            <video id="myHeroVideo" loop muted autoplay playsinline>
               <source src="imag-joker/vidiointro.mp4" type="video/mp4">
             </video>
+            <span class="play-icon"><i class="fa-solid fa-play"></i></span>
           </div>
         </div>
       </div>
@@ -58,7 +59,7 @@
       </div>
       <p class="rating-text">MOVIE RATE</p>
     </div>
-  </div><section class="oscar-narrative py-5">
+  </div><section id="awards" class="oscar-narrative py-5">
     <div class="container">
         <div class="row align-items-center">
             
@@ -85,7 +86,7 @@
     </div>
 </section>
 
-  <section class="show-info-section">
+  <section id="story" class="show-info-section">
     <div class="side-band left-band"></div>
     <div class="side-band right-band"></div>
 
@@ -113,7 +114,7 @@
       </div>
     </div>
   </section>
-  <section class="cast-section py-5">
+  <section id="cast" class="cast-section py-5">
     <div class="container">
       <div class="staff-header mb-5 text-start">
         <p class="sub-label">ACTING ENERGY</p>
@@ -229,7 +230,7 @@
     </div>
   </section>
   
-  <section class="books-section">
+  <section id="staff" class="books-section">
     <div class="section-number-bg">02</div>
     <div class="container">
       <div class="section-header">
@@ -262,7 +263,7 @@
       </div>
     </div>
   </section>
-  <section class="stats-section">
+  <section id="stats" class="stats-section">
     <div class="container stats-container">
         
         <div class="corner-green corner-tl"></div>
@@ -304,7 +305,7 @@
     </div>
 </section>
   <div id="videoModal" class="video-overlay">
-    <span class="close-video" onclick="closeFullVideo()"></span>
+    <span class="close-video" onclick="closeFullVideo()" role="button" aria-label="Close trailer">&times;</span>
     <div class="overlay-content">
       <video id="fullVideo" controls>
         <source src="imag-joker/vidiointro.mp4" type="video/mp4">

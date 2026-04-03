@@ -11,16 +11,16 @@
 </head>
 
 <body onclick="skipTyping()">
-    <div class="header-image">
+    <div class="header-image" id="home">
         <nav id="nav-id" class="hidden-element">
             <div class="logo">
                 <img src="imag-got/logohbo.png" alt="logo" />
             </div>
             <ul class="links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Series</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Trending</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#video-bottom-id">Trailer</a></li>
+                <li><a href="#episodes">Episodes</a></li>
+                <li><a href="#cast">Cast</a></li>
             </ul>
         </nav>
 
@@ -48,15 +48,17 @@
         </div>
 
         <div class="video-hero-bottom" id="video-bottom-id">
-            <button class="video-frame got-video-frame" id="videoBox" type="button" aria-label="Watch trailer">
-                
-                <img src="../images/got-card.jpg" alt="Game of Thrones trailer preview">
+            <button class="got-video-frame" id="videoBox" type="button" aria-label="Open trailer">
+                <span class="video-label">Official Trailer</span>
+                <video id="myHeroVideo" loop muted autoplay playsinline>
+                    <source src="imag-got/gottriler.mp4" type="video/mp4">
+                </video>
                 <span class="play-icon"><i class="fa-solid fa-play"></i></span>
             </button>
         </div>
     </div>
 
-    <section class="explore-section py-5">
+    <section id="episodes" class="explore-section py-5">
     <div class="container-fluid px-5">
         <div class="row">
             <div class="col-lg-4 calendar-wrapper">
@@ -146,7 +148,7 @@
 
     <div class="side-band right-band"></div>
 </section>
-<section class="cast-section py-5">
+<section id="cast" class="cast-section py-5">
     <div class="container">
         <h3 class="text-uppercase mb-5 text-secondary" style="letter-spacing: 3px;">The most important actors</h3>
         
@@ -314,13 +316,9 @@
     <div id="videoModal" class="video-overlay" aria-hidden="true">
         <span class="close-video" id="closeVideoBtn" role="button" aria-label="Close trailer">&times;</span>
         <div class="overlay-content">
-            <iframe
-                id="trailerFrame"
-                src=""
-                title="Game of Thrones Trailer"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+            <video id="fullVideo" controls>
+                <source src="imag-got/gottriler.mp4" type="video/mp4">
+            </video>
             <div class="video-info-overlay">
                 <p class="subtitle">WINTER IS HERE</p>
                 <h2 class="title">GAME OF THRONES</h2>

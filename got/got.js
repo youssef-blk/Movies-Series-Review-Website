@@ -11,9 +11,8 @@ const videoBottom = document.getElementById("video-bottom-id");
 const videoModal = document.getElementById("videoModal");
 const videoBox = document.getElementById("videoBox");
 const closeVideoBtn = document.getElementById("closeVideoBtn");
-const trailerFrame = document.getElementById("trailerFrame");
-
-const trailerUrl = "https://www.youtube.com/embed/giYeaKsXnsI?autoplay=1&rel=0";
+const fullVideo = document.getElementById("fullVideo");
+const heroVideo = document.getElementById("myHeroVideo");
 
 let typingIndex = 0;
 let isSkipped = false;
@@ -138,19 +137,22 @@ function initCharacters() {
 }
 
 function initVideoModal() {
-  if (!videoModal || !videoBox || !trailerFrame) return;
+  if (!videoModal || !videoBox || !fullVideo) return;
 
   function closeFullVideo() {
     videoModal.style.display = "none";
     videoModal.setAttribute("aria-hidden", "true");
-    trailerFrame.src = "";
+    fullVideo.pause();
+    heroVideo?.play().catch(() => {});
   }
 
   function openFullVideo(event) {
     event.stopPropagation();
     videoModal.style.display = "flex";
     videoModal.setAttribute("aria-hidden", "false");
-    trailerFrame.src = trailerUrl;
+    fullVideo.currentTime = 0;
+    fullVideo.play().catch(() => {});
+    heroVideo?.pause();
   }
 
   videoBox.addEventListener("click", openFullVideo);

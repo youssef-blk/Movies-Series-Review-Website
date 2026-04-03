@@ -76,10 +76,10 @@ nav .links a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -8px;
   width: 0;
-  height: 2px;
-  background: rgb(0, 55, 255);
+  height: 4px;
+  background: #fefefe;
   transition: 0.3s;
 }
 
@@ -108,12 +108,14 @@ nav .links a:hover::after {
 
 #text-wrapper {
   flex: 2;
-  max-width: 700px;
+  width: min(92vw, 860px);
   text-align: center;
   white-space: normal;
   line-height: 1.8;
   position: relative;
-  left: 10%;
+  left: 0;
+  margin: 0 auto;
+  padding-inline: 8px;
 }
 
 .fade-text {
@@ -122,16 +124,16 @@ nav .links a:hover::after {
 }
 
 .hero-desc {
-  font-size: 28px;
+  font-size: clamp(1.3rem, 1.25vw + 0.9rem, 2.05rem);
   font-weight: 300;
-  
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
 }
 
 .cursor {
   color: rgb(51, 0, 255);
-  font-size: 30px;
+  font-size: clamp(1.5rem, 1.5vw + 1rem, 2.2rem);
   animation: blink 0.7s infinite;
 }
 
@@ -221,7 +223,9 @@ nav .links a:hover::after {
 }
 
 .got-video-frame {
+  display: block;
   width: 100%;
+  appearance: none;
   border: 1px solid rgba(42, 119, 255, 0.6);
   border-radius: 10px;
   overflow: hidden;
@@ -232,16 +236,16 @@ nav .links a:hover::after {
   padding: 0;
 }
 
-.video-frame img {
+.got-video-frame video {
   width: 100%;
   display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  filter: brightness(0.72) saturate(1.1);
+  filter: brightness(0.72) saturate(1.1) contrast(1.05);
   transition: 0.35s ease;
 }
 
-.video-frame:hover img {
+.got-video-frame:hover video {
   transform: scale(1.04);
   filter: brightness(0.86) saturate(1.25);
 }
@@ -289,11 +293,12 @@ nav .links a:hover::after {
   position: relative;
 }
 
-.overlay-content iframe {
+.overlay-content video {
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 1px solid rgba(48, 120, 255, 0.6);
   box-shadow: 0 0 42px rgba(10, 90, 250, 0.22);
+  background: #000;
 }
 
 .close-video {
@@ -333,6 +338,9 @@ nav .links a:hover::after {
 
 .video-info-overlay .description {
   color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
 }
 .explore-section {
     background-color: #ffffff !important;
@@ -464,8 +472,10 @@ nav .links a:hover::after {
 }
 
 .description-text {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: clamp(0.98rem, 0.35vw + 0.9rem, 1.08rem);
+    line-height: 1.9;
+    letter-spacing: 0.015em;
+    font-weight: 400;
     color: #555;
     margin-bottom: 20px;
 }
@@ -507,9 +517,7 @@ nav .links a:hover::after {
     transition: 0.5s ease-in-out;
 }
 
-.description-text {
-    font-size: 16px;
-    line-height: 1.6;
+.cast-section .description-text {
     color: #ccc !important;
 }
 /* section 4 */
