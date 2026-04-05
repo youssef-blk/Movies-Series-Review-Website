@@ -1,4 +1,4 @@
-const fullText = "The city hums like nothing’s wrong, but something underneath is already cracking. In the middle of it all, The Joker moves unseen—no grand plan, no clear motive ...";
+﻿const fullText = "Gotham smiles on the surface and bleeds underneath. When one broken soul stops pretending, the whole city watches chaos learn to laugh.";
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
 const logoReveal = document.getElementById("logo-reveal");

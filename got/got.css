@@ -108,6 +108,7 @@ nav .links a:hover::after {
 
 #text-wrapper {
   flex: 2;
+  position: relative;
   width: min(92vw, 860px);
   text-align: center;
   white-space: normal;
@@ -115,7 +116,39 @@ nav .links a:hover::after {
   position: relative;
   left: 0;
   margin: 0 auto;
-  padding-inline: 8px;
+  padding: 54px 34px 32px;
+  border-radius: 28px;
+  border: 1px solid rgba(118, 174, 255, 0.24);
+  background:
+    linear-gradient(135deg, rgba(5, 10, 20, 0.88), rgba(10, 20, 40, 0.64)),
+    rgba(5, 8, 15, 0.54);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+#text-wrapper::before {
+  content: attr(data-series);
+  position: absolute;
+  top: 18px;
+  left: 26px;
+  color: #76aeff;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+#text-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(118, 174, 255, 0.75), transparent 72%);
 }
 
 .fade-text {
@@ -125,9 +158,10 @@ nav .links a:hover::after {
 
 .hero-desc {
   font-size: clamp(1.3rem, 1.25vw + 0.9rem, 2.05rem);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.65;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.96);
   text-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
 }
 
@@ -519,6 +553,31 @@ nav .links a:hover::after {
 
 .cast-section .description-text {
     color: #ccc !important;
+}
+
+.char-details-link {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 30px;
+    border: 1px solid rgba(0, 210, 255, 0.48);
+    color: #0f4f70;
+    background: transparent;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.char-details-link::after {
+    content: "";
+}
+
+.char-details-link:hover {
+    color: #ffffff;
+    background: #0084b8;
+    border-color: #0084b8;
 }
 /* section 4 */
 .season-box {

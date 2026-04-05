@@ -6,56 +6,40 @@
     <title>ShowTime | Sherlock</title>
 
     <link rel="stylesheet" href="../css/all.min.css" />
-
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
-
     <link rel="stylesheet" href="sherlock.css" />
   </head>
 
-  <body onclick="skipTyping()">
-    <!-- HERO -->
+  <body class="intro-active" onclick="skipTyping()">
     <div class="header-image" id="home">
       <nav id="nav-id" class="hidden-element">
         <div class="logo">
-          <img src="../images/logo.png" alt="" />
+          <img src="imgs/logonav.png" alt="ShowTime logo" />
         </div>
 
         <ul class="links">
           <li><a href="#home">Home</a></li>
+          <li><a href="#video-bottom-id">Trailer</a></li>
           <li><a href="#after-hero">Story</a></li>
+          <li><a href="#soon-sherlock">Coming</a></li>
           <li><a href="#rating-id">Rating</a></li>
         </ul>
 
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
-          <form action="" id="searchForm">
-            <input
-              type="text"
-              name="search"
-              id="searchInput"
-              plac
-              eholder="SearchInput"
-            />
-            <button type="submit" name="searchSubmit" id="searchSubmit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
       </nav>
 
       <div class="hero-content">
-        <div id="text-wrapper">
+        <div id="text-wrapper" data-series="Sherlock">
           <span id="typing-text" class="hero-desc"></span>
           <span class="cursor">|</span>
         </div>
 
         <div id="logo-reveal">
-          <img src="title.png" class="floating-logo" />
+          <img src="imgs/logo.png" class="floating-logo" alt="Sherlock logo" />
         </div>
       </div>
-      <div class="rating-box" id="rating-id">
-        <h1 class="rating-number">8,8</h1>
 
+      <div class="rating-box" id="rating-id">
+        <h1 class="rating-number">9,0</h1>
         <div class="stars">
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
@@ -63,20 +47,110 @@
           <i class="fa-solid fa-star"></i>
           <i class="fa-regular fa-star"></i>
         </div>
+        <p class="rating-text">IMDb Rating</p>
+      </div>
 
-        <p class="rating-text">MOVIE RATE</p>
+      <div class="video-hero-bottom" id="video-bottom-id">
+        <div class="video-frame" id="videoBox">
+          <span class="video-label">Official Trailer</span>
+          <video id="myHeroVideo" loop muted autoplay playsinline>
+            <source src="imgs/triler.mp4" type="video/mp4" />
+          </video>
+          <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+        </div>
       </div>
     </div>
 
-    <!-- SECTION JDIDA -->
-    <div id="after-hero" class="after-hero">
-      <h1 class="after-title">Welcome to the Dark Side</h1>
-      <p class="after-text">
-        Dive into the mind of Dexter Morgan... where justice meets darkness.
-      </p>
+
+
+    <section id="soon-sherlock" class="sherlock-coming">
+      <div class="container">
+        <div class="coming-shell">
+          <div class="coming-head">
+            <h2>COMING SOON</h2>
+            <div class="coming-controls">
+              <button class="coming-nav coming-prev" aria-label="Previous upcoming item">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button class="coming-nav coming-next" aria-label="Next upcoming item">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="coming-window">
+            <div class="coming-track">
+              <article class="coming-card">
+                <img src="https://i.pinimg.com/736x/5e/f5/be/5ef5be2f66b463373a4d222ebab057f9.jpg" alt="Feature card">
+                <div class="coming-meta">
+                  <p>Feature</p>
+                  <h4>Tense Investigations Return</h4>
+                </div>
+              </article>
+
+              <article class="coming-card">
+                <img src="https://i.pinimg.com/736x/55/64/5b/55645b0fcaf0974d5dff197294b223d3.jpg" alt="Preview card">
+                <div class="coming-meta">
+                  <p>Preview</p>
+                  <h4>Mind Games And New Clues</h4>
+                </div>
+              </article>
+
+              <article class="coming-card">
+                <img src="https://i.pinimg.com/736x/64/a6/a1/64a6a1425b2dcba32699961d96ec8785.jpg" alt="Interview card">
+                <div class="coming-meta">
+                  <p>Interview</p>
+                  <h4>Inside The Writing Room</h4>
+                </div>
+              </article>
+
+              <article class="coming-card">
+                <img src="https://i.pinimg.com/736x/8e/e4/27/8ee427cc199837071e78bb742a2c72bb.jpg" alt="Spotlight card">
+                <div class="coming-meta">
+                  <p>Spotlight</p>
+                  <h4>Unsolved Cases Archive</h4>
+                </div>
+              </article>
+
+              <article class="coming-card">
+                <img src="https://i.pinimg.com/736x/c8/70/75/c87075c05add8eea24c9ed005e5205ef.jpg" alt="Behind the scenes card">
+                <div class="coming-meta">
+                  <p>Behind</p>
+                  <h4>Cold Streets, Sharp Minds</h4>
+                </div>
+              </article>
+
+              <article class="coming-card">
+                <img src="https://i.pinimg.com/1200x/59/ed/12/59ed122bda7f9a80dbb64cdc42b65c98.jpg" alt="Editorial card">
+                <div class="coming-meta">
+                  <p>Editorial</p>
+                  <h4>The Logic Of Deductions</h4>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="coming-dots" id="sherlockSoonDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="videoModal" class="video-overlay">
+      <div class="overlay-content">
+        <video id="fullVideo" controls>
+          <source src="imgs/triler.mp4" type="video/mp4" />
+        </video>
+        <div class="video-info-overlay">
+          <p class="subtitle">221B ARCHIVE</p>
+          <h2 class="title">SHERLOCK - OFFICIAL TRAILER</h2>
+          <p class="description">
+            Enter the world of deduction, danger, and brilliant strategy.
+          </p>
+        </div>
+      </div>
     </div>
+
     <script src="sherlock.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../js/all.min.js"></script> -->
   </body>
 </html>

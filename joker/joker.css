@@ -112,13 +112,46 @@ body {
 
 /* HERO CONTENT & TYPING */
 #text-wrapper {
+  position: relative;
   width: min(92vw, 860px);
   margin: 0 auto;
-  padding-inline: 8px;
+  padding: 54px 34px 32px;
   text-align: center;
   max-width: 860px;
   line-height: 1.8;
+  border-radius: 28px;
+  border: 1px solid rgba(3, 183, 36, 0.24);
+  background:
+    linear-gradient(135deg, rgba(6, 16, 8, 0.86), rgba(6, 12, 7, 0.66)),
+    rgba(5, 10, 5, 0.52);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: 0.6s;
+  overflow: hidden;
+}
+
+#text-wrapper::before {
+  content: attr(data-series);
+  position: absolute;
+  top: 18px;
+  left: 26px;
+  color: #03b724;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+#text-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(3, 183, 36, 0.72), transparent 72%);
 }
 .fade-text {
   opacity: 0;
@@ -126,9 +159,10 @@ body {
 }
 .hero-desc {
   font-size: clamp(1.3rem, 1.25vw + 0.9rem, 2.1rem);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.65;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.97);
   text-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
 }
 .cursor {
@@ -188,10 +222,10 @@ body {
   opacity: 1;
 }
 .rating-number {
-  font-size: clamp(4rem, 6vw, 6.8rem);
+  font-size: clamp(5.5rem, 11vw, 9.4rem);
   font-weight: 800;
   color: transparent;
-  -webkit-text-stroke: 1px #03b724;
+  -webkit-text-stroke: 2px #fff;
   line-height: 1;
   margin: 0;
 }
@@ -200,7 +234,7 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  margin: 12px 0 10px;
+  margin: 18px 0 10px;
   color: #03b724;
 }
 
@@ -497,7 +531,7 @@ body {
 }
 
 .divider {
-  width: 50px;
+  width: 60px;
   height: 3px;
   background-color: #03b724;
   margin-bottom: 30px;
@@ -513,6 +547,7 @@ body {
 }
 
 .btn-more {
+  display: inline-block;
   background: transparent;
   color: #fff;
   border: 1px solid rgba(255,255,255,0.2);
@@ -521,6 +556,8 @@ body {
   letter-spacing: 3px;
   transition: 0.4s;
   cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .btn-more:hover {

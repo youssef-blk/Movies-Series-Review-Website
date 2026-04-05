@@ -1,4 +1,4 @@
-const fullText = "The streets run on power and silence. Peaky Blinders follows a gang that moves in the shadows - calm, calculated, and always one step ahead.";
+const fullText = "Birmingham runs on smoke, steel, and fear. The Shelby name is not spoken loudly, it is remembered quietly after the deal is done.";
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
 const nav = document.getElementById("nav-id");

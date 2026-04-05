@@ -1,5 +1,5 @@
 const fullText =
-  "Power rules everything, and trust is a dangerous game. In Game of Thrones, every choice can cost a life, and no one is ever truly safe.";
+  "In Westeros, every crown is forged in betrayal. One whisper can start a war, and one promise can end a dynasty.";
 
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
@@ -89,24 +89,64 @@ function initCharacters() {
     tyrion: {
       name: "Tyrion Lannister",
       desc: "Lord Tyrion Lannister is the youngest child of Lord Tywin Lannister and younger brother of Cersei and Jaime Lannister. A dwarf, he uses his wit and intellect to overcome the prejudice he faces.",
-      img: "https://i.pinimg.com/736x/d4/19/0c/d4190cffb4c5ddaae39ad6632c2be2fe.jpg"
+      img: "https://i.pinimg.com/736x/d4/19/0c/d4190cffb4c5ddaae39ad6632c2be2fe.jpg",
+      detailsUrl: "characters/tyrion.html",
+      detailsLabel: "Read Tyrion Dossier"
     },
     jaime: {
       name: "Jaime Lannister",
       desc: "Ser Jaime Lannister was the eldest son of Lord Tywin Lannister. Known as the Kingslayer, he is one of the most skilled swordsmen in the Seven Kingdoms.",
-      img: "https://i.pinimg.com/1200x/7c/15/09/7c15099c373eb9528bdb6293aac3f2bb.jpg"
+      img: "https://i.pinimg.com/1200x/7c/15/09/7c15099c373eb9528bdb6293aac3f2bb.jpg",
+      detailsUrl: "characters/jaime.html",
+      detailsLabel: "Read Jaime Dossier"
     },
     cersei: {
       name: "Cersei Lannister",
       desc: "Queen Cersei Lannister is the widow of King Robert Baratheon. She is fierce, protective of her children, and willing to do anything to hold onto power.",
-      img: "https://i.pinimg.com/avif/1200x/4f/ef/65/4fef6568fe55439881443271511b701d.avf"
+      img: "https://i.pinimg.com/avif/1200x/4f/ef/65/4fef6568fe55439881443271511b701d.avf",
+      detailsUrl: "characters/cersei.html",
+      detailsLabel: "Read Cersei Dossier"
     },
     daenerys: {
       name: "Daenerys Targaryen",
       desc: "The last confirmed member of House Targaryen. Known as the Mother of Dragons, she began her journey as an exiled princess and rose to become a powerful conqueror with three dragons by her side.",
-      img: "https://i.pinimg.com/736x/c8/87/b0/c887b06ad71195db6a1a70623e05953e.jpg"
+      img: "https://i.pinimg.com/736x/c8/87/b0/c887b06ad71195db6a1a70623e05953e.jpg",
+      detailsUrl: "characters/daenerys.html",
+      detailsLabel: "Read Daenerys Dossier"
     }
   };
+
+  function applyCharacter(charKey) {
+    const data = characters[charKey];
+    if (!data) return;
+
+    const infoDiv = document.getElementById("character-info");
+    const bigImg = document.getElementById("char-big-img");
+    const detailsLink = document.getElementById("char-details-link");
+    if (!infoDiv || !bigImg) return;
+
+    infoDiv.style.opacity = "0";
+    bigImg.style.opacity = "0";
+
+    setTimeout(() => {
+      document.getElementById("char-name").textContent = data.name;
+      document.getElementById("char-desc").textContent = data.desc;
+      bigImg.src = data.img;
+
+      if (detailsLink) {
+        if (data.detailsUrl) {
+          detailsLink.href = data.detailsUrl;
+          detailsLink.textContent = data.detailsLabel || "Read Character Details";
+          detailsLink.hidden = false;
+        } else {
+          detailsLink.hidden = true;
+        }
+      }
+
+      infoDiv.style.opacity = "1";
+      bigImg.style.opacity = "1";
+    }, 280);
+  }
 
   thumbs.forEach((thumb) => {
     thumb.addEventListener("click", () => {
@@ -115,25 +155,14 @@ function initCharacters() {
       thumb.classList.add("active");
 
       const charKey = thumb.getAttribute("data-target");
-      const data = characters[charKey];
-      if (!data) return;
-
-      const infoDiv = document.getElementById("character-info");
-      const bigImg = document.getElementById("char-big-img");
-      if (!infoDiv || !bigImg) return;
-
-      infoDiv.style.opacity = "0";
-      bigImg.style.opacity = "0";
-
-      setTimeout(() => {
-        document.getElementById("char-name").textContent = data.name;
-        document.getElementById("char-desc").textContent = data.desc;
-        bigImg.src = data.img;
-        infoDiv.style.opacity = "1";
-        bigImg.style.opacity = "1";
-      }, 280);
+      applyCharacter(charKey);
     });
   });
+
+  const initialKey =
+    document.querySelector(".char-thumb.active")?.getAttribute("data-target") ||
+    "tyrion";
+  applyCharacter(initialKey);
 }
 
 function initVideoModal() {

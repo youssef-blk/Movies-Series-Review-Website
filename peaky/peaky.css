@@ -8,15 +8,22 @@ html {
   font-size: clamp(14px, 0.3vw + 12px, 16px);
 }
 
+:root {
+  --peaky-accent: #1f6d46;
+  --peaky-accent-soft: #73c69a;
+  --peaky-accent-glow: rgba(31, 109, 70, 0.42);
+  --peaky-dark: #050505;
+}
+
 body {
-  background-color: #fff;
+  background-color: var(--peaky-dark);
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
 }
 
 body.intro-active {
-  background-color: #050505;
+  background-color: var(--peaky-dark);
   overflow: hidden !important;
   height: 100svh;
   touch-action: none;
@@ -43,18 +50,18 @@ body.intro-active .video-hero-bottom {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--peaky-dark);
 }
 
 ::-webkit-scrollbar-thumb {
   background: #1a1a1a;
   border-radius: 10px;
-  border: 2px solid #050505;
+  border: 2px solid var(--peaky-dark);
   transition: 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fcfcfc;
+  background: var(--peaky-accent);
 }
 
 .container {
@@ -70,12 +77,44 @@ body.intro-active .video-hero-bottom {
   width: min(90vw, 880px);
   height: fit-content;
   z-index: 2000;
-  padding-inline: 8px;
+  padding: 54px 34px 32px;
   text-align: center;
   line-height: 1.7;
+  border-radius: 28px;
+  border: 1px solid rgba(115, 198, 154, 0.24);
+  background:
+    linear-gradient(135deg, rgba(7, 11, 8, 0.88), rgba(10, 18, 13, 0.66)),
+    rgba(5, 9, 6, 0.56);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition:
     opacity 0.7s ease,
     transform 0.7s ease;
+  overflow: hidden;
+}
+
+#text-wrapper::before {
+  content: attr(data-series);
+  position: absolute;
+  top: 18px;
+  left: 26px;
+  color: var(--peaky-accent-soft);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+#text-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(115, 198, 154, 0.76), transparent 72%);
 }
 
 .fade-text {
@@ -85,15 +124,16 @@ body.intro-active .video-hero-bottom {
 }
 
 .hero-desc {
-  font-size: clamp(1.3rem, 1.25vw + 0.9rem, 2.1rem);
-  font-weight: 300;
+  font-size: clamp(1.3rem, 1.25vw + 0.9rem, 2.05rem);
+  font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.65;
+  color: rgba(255, 255, 255, 0.96);
   text-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
 }
 
 .cursor {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.86);
   font-size: clamp(1.2rem, 1.3vw + 0.9rem, 2rem);
   animation: blink 0.7s infinite;
 }
@@ -125,7 +165,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 70px;
+  padding: 15px 50px;
   background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
   opacity: 0;
   transform: translateY(-20px);
@@ -153,16 +193,18 @@ nav ul {
   height: 100%;
   margin: 0;
   padding: 0;
-  gap: 50px;
+  gap: 30px;
 }
 nav ul li {
   padding: 0;
 }
 
 nav ul li a {
-  color: #bdbdbd;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  font-size: clamp(1rem, 0.5vw + 0.85rem, 1.25rem);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   transition: 0.3s;
   position: relative;
 }
@@ -174,7 +216,7 @@ nav a::after {
   left: 0;
   width: 0;
   height: 4px;
-  background-color: #fefefe;
+  background-color: var(--peaky-accent-soft);
   transition: 0.3s;
 }
 nav a:hover::after {
@@ -261,45 +303,47 @@ nav ul li a:hover {
 
 .rating-box {
   position: absolute;
-  left: 60px;
+  right: 60px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  border-left: 4px solid rgba(255, 255, 255, 0.7);
-  padding-left: 22px;
-  text-align: left;
+  border-right: 3px solid var(--peaky-accent);
+  padding-right: 22px;
+  text-align: right;
 }
 
 .rating-number {
-  font-size: clamp(4rem, 6vw, 6.8rem);
+  font-size: clamp(5.5rem, 11vw, 9.4rem);
   font-weight: 800;
   color: transparent;
-  -webkit-text-stroke: 1px #fff;
+  -webkit-text-stroke: 2px #fff;
   line-height: 1;
   margin: 0;
 }
 
 .stars {
   display: flex;
+  justify-content: flex-end;
   gap: 8px;
-  margin: 12px 0 10px;
-  color: #fff;
+  margin: 18px 0 10px;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .rating-text {
   margin: 0;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.72);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.72rem;
+  letter-spacing: 2px;
+  font-size: 12px;
   font-weight: 700;
+  opacity: 0.8;
 }
 
 .video-hero-bottom {
   position: absolute;
-  right: 50px;
+  left: 60px;
   bottom: 50px;
-  width: min(320px, 30vw);
+  width: 320px;
   z-index: 2;
   text-decoration: none;
   color: #fff;
@@ -310,7 +354,7 @@ nav ul li a:hover {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(31, 109, 70, 0.78);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
   cursor: pointer;
   transition:
@@ -338,18 +382,21 @@ nav ul li a:hover {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  filter: grayscale(22%) contrast(1.05);
-  transition: filter 0.25s ease;
+  filter: brightness(0.72) saturate(1.08) contrast(1.05);
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
 .video-hero-bottom:hover .video-frame {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.52);
+  border-color: rgba(115, 198, 154, 0.88);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.52), 0 0 0 1px var(--peaky-accent-glow);
 }
 
 .video-hero-bottom:hover .video-frame video {
-  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.04);
+  filter: brightness(0.86) saturate(1.22);
 }
 
 .video-label {
@@ -357,8 +404,8 @@ nav ul li a:hover {
   top: 12px;
   left: 12px;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.9);
-  color: #060606;
+  background: var(--peaky-accent);
+  color: #fff;
   padding: 4px 11px;
   border-radius: 4px;
   text-transform: uppercase;
@@ -375,7 +422,8 @@ nav ul li a:hover {
   place-items: center;
   color: #fff;
   font-size: 20px;
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.62);
+  text-shadow: 0 0 14px rgba(115, 198, 154, 0.9);
+  background: radial-gradient(circle, rgba(31, 109, 70, 0.32) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
 .video-overlay {
@@ -384,7 +432,7 @@ nav ul li a:hover {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(6, 18, 11, 0.94);
   z-index: 10000;
   backdrop-filter: blur(8px);
   justify-content: center;
@@ -400,20 +448,20 @@ nav ul li a:hover {
   width: 100%;
   max-height: 70vh;
   display: block;
-  border: 1px solid rgba(248, 248, 248, 0.75);
-  box-shadow: 0 26px 58px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(115, 198, 154, 0.7);
+  box-shadow: 0 26px 58px rgba(0, 0, 0, 0.6), 0 0 42px rgba(31, 109, 70, 0.2);
   background-color: #000;
 }
 
 .video-info-overlay {
   margin-top: 16px;
   padding-left: 16px;
-  border-left: 3px solid rgba(255, 255, 255, 0.9);
+  border-left: 3px solid var(--peaky-accent);
 }
 
 .video-info-overlay .subtitle {
   margin: 0 0 8px;
-  color: rgba(154, 154, 154, 0.95);
+  color: var(--peaky-accent-soft);
   text-transform: uppercase;
   letter-spacing: 0.35em;
   font-size: 0.68rem;
@@ -946,7 +994,7 @@ nav ul li a:hover {
   display: block;
   width: 56px;
   height: 5px;
-  background-color: #1e4f88;
+  background-color: var(--peaky-accent);
   margin: 10px 0 24px;
 }
 
@@ -959,7 +1007,7 @@ nav ul li a:hover {
 }
 
 .staff-intro h3::first-line {
-  color: #1e4f88;
+  color: var(--peaky-accent);
 }
 
 .staff-intro p {
@@ -1008,7 +1056,7 @@ nav ul li a:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.78rem;
-  color: #16447a;
+  color: var(--peaky-accent);
   font-weight: 500;
 }
 
@@ -1029,7 +1077,7 @@ nav ul li a:hover {
     position: absolute;
     width: 35px;
     height: 35px;
-    border-color: #1e4f88;
+    border-color: var(--peaky-accent);
     border-style: solid;
     transition: 0.35s ease;
 }
@@ -1070,7 +1118,7 @@ nav ul li a:hover {
     font-size: 0.85rem;
     letter-spacing: 1.5px;
     margin-bottom: 15px;
-    color: #0f2d52;
+    color: #0f3e27;
 }
 
 .stat-text {
@@ -1081,14 +1129,14 @@ nav ul li a:hover {
 }
 
 .stat-item:hover .stat-number {
-    color: #1e4f88;
+    color: var(--peaky-accent);
     transform: translateY(-5px);
 }
 
 .stats-container:hover .corner-green {
     width: 50px;
     height: 50px;
-    filter: drop-shadow(0 0 8px rgba(30, 79, 136, 0.28));
+    filter: drop-shadow(0 0 8px rgba(31, 109, 70, 0.35));
 }
 /* section oscar======= */
 .oscar-narrative {
@@ -1143,7 +1191,7 @@ nav ul li a:hover {
 }
 
 .learn-more-link-left:hover {
-    color: #eaff01;
+    color: var(--peaky-accent-soft);
 }
 
 @media (max-width: 991px) {
@@ -1189,7 +1237,7 @@ nav ul li a:hover {
 }
 
 .footer-links a:hover {
-  color: #fff;
+  color: var(--peaky-accent-soft);
 }
 
 /* Social Icons Styling */
@@ -1214,8 +1262,8 @@ nav ul li a:hover {
 }
 
 .social-icons a:hover {
-    background: #fff;
-    color: #000;
+    background: var(--peaky-accent);
+    color: #fff;
     transform: translateY(-5px);
 }
 
@@ -1230,7 +1278,7 @@ nav ul li a:hover {
 }
 
 .designer-name {
-    color: #fff;
+    color: var(--peaky-accent-soft);
     font-weight: 700;
 }
 
@@ -1254,11 +1302,11 @@ nav ul li a:hover {
   }
 
   .rating-box {
-    left: 40px;
+    right: 40px;
   }
 
   .video-hero-bottom {
-    right: 40px;
+    left: 40px;
     width: min(280px, 34vw);
   }
 }
@@ -1289,8 +1337,8 @@ nav ul li a:hover {
   }
 
   .rating-box {
-    left: 24px;
-    padding-left: 14px;
+    right: 24px;
+    padding-right: 14px;
   }
 
   .rating-text {
@@ -1298,7 +1346,7 @@ nav ul li a:hover {
   }
 
   .video-hero-bottom {
-    right: 24px;
+    left: 24px;
     width: min(240px, 42vw);
     bottom: 36px;
   }
@@ -1383,8 +1431,10 @@ nav ul li a:hover {
 
   .rating-box {
     border-left: none;
-    border-top: 3px solid rgba(255, 255, 255, 0.72);
+    border-right: none;
+    border-top: 3px solid rgba(115, 198, 154, 0.88);
     padding-left: 0;
+    padding-right: 0;
     padding-top: 12px;
     margin-top: 18px;
     text-align: center;

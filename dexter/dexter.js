@@ -2,7 +2,7 @@
    DEXTER PAGE SCRIPT
    ================================================================ */
 const fullText =
-  "Tonight's the night. The air feels heavier, like the world itself is holding its breath. By day, he's just another forensic technician - quiet, precise, invisible in a room full of noise...";
+  "Tonight's the night. Beneath Miami lights, every trace tells a story and every mistake leaves blood. By day he reads evidence, by night he becomes it.";
 
 const typingElement = document.getElementById("typing-text");
 const textWrapper = document.getElementById("text-wrapper");
@@ -67,25 +67,32 @@ function skipTyping() {
 window.skipTyping = skipTyping;
 
 /* ================================================================
-   SEARCH BUTTON LOGIC
+   SCROLL REVEAL LOGIC
    ================================================================ */
-function initSearch() {
-  const searchBtn = document.getElementById("searchBtn");
-  const searchForm = document.getElementById("searchForm");
-  if (!searchBtn || !searchForm) return;
+function initScrollReveal() {
+  const revealItems = document.querySelectorAll(".reveal-item");
+  if (!revealItems.length || typeof IntersectionObserver === "undefined") {
+    revealItems.forEach((item) => item.classList.add("in-view"));
+    return;
+  }
 
-  searchBtn.addEventListener("click", (event) => {
-    event.stopPropagation();
-    searchForm.classList.toggle("show");
-    if (searchForm.classList.contains("show")) {
-      searchForm.querySelector("input")?.focus();
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in-view");
+        obs.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -70px 0px",
     }
-  });
+  );
 
-  document.addEventListener("click", (event) => {
-    if (!searchForm.contains(event.target) && event.target !== searchBtn) {
-      searchForm.classList.remove("show");
-    }
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 0.06, 0.24)}s`;
+    observer.observe(item);
   });
 }
 
@@ -100,57 +107,247 @@ function initCarousel() {
   if (!track || !trackContainer || !nextBtn || !prevBtn) return;
 
   let carouselIndex = 0;
+  let autoplayId;
+  let resizeTimerId;
+  let originalCards = [];
+
+  function getGap() {
+    return (
+      parseFloat(getComputedStyle(track).columnGap) ||
+      parseFloat(getComputedStyle(track).gap) ||
+      0
+    );
+  }
 
   function getSlideWidth() {
     const firstCard = track.querySelector(".cast-item");
     if (!firstCard) return 0;
+    return firstCard.getBoundingClientRect().width + getGap();
+  }
+
+  function getVisibleCardsCount() {
+    const firstCard = track.querySelector(".cast-item");
+    if (!firstCard) return 1;
     const cardWidth = firstCard.getBoundingClientRect().width;
-    const gap =
-      parseFloat(getComputedStyle(track).columnGap) ||
-      parseFloat(getComputedStyle(track).gap) ||
-      0;
-    return cardWidth + gap;
-  }
-
-  function getMaxIndex() {
-    const cards = track.querySelectorAll(".cast-item");
-    const totalCards = cards.length;
-    const slideWidth = getSlideWidth();
-    if (!slideWidth || totalCards <= 1) return 0;
-
-    const visibleCards = Math.max(
+    const gap = getGap();
+    return Math.max(
       1,
-      Math.floor(trackContainer.clientWidth / slideWidth)
+      Math.floor((trackContainer.clientWidth + gap) / (cardWidth + gap))
     );
-    return Math.max(0, totalCards - visibleCards);
   }
 
-  function updateCarousel() {
-    const slideWidth = getSlideWidth();
-    track.style.transform = `translateX(-${carouselIndex * slideWidth}px)`;
+  function removeClones() {
+    track.querySelectorAll(".cast-item.clone").forEach((card) => card.remove());
+  }
 
-    prevBtn.disabled = carouselIndex === 0;
-    nextBtn.disabled = carouselIndex >= getMaxIndex();
+  function setTrackPosition(animated = true) {
+    const slideWidth = getSlideWidth();
+    if (!slideWidth) return;
+    track.style.transition = animated ? "transform 0.45s ease" : "none";
+    track.style.transform = `translateX(-${carouselIndex * slideWidth}px)`;
+  }
+
+  function goNext() {
+    carouselIndex += 1;
+    setTrackPosition(true);
+  }
+
+  function goPrev() {
+    if (carouselIndex === 0) {
+      carouselIndex = originalCards.length;
+      setTrackPosition(false);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          carouselIndex -= 1;
+          setTrackPosition(true);
+        });
+      });
+      return;
+    }
+
+    carouselIndex -= 1;
+    setTrackPosition(true);
+  }
+
+  function startAutoplay() {
+    clearInterval(autoplayId);
+    autoplayId = setInterval(goNext, 2600);
+  }
+
+  function rebuildTrack() {
+    clearInterval(autoplayId);
+    removeClones();
+
+    originalCards = Array.from(track.querySelectorAll(".cast-item:not(.clone)"));
+    if (!originalCards.length) return;
+
+    const visibleCards = Math.min(getVisibleCardsCount(), originalCards.length);
+    for (let i = 0; i < visibleCards; i += 1) {
+      const clone = originalCards[i].cloneNode(true);
+      clone.classList.add("clone");
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    }
+
+    carouselIndex = 0;
+    setTrackPosition(false);
+    startAutoplay();
   }
 
   nextBtn.addEventListener("click", (event) => {
     event.stopPropagation();
-    carouselIndex = Math.min(carouselIndex + 1, getMaxIndex());
-    updateCarousel();
+    goNext();
+    startAutoplay();
   });
 
   prevBtn.addEventListener("click", (event) => {
     event.stopPropagation();
-    carouselIndex = Math.max(carouselIndex - 1, 0);
-    updateCarousel();
+    goPrev();
+    startAutoplay();
   });
+
+  track.addEventListener("transitionend", () => {
+    if (carouselIndex >= originalCards.length) {
+      carouselIndex = 0;
+      setTrackPosition(false);
+    }
+  });
+
+  trackContainer.addEventListener("mouseenter", () => clearInterval(autoplayId));
+  trackContainer.addEventListener("mouseleave", startAutoplay);
 
   window.addEventListener("resize", () => {
-    carouselIndex = Math.min(carouselIndex, getMaxIndex());
-    updateCarousel();
+    clearTimeout(resizeTimerId);
+    resizeTimerId = setTimeout(rebuildTrack, 140);
   });
 
-  updateCarousel();
+  rebuildTrack();
+}
+
+/* ================================================================
+   COMING SOON SLIDER
+   ================================================================ */
+function initSoonSlider() {
+  const track = document.querySelector(".soon-track");
+  const windowEl = document.querySelector(".soon-track-window");
+  const nextBtn = document.querySelector(".soon-next");
+  const prevBtn = document.querySelector(".soon-prev");
+  const dotsWrap = document.getElementById("soonDots");
+  if (!track || !windowEl || !nextBtn || !prevBtn || !dotsWrap) return;
+
+  const cards = Array.from(track.querySelectorAll(".soon-card"));
+  if (!cards.length) return;
+
+  let sliderIndex = 0;
+  let sliderMaxIndex = 0;
+  let autoplayId;
+  let resizeTimerId;
+
+  function getGap() {
+    return (
+      parseFloat(getComputedStyle(track).columnGap) ||
+      parseFloat(getComputedStyle(track).gap) ||
+      0
+    );
+  }
+
+  function getVisibleCardsCount() {
+    if (window.innerWidth <= 680) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+
+  function getStep() {
+    const firstCard = cards[0];
+    if (!firstCard) return 0;
+    return firstCard.getBoundingClientRect().width + getGap();
+  }
+
+  function updateTrack() {
+    const step = getStep();
+    if (!step) return;
+    track.style.transform = `translateX(-${sliderIndex * step}px)`;
+  }
+
+  function updateDots() {
+    const dots = dotsWrap.querySelectorAll(".soon-dot");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === sliderIndex);
+    });
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = "";
+    for (let i = 0; i <= sliderMaxIndex; i += 1) {
+      const dot = document.createElement("button");
+      dot.className = "soon-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Go to upcoming slide ${i + 1}`);
+      dot.addEventListener("click", () => {
+        sliderIndex = i;
+        updateTrack();
+        updateDots();
+        startAutoplay();
+      });
+      dotsWrap.appendChild(dot);
+    }
+    updateDots();
+  }
+
+  function goNext() {
+    if (sliderMaxIndex <= 0) return;
+    sliderIndex = sliderIndex >= sliderMaxIndex ? 0 : sliderIndex + 1;
+    updateTrack();
+    updateDots();
+  }
+
+  function goPrev() {
+    if (sliderMaxIndex <= 0) return;
+    sliderIndex = sliderIndex <= 0 ? sliderMaxIndex : sliderIndex - 1;
+    updateTrack();
+    updateDots();
+  }
+
+  function startAutoplay() {
+    clearInterval(autoplayId);
+    autoplayId = setInterval(goNext, 3200);
+  }
+
+  function updateButtonsState() {
+    const isStatic = sliderMaxIndex === 0;
+    nextBtn.disabled = isStatic;
+    prevBtn.disabled = isStatic;
+  }
+
+  function rebuildSlider() {
+    const visibleCards = Math.min(getVisibleCardsCount(), cards.length);
+    sliderMaxIndex = Math.max(0, cards.length - visibleCards);
+    sliderIndex = Math.min(sliderIndex, sliderMaxIndex);
+    updateButtonsState();
+    buildDots();
+    updateTrack();
+    startAutoplay();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    goNext();
+    startAutoplay();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    goPrev();
+    startAutoplay();
+  });
+
+  windowEl.addEventListener("mouseenter", () => clearInterval(autoplayId));
+  windowEl.addEventListener("mouseleave", startAutoplay);
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimerId);
+    resizeTimerId = setTimeout(rebuildSlider, 140);
+  });
+
+  rebuildSlider();
 }
 
 /* ================================================================
@@ -193,8 +390,9 @@ function initVideoModal() {
 }
 
 window.addEventListener("load", () => {
-  initSearch();
+  initScrollReveal();
   initCarousel();
+  initSoonSlider();
   initVideoModal();
 
   if (typingElement) {
