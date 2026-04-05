@@ -4,19 +4,15 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 
 :root{
-  /* Theme colors */
   --bg: #000;
   --panel: #050505;
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.65);
   --stroke: rgba(255,255,255,.12);
 
-  /* Accent */
   --accent: #ff3b3b;
   --accentGlow: rgba(255,59,59,.18);
 }
-
-/* Scrollbar */
 ::-webkit-scrollbar{ width:8px; }
 ::-webkit-scrollbar-track{ background: #050505; }
 ::-webkit-scrollbar-thumb{
@@ -34,7 +30,6 @@ body{
   overflow-x: hidden;
 }
 
-/* Container (بديل Bootstrap container باش مايتصادموش) */
 .custom-container{
   width: min(1200px, 100%);
   margin: 0 auto;
@@ -308,20 +303,18 @@ body{
   .features{ flex-direction: column; }
 }
 
-/* ---------- About Visual (Poster Wall) ---------- */
 .about-visual{
   height: 520px;
   position: relative;
   border-radius: 24px;
   overflow:hidden;
 
-  /* glass panel */
+  
   background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
   border: 1px solid rgba(255,255,255,.12);
   box-shadow: 0 40px 120px rgba(0,0,0,.65);
 }
 
-/* overlays باش poster wall “تدخل فالثيم” (بحال اللي طلبتي) */
 .about-visual::after{
   content:"";
   position:absolute;
@@ -329,16 +322,13 @@ body{
   z-index: 5;
   pointer-events:none;
   background:
-    /* left fade باش يندمج مع text */
     linear-gradient(to right, #050505 0%, rgba(5,5,5,.92) 8%, transparent 40%),
-    /* top + bottom cinematic fades */
     linear-gradient(to bottom, #050505 0%, rgba(5,5,5,.45) 10%, transparent 28%),
     linear-gradient(to top, #050505 0%, rgba(5,5,5,.55) 10%, transparent 28%),
-    /* vignette */
     radial-gradient(700px 380px at 55% 30%, rgba(0,0,0,.10), rgba(0,0,0,.55));
 }
 
-/* grid inside */
+
 .poster-wall{
   height:100%;
   display:grid;

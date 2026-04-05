@@ -1,6 +1,4 @@
-/* ================================================================
-   DEXTER PAGE SCRIPT
-   ================================================================ */
+
 const fullText =
   "Tonight's the night. Beneath Miami lights, every trace tells a story and every mistake leaves blood. By day he reads evidence, by night he becomes it.";
 
@@ -48,7 +46,6 @@ function finishAnimation() {
     }, 600);
   }
 
-  // Auto-scroll to the next section only if user did not scroll manually.
   setTimeout(() => {
     if (window.scrollY < 100) {
       window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
@@ -388,7 +385,15 @@ function initVideoModal() {
     }
   });
 }
-
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector('.custom-nav');
+  
+  // نفترضو الكتبة كتاخد 3 ثواني (3000ms)
+  // تقدر تبدل هاد الرقم على حساب شحال كياخد Typing Effect عندك
+  setTimeout(() => {
+    navbar.classList.add('show-nav');
+  }, 3500); 
+});
 window.addEventListener("load", () => {
   initScrollReveal();
   initCarousel();

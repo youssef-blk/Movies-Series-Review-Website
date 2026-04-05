@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;700;900&display=swap");
 
-/* --- Reset & Variables --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +8,7 @@
 
 :root {
   --bg: #050505;
-  --accent: #e50914; /* Red Netflix style */
+  --accent: #e50914;
   --accent-dark: #700000;
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
@@ -77,8 +76,18 @@ body {
 .nav-links a:hover {
   color: var(--accent);
 }
+.custom-nav {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none; 
+}
 
-/* --- THE WOW GLASS BOX (B7al image dyalk) --- */
+.custom-nav.show-nav {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 .glass-box {
   background: rgba(5, 7, 12, 0.8);
   backdrop-filter: blur(30px);
@@ -127,8 +136,6 @@ body {
     opacity: 0;
   }
 }
-
-/* --- Logo reveal --- */
 .logo-centered-wrapper {
   position: absolute;
   left: 50%;
@@ -146,7 +153,6 @@ body {
   filter: drop-shadow(0 10px 30px rgba(229, 9, 20, 0.5));
 }
 
-/* --- Ratings and Video Frame --- */
 .rating-box {
   position: absolute;
   left: 60px;
@@ -192,15 +198,14 @@ body {
   filter: grayscale(0%);
 }
 
-/* --- Dark Studio (Tbedlat blast l-white) --- */
 .dexter-studio {
-  background: #050505;
+  background: #00f500;
   padding: 100px 0;
   position: relative;
 }
 
 .studio-head h2 {
-  color: #fff;
+  color: #00ff88;
   font-size: 38px;
   font-weight: 900;
   text-transform: uppercase;
@@ -330,8 +335,6 @@ body {
   margin-bottom: 15px;
   text-transform: uppercase;
 }
-
-/* --- Cast Section --- */
 .dexter-cast {
   background: #000;
   padding: 100px 0;
@@ -437,9 +440,6 @@ body {
   width: 100%;
 }
 
-/* ================================================================
-   4. TYPING & LOGO REVEAL
-   ================================================================ */
 .hero-content {
   text-align: center;
   z-index: 5;
@@ -501,11 +501,6 @@ body {
   margin-top: 15px;
 }
 
-/* ================================================================
-   5. QLBA: RATING (LEFT) & TRAILER (RIGHT)
-   =============================================================== */
-
-/* Rating Section - M9ad f l-issar (Left) */
 .rating-box {
   position: absolute;
   left: 60px;
@@ -871,327 +866,6 @@ body {
   cursor: not-allowed;
 }
 
-/* ================================================================
-   7. STUDIO BLOCKS (WHITE SECTION BEFORE CAST)
-   ================================================================ */
-.dexter-studio {
-  background: rgb(204, 0, 0);
-  color: #241515;
-  padding: 86px 0 100px;
-}
-
-.studio-block {
-  max-width: 1140px;
-}
-
-.studio-head {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 42px;
-}
-
-.studio-head h2 {
-  margin: 0 0 14px;
-  color: #2c1817;
-  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
-  line-height: 1.15;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.studio-head > p {
-  margin: 0;
-  color: rgba(44, 24, 23, 0.72);
-  font-size: 0.98rem;
-  line-height: 1.9;
-}
-
-.studio-feature,
-.careers-feature {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 30px;
-  align-items: center;
-  margin-bottom: 64px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.94),
-      rgba(255, 245, 242, 0.86)
-    ),
-    var(--dexter-panel);
-  border: 1px solid rgba(155, 0, 0, 0.16);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 18px 34px rgba(98, 22, 22, 0.1);
-}
-
-.studio-image img {
-  width: 100%;
-  height: 292px;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-}
-
-.studio-copy {
-  padding: 2px 2px;
-}
-
-.studio-kicker {
-  margin: 0 0 10px;
-  color: #b33838;
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.studio-copy h3 {
-  margin: 0 0 14px;
-  color: #251514;
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
-  line-height: 1.14;
-  text-transform: uppercase;
-}
-
-.studio-copy p {
-  margin: 0 0 18px;
-  color: rgba(44, 24, 23, 0.72);
-  font-size: 0.96rem;
-  line-height: 1.9;
-}
-
-.studio-btn {
-  display: inline-block;
-  background: transparent;
-  color: #7c1a1a;
-  border: 1px solid rgba(155, 0, 0, 0.55);
-  padding: 10px 20px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 700;
-  transition:
-    0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.studio-btn:hover {
-  background: var(--dexter-accent);
-  border-color: var(--dexter-accent);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(155, 0, 0, 0.24);
-}
-
-.block-title {
-  margin: 0 0 18px;
-  color: #291616;
-  font-size: 32px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.coming-soon {
-  margin-bottom: 62px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.94),
-      rgba(255, 245, 242, 0.86)
-    ),
-    var(--dexter-panel);
-  border: 1px solid rgba(155, 0, 0, 0.16);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 18px 34px rgba(98, 22, 22, 0.1);
-}
-
-.soon-controls {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-bottom: 14px;
-}
-
-.soon-nav {
-  border: 1px solid rgba(155, 0, 0, 0.6);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #fff4f1;
-  color: #ba4747;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.soon-nav:hover {
-  background: var(--dexter-accent);
-  border-color: var(--dexter-accent);
-  color: #fff;
-}
-
-.soon-nav:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.soon-track-window {
-  overflow: hidden;
-}
-
-.soon-track {
-  display: flex;
-  gap: 14px;
-  transition: transform 0.45s ease;
-  will-change: transform;
-}
-
-.soon-card {
-  min-width: calc((100% - 28px) / 3);
-  background: #fff7f4;
-  border: 1px solid rgba(155, 0, 0, 0.14);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 12px 24px rgba(98, 22, 22, 0.08);
-}
-
-.soon-card img {
-  width: 100%;
-  height: 186px;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(10%) contrast(1.04);
-  transition: 0.3s ease;
-}
-
-.soon-card:hover img {
-  filter: grayscale(0%) contrast(1.14);
-}
-
-.soon-meta {
-  padding: 12px 13px 14px;
-}
-
-.soon-meta p {
-  margin: 0 0 6px;
-  color: #dd7878;
-  font-size: 0.66rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 700;
-}
-
-.soon-meta h4 {
-  margin: 0;
-  color: #2a1716;
-  font-size: 0.86rem;
-  line-height: 1.6;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  min-height: 44px;
-}
-
-.soon-dots {
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.soon-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 0;
-  background: #6e6e74;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.soon-dot.active {
-  width: 22px;
-  border-radius: 999px;
-  background: var(--dexter-accent-soft);
-}
-
-.gallery-wall {
-  margin-bottom: 62px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.gallery-wall img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(98, 22, 22, 0.08);
-  filter: grayscale(12%);
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    filter 0.35s ease;
-}
-
-.gallery-wall img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 32px rgba(98, 22, 22, 0.14);
-  filter: grayscale(0%) saturate(1.05);
-}
-
-.gallery-wall img:nth-child(1),
-.gallery-wall img:nth-child(4) {
-  aspect-ratio: 4 / 3;
-}
-
-.dexter-news .news-row {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.news-card {
-  background: #fff7f4;
-  border: 1px solid rgba(155, 0, 0, 0.14);
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 12px 28px rgba(98, 22, 22, 0.08);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(98, 22, 22, 0.14);
-}
-
-.news-card img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 10px;
-  border-radius: 6px;
-}
-
-.news-card h4 {
-  margin: 0 0 12px;
-  color: #291616;
-  font-size: 0.83rem;
-  line-height: 1.5;
-  min-height: 42px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
 
 @media (max-width: 1200px) {
   .cast-item {
