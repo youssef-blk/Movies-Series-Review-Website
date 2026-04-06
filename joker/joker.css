@@ -1019,24 +1019,19 @@ body {
 
 
 /* foter  */
-.got-footer {
-    /* Background biad ghame9 (Ghabri) */
-    background-color: #e5e5e5; 
+.got-footer {   background-color: #e5e5e5; 
     color: #1a1a1a;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 80px;
 }
 
 .footer-logo {
-    width: 110px;
-    /* Ila kan l-logo fih l-biad, had l-filter ghadi i-rejja3u k7el */
-    filter: brightness(0); 
+    width: 110px;   filter: brightness(0); 
     opacity: 0.8;
 }
 
 .footer-slogan {
     font-size: 11px;
-    /* Ktaba k7ela chwiya bhal l-mdad */
     color: #444; 
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -1044,7 +1039,6 @@ body {
 }
 
 .footer-links a {
-    /* Lon l-ktaba k7el bared */
     color: #333; 
     text-decoration: none;
     font-size: 12px;
@@ -1054,14 +1048,11 @@ body {
 }
 
 .footer-links a:hover {
-    /* Hover kwelli khder Joker ghame9 */
     color: #028a1b; 
 }
 
-/* Social Icons Styling */
 .social-icons a {
     color: #333;
-    /* Background dial daira dial icon sghira */
     background: rgba(0, 0, 0, 0.05); 
     width: 45px;
     height: 45px;
@@ -1076,13 +1067,12 @@ body {
 }
 
 .social-icons a:hover {
-    background: #1a1a1a; /* Kat-welli k7ela f hover */
-    color: #939393; /* Icon kat-welli b l-biad */
+    background: #1a1a1a; 
+    color: #939393; 
     transform: translateY(-5px);
 }
 
 .footer-divider {
-    /* L-khit l-westani i-koun k7el r9iiiii9 */
     border-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -1093,7 +1083,6 @@ body {
 }
 
 .designer-name {
-    /* Smiytk t-ban k7ela u wa3ra */
     color: #000; 
     font-weight: 800;
     text-transform: uppercase;
