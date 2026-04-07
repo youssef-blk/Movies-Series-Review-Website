@@ -1,240 +1,409 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="css/all.min.css" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <title>ShowTime</title>
-</head>
+    <title>ShowTime</title>
+  </head>
 
-<body>
-
-  <!-- =========================================================
+  <body>
+    <!-- =========================================================
        HERO (Slider)
        ========================================================= -->
-  <header class="hero" id="home">
-    <nav class="main-nav" id="nav-id">
-      <a class="logo" href="#home" aria-label="ShowTime Home">
-        <img src="images/logo.png" alt="ShowTime logo" />
-      </a>
+    <header class="hero" id="home">
+      <nav class="main-nav" id="nav-id">
+        <a class="logo" href="#home" aria-label="ShowTime Home">
+          <img src="images/logo.png" alt="ShowTime logo" />
+        </a>
 
-      <ul class="links" aria-label="Primary">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#series">Series</a></li>
-        <li><a href="#movies">Movies</a></li>
-        <li><a href="#trending">Trending</a></li>
-      </ul>
+        <ul class="links" aria-label="Primary">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#series">Series</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#trending">Trending</a></li>
+        </ul>
 
-      <div class="search">
-        <button class="icon-btn" type="button" aria-label="Open search" id="searchBtn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-
-        <form action="#" id="searchForm" role="search" aria-label="Search">
-          <input type="text" name="search" id="searchInput" placeholder="Search..." autocomplete="off" />
-          <button class="icon-btn" type="submit" aria-label="Submit search">
+        <div class="search">
+          <button
+            class="icon-btn"
+            type="button"
+            aria-label="Open search"
+            id="searchBtn"
+          >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </form>
-      </div>
-    </nav>
 
-    <div class="hero-media">
-      <img id="bg" src="images/dark.jpg" alt="Featured background" />
-    </div>
-
-    <div class="hero-info" id="slider-content">
-      <div class="show-meta">
-        <span id="show-categories">Sci‑Fi, Thriller, Mystery</span>
-        <span class="dot">•</span>
-        <span id="show-year">2017</span>
-        <span class="dot">•</span>
-        <span class="ten"><span id="show-rating">8.7</span>/10</span>
-      </div>
-
-      <h1 id="show-title">DARK</h1>
-
-      <p id="desc" class="hero-desc">
-        A complex supernatural thriller where the disappearance of two children exposes the double lives and fractured relationships among four families...
-      </p>
-
-      <div class="show-credits">
-        <span class="label">Director:</span>
-        <span id="show-director">Baran bo Odar</span>
-        <span class="sep">|</span>
-        <span class="label">Main character:</span>
-        <span id="show-stars">Jonas Kahnwald</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- 
-       ABOUT
-        -->
-  <section class="about-section" id="about">
-    <div class="custom-container">
-      <div class="about-grid">
-
-        <div class="about-content">
-          <span class="subtitle">WHO WE ARE</span>
-          <h2 class="title">A Cinematic Platform For Video Enthusiasts.</h2>
-          <p class="description">
-            Dive into high‑energy showreels, cinematic films, and the best series.
-            We curate experiences that turn heads, blending storytelling with high‑end visuals.
-          </p>
-
-          <div class="features">
-            <div class="feature-item">
-              <span class="feature-title">Cinematic Vision</span>
-              <p>High-end visuals that tell stories.</p>
-            </div>
-            <div class="feature-item">
-              <span class="feature-title">Top Selections</span>
-              <p>Curating the best of entertainment.</p>
-            </div>
-          </div>
+          <form action="#" id="searchForm" role="search" aria-label="Search">
+            <input
+              type="text"
+              name="search"
+              id="searchInput"
+              placeholder="Search..."
+              autocomplete="off"
+            />
+            <button class="icon-btn" type="submit" aria-label="Submit search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
         </div>
-        <div class="about-visual" aria-label="Poster wall">
-          <div class="poster-wall">
+      </nav>
 
-            <div class="poster-col scroll-up">
-              <div class="poster-group">
-                <img src="https://i.pinimg.com/1200x/87/22/29/8722292a92fa6659f1e07f2f6fb18051.jpg" alt="Poster 1">
-                <img src="https://i.pinimg.com/736x/26/79/d0/2679d0567d163671f988adfb83951397.jpg" alt="Poster 2">
-                <img src="https://i.pinimg.com/736x/f6/0c/0e/f60c0e79d04781510017ad1e49882024.jpg" alt="Poster 3">
-                <img src="https://i.pinimg.com/736x/53/d4/91/53d491950018e7923cc9f17ed1d45fbc.jpg" alt="Poster 4">
-                <img src="https://i.pinimg.com/1200x/87/22/29/8722292a92fa6659f1e07f2f6fb18051.jpg" alt="Poster 1 duplicate">
-                <img src="https://i.pinimg.com/736x/26/79/d0/2679d0567d163671f988adfb83951397.jpg" alt="Poster 2 duplicate">
+      <div class="hero-media">
+        <img id="bg" src="images/dark.jpg" alt="Featured background" />
+      </div>
+
+      <div class="hero-info" id="slider-content">
+        <div class="show-meta">
+          <span id="show-categories">Sci‑Fi, Thriller, Mystery</span>
+          <span class="dot">•</span>
+          <span id="show-year">2017</span>
+          <span class="dot">•</span>
+          <span class="ten"><span id="show-rating">8.7</span>/10</span>
+        </div>
+
+        <h1 id="show-title">DARK</h1>
+
+        <p id="desc" class="hero-desc">
+          A complex supernatural thriller where the disappearance of two
+          children exposes the double lives and fractured relationships among
+          four families...
+        </p>
+
+        <div class="show-credits">
+          <span class="label">Director:</span>
+          <span id="show-director">Baran bo Odar</span>
+          <span class="sep">|</span>
+          <span class="label">Main character:</span>
+          <span id="show-stars">Jonas Kahnwald</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="custom-container">
+        <div class="about-grid">
+          <div class="about-content">
+            <span class="subtitle">WHO WE ARE</span>
+            <h2 class="title">A Cinematic Platform For Video Enthusiasts.</h2>
+            <p class="description">
+              Dive into high‑energy showreels, cinematic films, and the best
+              series. We curate experiences that turn heads, blending
+              storytelling with high‑end visuals.
+            </p>
+
+            <div class="features">
+              <div class="feature-item">
+                <span class="feature-title">Cinematic Vision</span>
+                <p>High-end visuals that tell stories.</p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-title">Top Selections</span>
+                <p>Curating the best of entertainment.</p>
               </div>
             </div>
+          </div>
+          <div class="about-visual" aria-label="Poster wall">
+            <div class="poster-wall">
+              <div class="poster-col scroll-up">
+                <div class="poster-group">
+                  <img
+                    src="https://i.pinimg.com/1200x/87/22/29/8722292a92fa6659f1e07f2f6fb18051.jpg"
+                    alt="Poster 1"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/26/79/d0/2679d0567d163671f988adfb83951397.jpg"
+                    alt="Poster 2"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/f6/0c/0e/f60c0e79d04781510017ad1e49882024.jpg"
+                    alt="Poster 3"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/53/d4/91/53d491950018e7923cc9f17ed1d45fbc.jpg"
+                    alt="Poster 4"
+                  />
+                  <img
+                    src="https://i.pinimg.com/1200x/87/22/29/8722292a92fa6659f1e07f2f6fb18051.jpg"
+                    alt="Poster 1 duplicate"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/26/79/d0/2679d0567d163671f988adfb83951397.jpg"
+                    alt="Poster 2 duplicate"
+                  />
+                </div>
+              </div>
 
-            <div class="poster-col scroll-down">
-              <div class="poster-group">
-                <img src="https://i.pinimg.com/736x/cd/ea/30/cdea30993a49ca91bf6a69d4ae225845.jpg" alt="Poster 5">
-                <img src="https://i.pinimg.com/1200x/77/13/39/77133967b31e226e7ffe005345edcec4.jpg" alt="Poster 6">
-                <img src="https://i.pinimg.com/736x/88/48/4b/88484b6fc3cbb4504da1a17a25ce7421.jpg" alt="Poster 7">
-                <img src="https://i.pinimg.com/736x/da/68/12/da68128d21dd068e53a972a0e6274bf5.jpg" alt="Poster 8">
+              <div class="poster-col scroll-down">
+                <div class="poster-group">
+                  <img
+                    src="https://i.pinimg.com/736x/cd/ea/30/cdea30993a49ca91bf6a69d4ae225845.jpg"
+                    alt="Poster 5"
+                  />
+                  <img
+                    src="https://i.pinimg.com/1200x/77/13/39/77133967b31e226e7ffe005345edcec4.jpg"
+                    alt="Poster 6"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/88/48/4b/88484b6fc3cbb4504da1a17a25ce7421.jpg"
+                    alt="Poster 7"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/da/68/12/da68128d21dd068e53a972a0e6274bf5.jpg"
+                    alt="Poster 8"
+                  />
 
-                <img src="https://i.pinimg.com/736x/cd/ea/30/cdea30993a49ca91bf6a69d4ae225845.jpg" alt="Poster 5 duplicate">
-                <img src="https://i.pinimg.com/1200x/77/13/39/77133967b31e226e7ffe005345edcec4.jpg" alt="Poster 6 duplicate">
+                  <img
+                    src="https://i.pinimg.com/736x/cd/ea/30/cdea30993a49ca91bf6a69d4ae225845.jpg"
+                    alt="Poster 5 duplicate"
+                  />
+                  <img
+                    src="https://i.pinimg.com/1200x/77/13/39/77133967b31e226e7ffe005345edcec4.jpg"
+                    alt="Poster 6 duplicate"
+                  />
+                </div>
+              </div>
+              <div class="poster-col scroll-up">
+                <div class="poster-group">
+                  <img
+                    src="https://i.pinimg.com/1200x/01/d5/39/01d5392ce063b8bd69867fabfeab395b.jpg"
+                    alt="Poster 9"
+                  />
+                  <img
+                    src="https://i.pinimg.com/1200x/ed/8e/8c/ed8e8c579d1f89e02a4ca17f364f37c5.jpg"
+                    alt="Poster 10"
+                  />
+                  <img
+                    src="https://i.pinimg.com/1200x/5a/d0/87/5ad0879157e650975e269177b9b5ed6b.jpg"
+                    alt="Poster 11"
+                  />
+                  <img
+                    src="https://i.pinimg.com/736x/d8/a2/5e/d8a25ee4948ca0c87a2efda4fcbd242a.jpg"
+                    alt="Poster 12"
+                  />
+
+                  <img
+                    src="https://i.pinimg.com/1200x/01/d5/39/01d5392ce063b8bd69867fabfeab395b.jpg"
+                    alt="Poster 9 duplicate"
+                  />
+                  <img
+                    src="https://i.pinimg.com/1200x/ed/8e/8c/ed8e8c579d1f89e02a4ca17f364f37c5.jpg"
+                    alt="Poster 10 duplicate"
+                  />
+                </div>
               </div>
             </div>
-            <div class="poster-col scroll-up">
-              <div class="poster-group">
-                <img src="https://i.pinimg.com/1200x/01/d5/39/01d5392ce063b8bd69867fabfeab395b.jpg" alt="Poster 9">
-                <img src="https://i.pinimg.com/1200x/ed/8e/8c/ed8e8c579d1f89e02a4ca17f364f37c5.jpg" alt="Poster 10">
-                <img src="https://i.pinimg.com/1200x/5a/d0/87/5ad0879157e650975e269177b9b5ed6b.jpg" alt="Poster 11">
-                <img src="https://i.pinimg.com/736x/d8/a2/5e/d8a25ee4948ca0c87a2efda4fcbd242a.jpg" alt="Poster 12">
+          </div>
+        </div>
 
-                <img src="https://i.pinimg.com/1200x/01/d5/39/01d5392ce063b8bd69867fabfeab395b.jpg" alt="Poster 9 duplicate">
-                <img src="https://i.pinimg.com/1200x/ed/8e/8c/ed8e8c579d1f89e02a4ca17f364f37c5.jpg" alt="Poster 10 duplicate">
-              </div>
+        <!-- marquee -->
+        <div class="about-marquee" aria-hidden="true">
+          <div class="about-marquee__track">
+            <span>
+              CINEMATOGRAPHY • SHOWREEL • SERIES • STREAMING • MOTION DESIGN •
+              CREATIVE DIRECTION • CINEMATOGRAPHY • SHOWREEL • SERIES •
+              STREAMING • MOTION DESIGN • CREATIVE DIRECTION •
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards-section" id="series">
+      <div class="custom-container">
+        <h2 class="section-title section-title--top5">
+          TOP 5 MUST‑WATCH SERIES
+        </h2>
+
+        <div class="cards-wrap">
+          <div
+            class="card"
+            id="sherlock"
+            style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/4e/cb/db/4ecbdbaea22ad23148a96883ef576046.jpg&quot;);
+            "
+          >
+            <div class="card-content">
+              <span class="card-badge">Series</span>
+              <h3>Sherlock</h3>
+              <p>Solving crimes in modern London.</p>
             </div>
+          </div>
 
+          <div
+            class="card"
+            id="joker"
+            style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/f5/12/eb/f512eb6b25a922859e3f306e8717fc76.jpg&quot;);
+            "
+          >
+            <div class="card-content">
+              <span class="card-badge">Movie</span>
+              <h3>The Joker</h3>
+              <p>The dark origin of Gotham's villain.</p>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            id="dexter"
+            style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/85/c0/8b/85c08b7f62d165344ba22c1f5d12e285.jpg&quot;);
+            "
+          >
+            <div class="card-content">
+              <span class="card-badge">Series</span>
+              <h3>Dexter</h3>
+              <p>A forensics expert by day, vigilante by night.</p>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            id="got"
+            style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/2c/2a/bd/2c2abd1b2a647c3cfe56362ab9ef1fd2.jpg&quot;);
+            "
+          >
+            <div class="card-content">
+              <span class="card-badge">Series</span>
+              <h3>Game of Thrones</h3>
+              <p>Battle for the Iron Throne.</p>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            id="peaky"
+            style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/d5/02/6b/d5026b08d37c61edc43aa1c627374815.jpg&quot;);
+            "
+          >
+            <div class="card-content">
+              <span class="card-badge">Trending</span>
+              <h3>Peaky Blinders</h3>
+              <p>Birmingham's notorious crime family.</p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- marquee -->
-      <div class="about-marquee" aria-hidden="true">
-        <div class="about-marquee__track">
-          <span>
-            CINEMATOGRAPHY • SHOWREEL • SERIES • STREAMING • MOTION DESIGN • CREATIVE DIRECTION •
-            CINEMATOGRAPHY • SHOWREEL • SERIES • STREAMING • MOTION DESIGN • CREATIVE DIRECTION •
-          </span>
+    <div class="movies pt-5 pb-5">
+      <h2 class="section-title section-title--top5">Movies</h2>
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center gap-1"
+      >
+        <div class="arrow-back">
+          <i class="fa-solid fa-angle-left" id="backBtn"></i>
+        </div>
+
+        <div class="slider-viewport" id="slider-viewport">
+
+          <div class="loader">
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+          </div>
+
+          <div class="movies-container" id="movies-container"></div>
+        </div>
+
+        <div class="arrow-next">
+          <i class="fa-solid fa-angle-right" id="nextBtn"></i>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="cards-section" id="series">
-    <div class="custom-container">
-
-      <h2 class="section-title section-title--top5">
-       
-        TOP 5 MUST‑WATCH SERIES
-      </h2>
-
-      <div class="cards-wrap">
-
-        <div class="card" id="sherlock"
-          style="background-image:url('https://i.pinimg.com/1200x/4e/cb/db/4ecbdbaea22ad23148a96883ef576046.jpg')">
-          <div class="card-content">
-            <span class="card-badge">Series</span>
-            <h3>Sherlock</h3>
-            <p>Solving crimes in modern London.</p>
-          </div>
+    
+    <div class="series pt-5 pb-5">
+      <h2 class="section-title section-title--top5">TV SHows</h2>
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center gap-1"
+      >
+        <div class="arrow-back">
+          <i class="fa-solid fa-angle-left" id="backBtn"></i>
         </div>
 
-        <div class="card" id="joker"
-          style="background-image:url('https://i.pinimg.com/1200x/f5/12/eb/f512eb6b25a922859e3f306e8717fc76.jpg')">
-          <div class="card-content">
-            <span class="card-badge">Movie</span>
-            <h3>The Joker</h3>
-            <p>The dark origin of Gotham's villain.</p>
+        <div class="slider-viewport" id="slider-viewport">
+
+          <div class="loader">
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
+            <div class="circle">
+              <div class="dot"></div>
+              <div class="outline"></div>
+            </div>
           </div>
+
+          <div class="series-container" id="series-container"></div>
         </div>
 
-        <div class="card" id="dexter"
-          style="background-image:url('https://i.pinimg.com/1200x/85/c0/8b/85c08b7f62d165344ba22c1f5d12e285.jpg')">
-          <div class="card-content">
-            <span class="card-badge">Series</span>
-            <h3>Dexter</h3>
-            <p>A forensics expert by day, vigilante by night.</p>
-          </div>
+        <div class="arrow-next">
+          <i class="fa-solid fa-angle-right" id="nextBtn"></i>
         </div>
-
-        <div class="card" id="got"
-          style="background-image:url('https://i.pinimg.com/1200x/2c/2a/bd/2c2abd1b2a647c3cfe56362ab9ef1fd2.jpg')">
-          <div class="card-content">
-            <span class="card-badge">Series</span>
-            <h3>Game of Thrones</h3>
-            <p>Battle for the Iron Throne.</p>
-          </div>
-        </div>
-
-        <div class="card" id="peaky"
-          style="background-image:url('https://i.pinimg.com/1200x/d5/02/6b/d5026b08d37c61edc43aa1c627374815.jpg')">
-          <div class="card-content">
-            <span class="card-badge">Trending</span>
-            <h3>Peaky Blinders</h3>
-            <p>Birmingham's notorious crime family.</p>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section>
+    <!-- =========================================================
+      MODAL (cinematic transition) 
+      ========================================================= -->
+    <div class="card-modal" id="cardModal" aria-hidden="true">
+      <div class="card-modal__backdrop" data-card-modal-close></div>
 
-  <!-- =========================================================
-       MODAL (cinematic transition)
-       ========================================================= -->
-  <div class="card-modal" id="cardModal" aria-hidden="true">
-    <div class="card-modal__backdrop" data-card-modal-close></div>
-
-    <div class="card-modal__content" role="dialog" aria-modal="true">
-      <button class="card-modal__close" type="button" aria-label="Close" data-card-modal-close>
-        &times;
-      </button>
-      <h2 class="card-modal__title" id="cardModalTitle"></h2>
+      <div class="card-modal__content" role="dialog" aria-modal="true">
+        <button
+          class="card-modal__close"
+          type="button"
+          aria-label="Close"
+          data-card-modal-close
+        >
+          &times;
+        </button>
+        <h2 class="card-modal__title" id="cardModalTitle"></h2>
+      </div>
     </div>
-  </div>
 
-  <!-- JS -->
-  <script src="js/script.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- JS -->
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

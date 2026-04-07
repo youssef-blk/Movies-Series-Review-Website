@@ -95,7 +95,7 @@ setInterval(() => {
       i = 0;
     }
   }, 800);
-}, 15000);
+}, 10000);
 
 let searchBtn = document.getElementById("searchBtn");
 let searchForm = document.getElementById("searchForm");
@@ -223,3 +223,204 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+//! Hadi Function li katjib l aflam men API
+async function getMovies() {
+  const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
+
+  let allMovies = [];
+
+  let moviesContainer = document.getElementById("movies-container");
+  let loader = document.querySelector(".movies .loader");
+
+  for (let i = 1; i <= 10; i++) {
+    let myRequest = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=${i}`,
+    );
+    let myData = await myRequest.json();
+    allMovies.push(...myData.results);
+    allMovies = allMovies.filter(item => item.original_language === "en");
+  }
+
+  loader.style.display = "none";
+
+  
+  
+
+  function renderMovieCard(movie) {
+    let movieCard = document.createElement("div");
+    movieCard.classList.add("movie-card", "slide-in");
+    movieCard.innerHTML = `
+    <img
+      src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+      alt="The Joker poster"
+      class="img-fluid"
+      title="${movie.original_title}"
+    />
+    `;
+
+
+    return movieCard;
+  }
+
+  allMovies.forEach((movie) => {
+    moviesContainer.appendChild(renderMovieCard(movie));
+  });
+
+  let isAnimating = false;
+
+  document.querySelector(".movies #nextBtn").addEventListener("click", () => {
+    
+    if (isAnimating) return;
+    isAnimating = true;
+
+
+    const cardWidth = moviesContainer.children[0].offsetWidth;
+
+    moviesContainer.style.transition = "transform 0.4s ease-in-out";
+    moviesContainer.style.transform = `translateX(-${cardWidth}px)`;
+
+    moviesContainer.addEventListener("transitionend", function handler() {
+
+      moviesContainer.removeEventListener("transitionend", handler);
+
+      moviesContainer.appendChild(moviesContainer.firstChild);
+
+      moviesContainer.style.transition = "none";
+      moviesContainer.style.transform = "translateX(0)";
+
+      isAnimating = false;
+
+    })
+  });
+  
+  document.querySelector(".movies #backBtn").addEventListener("click", () => {
+    
+    if (isAnimating) return;
+    isAnimating = true;
+
+
+    const cardWidth = moviesContainer.children[0].offsetWidth;
+
+    moviesContainer.style.transition = "transform 0.4s ease-in-out";
+    moviesContainer.style.transform = `translateX(${cardWidth}px)`;
+
+    moviesContainer.addEventListener("transitionend", function handler() {
+
+      moviesContainer.removeEventListener("transitionend", handler);
+
+      moviesContainer.prepend(moviesContainer.lastChild);
+
+      moviesContainer.style.transition = "none";
+      moviesContainer.style.transform = "translateX(0)";
+
+      isAnimating = false;
+
+    })
+  });
+  
+  
+}
+
+
+
+//! W Hadi Function li katjib seriat men API
+async function getSeries() {
+  const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
+
+  let allSeries = [];
+
+  let seriesContainer = document.getElementById("series-container");
+  let loader = document.querySelector(".series .loader");
+
+  for (let i = 1; i <= 10; i++) {
+    let myRequest = await fetch(
+      `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=${i}`,
+    );
+    let myData = await myRequest.json();
+    allSeries.push(...myData.results);
+    allSeries = allSeries.filter(item => item.original_language === "en");
+  }
+
+  loader.style.display = "none";
+
+  console.log(allSeries);
+  
+
+  function renderSerieCard(serie) {
+    let serieCard = document.createElement("div");
+    serieCard.classList.add("serie-card");
+    serieCard.innerHTML = `
+    <img
+      src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
+      alt="The Joker poster"
+      class="img-fluid"
+      title="${serie.original_title}"
+    />
+    `;
+
+
+    return serieCard;
+  }
+
+  allSeries.forEach((serie) => {
+    seriesContainer.appendChild(renderSerieCard(serie));
+  });
+
+  let isAnimating = false;
+
+  document.querySelector(".series #nextBtn").addEventListener("click", () => {
+    
+    if (isAnimating) return;
+    isAnimating = true;
+
+
+    const cardWidth = seriesContainer.children[0].offsetWidth;
+
+    seriesContainer.style.transition = "transform 0.4s ease-in-out";
+    seriesContainer.style.transform = `translateX(-${cardWidth}px)`;
+
+    seriesContainer.addEventListener("transitionend", function handler() {
+
+      seriesContainer.removeEventListener("transitionend", handler);
+
+      seriesContainer.appendChild(seriesContainer.firstChild);
+
+      seriesContainer.style.transition = "none";
+      seriesContainer.style.transform = "translateX(0)";
+
+      isAnimating = false;
+
+    })
+  });
+  
+  document.querySelector(".series #backBtn").addEventListener("click", () => {
+    
+    if (isAnimating) return;
+    isAnimating = true;
+
+
+    const cardWidth = seriesContainer.children[0].offsetWidth;
+
+    seriesContainer.style.transition = "transform 0.4s ease-in-out";
+    seriesContainer.style.transform = `translateX(${cardWidth}px)`;
+
+    seriesContainer.addEventListener("transitionend", function handler() {
+
+      seriesContainer.removeEventListener("transitionend", handler);
+
+      seriesContainer.prepend(seriesContainer.lastChild);
+
+      seriesContainer.style.transition = "none";
+      seriesContainer.style.transform = "translateX(0)";
+
+      isAnimating = false;
+
+    })
+  });
+  
+  
+}
+
+getMovies();
+getSeries();
