@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikings | Ragnar Lothbrok</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0c0c0c; 
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 10%;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: #c5a059; 
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            gap: 50px;
+            background: radial-gradient(circle at 70%, #1a1a1a 0%, #0c0c0c 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .sub-title {
+            color: #c5a059;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 0.9;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            color: #c5a059;
+            background: transparent;
+        }
+
+        .hero-content p {
+            max-width: 500px;
+            color: #aaa;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: transparent;
+            border: 2px solid #c5a059;
+            color: #c5a059;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #c5a059;
+            color: #000;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 85%;
+            border-radius: 4px;
+            filter: grayscale(20%) contrast(110%);
+            box-shadow: -20px 20px 0px #c5a059;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding-top: 120px;
+                text-align: center;
+                height: auto;
+                padding-bottom: 50px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-image {
+                margin-top: 50px;
+            }
+            .hero-image img {
+                width: 100%;
+                box-shadow: -10px 10px 0px #c5a059;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VIKINGS</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="sub-title">History / Drama / Action Masterpiece</span>
+            <h1>RAGNAR <br> <span class="highlight">LOTHBROK</span></h1>
+            <p>A simple farmer and warrior, fueled by ambitions of conquering lands, rises to become a legendary Scandinavian king. Follow his journey of faith, family, and power.</p>
+            <a href="https://www.imdb.com/title/tt2306299/" target="_blank" class="btn-main">WATCH TRAILER</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.imdb.com/fr/title/tt2306299/?ref_=nv_sr_srsg_4_tt_2_nm_6_in_0_q_viki" alt="Ragnar Lothbrok, Vikings">
+        </div>
+    </section>
+
+</body>
+</html>

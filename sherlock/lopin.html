@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lupin | The Gentleman Thief</title>
+    <style>
+      
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a; 
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10%;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #e50914; }
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.sub-title {
+    color: #888;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.highlight {
+    color: #e50914;
+}
+
+.hero-content p {
+    max-width: 500px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: transparent;
+    border: 2px solid #e50914;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #e50914;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(229, 9, 20, 0.2);
+}
+
+.about {
+    padding: 100px 10%;
+    text-align: center;
+    background-color: #111;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+}
+
+.line {
+    width: 80px;
+    height: 4px;
+    background-color: #e50914;
+    margin: 20px auto;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding-top: 120px;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-image img {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LUPIN</div>
+       
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="sub-title">INSPIRED BY ARSÈNE LUPIN</span>
+            <h1>ASSANE <br> <span class="highlight">DIOP</span></h1>
+            <p>Un voleur au grand cœur qui cherche à venger son père d'une injustice commise par une famille riche.</p>
+            <a href="https://www.imdb.com/fr/title/tt2531336/?ref_=nv_sr_srsg_2_tt_3_nm_5_in_0_q_lopin" target="_blank" class="btn-main">DISCOVER MORE</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.pinimg.com/1200x/99/7e/fd/997efdb50550f030d8c10fe79dd43091.jpg" alt="Lupin Character">
+        </div>
+    </section>
+
+
+</body>
+</html>
