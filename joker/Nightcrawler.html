@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightcrawler | Lou Bloom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505; 
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 10%;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: #f1c40f; /* لون أصفر فاقع خاص بالفيلم */
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            gap: 50px;
+            background: radial-gradient(circle at 70%, #1a1a1a 0%, #050505 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .sub-title {
+            color: #f1c40f;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 0.9;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            color: #f1c40f;
+            -webkit-text-stroke: 1px #f1c40f;
+            background: transparent;
+        }
+
+        .hero-content p {
+            max-width: 500px;
+            color: #aaa;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: transparent;
+            border: 2px solid #f1c40f;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #f1c40f;
+            color: #000;
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 85%;
+            height:600px;
+            border-radius: 4px;
+            filter: grayscale(20%) contrast(110%);
+            box-shadow: -20px 20px 0px #f1c40f; 
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding-top: 120px;
+                text-align: center;
+                height: auto;
+                padding-bottom: 50px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-image {
+                margin-top: 50px;
+            }
+            .hero-image img {
+                width: 100%;
+                box-shadow: -10px 10px 0px #f1c40f;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NIGHTCRAWLER</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="sub-title">Crime / Thriller Masterpiece</span>
+            <h1>LOU <br> <span class="highlight">BLOOM</span></h1>
+            <p>Un jeune homme ambitieux découvre le monde du journalisme criminel nocturne à Los Angeles, où la frontière entre observateur et participant devient inexistante.</p>
+            <a href="https://www.imdb.com/fr/title/tt2872718/?ref_=nv_sr_srsg_0_tt_5_nm_3_in_0_q_NIGHTCRAWLER" target="_blank" class="btn-main">WATCH TRAILER</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.pinimg.com/736x/5a/c3/25/5ac32531eba73c28ce80ba27f154d978.jpg" alt="Nightcrawler Lou Bloom">
+        </div>
+    </section>
+
+</body>
+</html>

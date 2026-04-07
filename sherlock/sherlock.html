@@ -1,156 +1,515 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShowTime | Sherlock</title>
 
-    <link rel="stylesheet" href="../css/all.min.css" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="sherlock.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShowTime | Sherlock</title>
 
-  <body class="intro-active" onclick="skipTyping()">
-    <div class="header-image" id="home">
-      <nav id="nav-id" class="hidden-element">
-        <div class="logo">
-          <img src="imgs/logonav.png" alt="ShowTime logo" />
-        </div>
+  <link rel="stylesheet" href="../css/all.min.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="sherlock.css" />
+</head>
 
-        <ul class="links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#video-bottom-id">Trailer</a></li>
-          <li><a href="#after-hero">Story</a></li>
-          <li><a href="#soon-sherlock">Coming</a></li>
-          <li><a href="#rating-id">Rating</a></li>
-        </ul>
-
-      </nav>
-
-      <div class="hero-content">
-        <div id="text-wrapper" data-series="Sherlock">
-          <span id="typing-text" class="hero-desc"></span>
-          <span class="cursor">|</span>
-        </div>
-
-        <div id="logo-reveal">
-          <img src="imgs/logo.png" class="floating-logo" alt="Sherlock logo" />
-        </div>
+<body class="intro-active" onclick="skipTyping()">
+  <div class="header-image" id="home">
+    <nav id="nav-id" class="hidden-element">
+      <div class="logo">
+        <img src="imgs/logonav.png" alt="ShowTime logo" />
       </div>
 
-      <div class="rating-box" id="rating-id">
-        <h1 class="rating-number">9,0</h1>
-        <div class="stars">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-        </div>
-        <p class="rating-text">IMDb Rating</p>
+      <ul class="links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#video-bottom-id">Trailer</a></li>
+        <li><a href="#after-hero">Story</a></li>
+        <li><a href="#soon-sherlock">Coming</a></li>
+        <li><a href="#rating-id">Rating</a></li>
+      </ul>
+
+    </nav>
+
+    <div class="hero-content">
+      <div id="text-wrapper" data-series="Sherlock">
+        <span id="typing-text" class="hero-desc"></span>
+        <span class="cursor">|</span>
       </div>
 
-      <div class="video-hero-bottom" id="video-bottom-id">
-        <div class="video-frame" id="videoBox">
-          <span class="video-label">Official Trailer</span>
-          <video id="myHeroVideo" loop muted autoplay playsinline>
-            <source src="imgs/triler.mp4" type="video/mp4" />
-          </video>
-          <span class="play-icon"><i class="fa-solid fa-play"></i></span>
-        </div>
+      <div id="logo-reveal">
+        <img src="imgs/logo.png" class="floating-logo" alt="Sherlock logo" />
       </div>
     </div>
 
-
-
-    <section id="soon-sherlock" class="sherlock-coming">
-      <div class="container">
-        <div class="coming-shell">
-          <div class="coming-head">
-            <h2>COMING SOON</h2>
-            <div class="coming-controls">
-              <button class="coming-nav coming-prev" aria-label="Previous upcoming item">
-                <i class="fa-solid fa-chevron-left"></i>
-              </button>
-              <button class="coming-nav coming-next" aria-label="Next upcoming item">
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="coming-window">
-            <div class="coming-track">
-              <article class="coming-card">
-                <img src="https://i.pinimg.com/736x/5e/f5/be/5ef5be2f66b463373a4d222ebab057f9.jpg" alt="Feature card">
-                <div class="coming-meta">
-                  <p>Feature</p>
-                  <h4>Tense Investigations Return</h4>
-                </div>
-              </article>
-
-              <article class="coming-card">
-                <img src="https://i.pinimg.com/736x/55/64/5b/55645b0fcaf0974d5dff197294b223d3.jpg" alt="Preview card">
-                <div class="coming-meta">
-                  <p>Preview</p>
-                  <h4>Mind Games And New Clues</h4>
-                </div>
-              </article>
-
-              <article class="coming-card">
-                <img src="https://i.pinimg.com/736x/64/a6/a1/64a6a1425b2dcba32699961d96ec8785.jpg" alt="Interview card">
-                <div class="coming-meta">
-                  <p>Interview</p>
-                  <h4>Inside The Writing Room</h4>
-                </div>
-              </article>
-
-              <article class="coming-card">
-                <img src="https://i.pinimg.com/736x/8e/e4/27/8ee427cc199837071e78bb742a2c72bb.jpg" alt="Spotlight card">
-                <div class="coming-meta">
-                  <p>Spotlight</p>
-                  <h4>Unsolved Cases Archive</h4>
-                </div>
-              </article>
-
-              <article class="coming-card">
-                <img src="https://i.pinimg.com/736x/c8/70/75/c87075c05add8eea24c9ed005e5205ef.jpg" alt="Behind the scenes card">
-                <div class="coming-meta">
-                  <p>Behind</p>
-                  <h4>Cold Streets, Sharp Minds</h4>
-                </div>
-              </article>
-
-              <article class="coming-card">
-                <img src="https://i.pinimg.com/1200x/59/ed/12/59ed122bda7f9a80dbb64cdc42b65c98.jpg" alt="Editorial card">
-                <div class="coming-meta">
-                  <p>Editorial</p>
-                  <h4>The Logic Of Deductions</h4>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div class="coming-dots" id="sherlockSoonDots"></div>
-        </div>
+    <div class="rating-box" id="rating-id">
+      <h1 class="rating-number">9,0</h1>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
       </div>
-    </section>
+      <p class="rating-text">IMDb Rating</p>
+    </div>
 
-    <div id="videoModal" class="video-overlay">
-      <div class="overlay-content">
-        <video id="fullVideo" controls>
+    <div class="video-hero-bottom" id="video-bottom-id">
+      <div class="video-frame" id="videoBox">
+        <span class="video-label">Official Trailer</span>
+        <video id="myHeroVideo" loop muted autoplay playsinline>
           <source src="imgs/triler.mp4" type="video/mp4" />
         </video>
-        <div class="video-info-overlay">
-          <p class="subtitle">221B ARCHIVE</p>
-          <h2 class="title">SHERLOCK - OFFICIAL TRAILER</h2>
-          <p class="description">
-            Enter the world of deduction, danger, and brilliant strategy.
+        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section id="story" class="show-info-section">
+    <div class="side-band left-band"></div>
+    <div class="side-band right-band"></div>
+
+    <div class="container content-container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="image-wrapper">
+            <img src="https://i.pinimg.com/736x/f2/d3/91/f2d391fda05607a16a43b5d41e6bb8b4.jpg" class="king-image"
+              alt="Joker Arthur">
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-side">
+          <p class="sub-label">CHARACTER STUDY</p>
+          <h2 class="main-quote">"THE GAME IS AFOOT."</h2>
+          <div class="divider"></div>
+          <p class="description-text">
+            Sherlock Holmes, a consulting detective with a razor-sharp intellect,
+            operates from the shadows of 221B Baker Street. Known for his
+            extraordinary powers of deduction and cold logic, he navigates the
+            foggy streets of Victorian London to solve the most unsolvable mysteries.
           </p>
+          <a class="btn-more" href="https://www.imdb.com/fr/title/tt7286456/awards/">DISCOVER MORE</a>
         </div>
       </div>
     </div>
+  </section>
+  <section id="soon-sherlock" class="sherlock-coming">
+    <div class="container">
+      <div class="coming-shell">
+        <div class="coming-head">
+          <h2>COMING SOON</h2>
+          <div class="coming-controls">
+            <button class="coming-nav coming-prev" aria-label="Previous upcoming item">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="coming-nav coming-next" aria-label="Next upcoming item">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
 
-    <script src="sherlock.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-  </body>
+        <div class="coming-window">
+          <div class="coming-track">
+            <article class="coming-card">
+              <img src="https://i.pinimg.com/736x/5e/f5/be/5ef5be2f66b463373a4d222ebab057f9.jpg" alt="Feature card">
+              <div class="coming-meta">
+                <p>Feature</p>
+                <h4>Tense Investigations Return</h4>
+              </div>
+            </article>
+
+            <article class="coming-card">
+              <img src="https://i.pinimg.com/736x/55/64/5b/55645b0fcaf0974d5dff197294b223d3.jpg" alt="Preview card">
+              <div class="coming-meta">
+                <p>Preview</p>
+                <h4>Mind Games And New Clues</h4>
+              </div>
+            </article>
+
+            <article class="coming-card">
+              <img src="https://i.pinimg.com/736x/64/a6/a1/64a6a1425b2dcba32699961d96ec8785.jpg" alt="Interview card">
+              <div class="coming-meta">
+                <p>Interview</p>
+                <h4>Inside The Writing Room</h4>
+              </div>
+            </article>
+
+            <article class="coming-card">
+              <img src="https://i.pinimg.com/736x/8e/e4/27/8ee427cc199837071e78bb742a2c72bb.jpg" alt="Spotlight card">
+              <div class="coming-meta">
+                <p>Spotlight</p>
+                <h4>Unsolved Cases Archive</h4>
+              </div>
+            </article>
+
+            <article class="coming-card">
+              <img src="https://i.pinimg.com/736x/c8/70/75/c87075c05add8eea24c9ed005e5205ef.jpg"
+                alt="Behind the scenes card">
+              <div class="coming-meta">
+                <p>Behind</p>
+                <h4>Cold Streets, Sharp Minds</h4>
+              </div>
+            </article>
+
+            <article class="coming-card">
+              <img src="https://i.pinimg.com/1200x/59/ed/12/59ed122bda7f9a80dbb64cdc42b65c98.jpg" alt="Editorial card">
+              <div class="coming-meta">
+                <p>Editorial</p>
+                <h4>The Logic Of Deductions</h4>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="coming-dots" id="sherlockSoonDots"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="galleries" class="galleries">
+    <div class="container">
+      <header class="section-header">
+        <h2>Galleries</h2>
+        <p>Actors, characters, and details.</p>
+      </header>
+
+      <div class="gallery-grid is-marquee" aria-label="Actor galleries">
+        <div class="gallery-track">
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img"
+                src="https://i.pinimg.com/1200x/47/ea/d4/47ead4c5131ccea7d8e17c20f631eba2.jpg" alt="Sherlock Holmes"
+                loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Benedict Cumberbatch</h3>
+              <p class="actor-role">Sherlock Holmes</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> July 19, 1976</li>
+                <li><span>Known for:</span> Doctor Strange, The Imitation Game</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/0c/4e/9d/0c4e9de8afa6316b67279d7d791adc54.jpg"
+                alt="John Watson" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Martin Freeman</h3>
+              <p class="actor-role">Dr. John Watson</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> September 8, 1971</li>
+                <li><span>Known for:</span> The Hobbit, Fargo</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/6c/2d/d3/6c2dd3525b3def3245896eced6f397a5.jpg"
+                alt="Jim Moriarty" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Andrew Scott</h3>
+              <p class="actor-role">Jim Moriarty</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> October 21, 1976</li>
+                <li><span>Known for:</span> Fleabag, 1917</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/68/71/ff/6871ffbe708a0cb8b41a0c779c98cb77.jpg"
+                alt="Mycroft Holmes" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Mark Gatiss</h3>
+              <p class="actor-role">Mycroft Holmes</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> October 17, 1966</li>
+                <li><span>Known for:</span> Doctor Who, Game of Thrones</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/8c/da/2c/8cda2cc853de82ecb489c7441008207e.jpg"
+                alt="Irene Adler" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Lara Pulver</h3>
+              <p class="actor-role">Irene Adler</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> September 1, 1980</li>
+                <li><span>Known for:</span> True Blood, Spooks</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/98/7c/c0/987cc03e9d6e5a3839f859aecdf4700d.jpg"
+                alt="Molly Hooper" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Louise Brealey</h3>
+              <p class="actor-role">Molly Hooper</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> March 27, 1979</li>
+                <li><span>Known for:</span> A Discovery of Witches</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/27/8b/cc/278bccee0c7c92e039c8bbdeb2c7adf6.jpg"
+                alt="Greg Lestrade" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Rupert Graves</h3>
+              <p class="actor-role">DI Greg Lestrade</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> June 30, 1963</li>
+                <li><span>Known for:</span> V for Vendetta, A Room with a View</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/66/f1/d3/66f1d3a320613215a6054f9989c09f00.jpg"
+                alt="Mrs Hudson" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Una Stubbs</h3>
+              <p class="actor-role">Mrs. Hudson</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> May 1, 1937</li>
+                <li><span>Known for:</span> Worzel Gummidge, Till Death Us Do Part</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/f6/10/47/f610470174a422e9903fa79ca7a29ba0.jpg"
+                alt="Mary Watson" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Amanda Abbington</h3>
+              <p class="actor-role">Mary Watson</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> February 28, 1974</li>
+                <li><span>Known for:</span> Mr Selfridge, Safe</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="actor-card">
+            <div class="actor-photo">
+              <img class="actor-photo-img" src="https://i.pinimg.com/736x/8c/c4/ff/8cc4ffcffbb240d849f50d979c02663d.jpg"
+                alt="Eurus Holmes" loading="lazy" />
+            </div>
+            <div class="actor-info">
+              <h3 class="actor-name">Sian Brooke</h3>
+              <p class="actor-role">Eurus Holmes</p>
+              <ul class="actor-meta">
+                <li><span>Born:</span> 1980</li>
+                <li><span>Known for:</span> House of the Dragon, Good Omens</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="staff" class="book-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="sub-label">THE CREATIVE MINDS</p>
+        <h2 class="main-title">Staff</h2>
+        <div class="line-decorator"></div>
+      </div>
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/1200x/39/e6/74/39e674af7e6b31ce3bf01ecc9eed7f2e.jpg" alt="Steven Moffat">
+          </div>
+          <div class="book-info">
+            <span>Co-Creator / Writer</span>
+            <h4>Steven Moffat</h4>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/736x/b4/6c/c1/b46cc151c9fbe1a529c0e587d2082857.jpg" alt="Mark Gatiss">
+          </div>
+          <div class="book-info">
+            <span>Co-Creator / Mycroft</span>
+            <h4>Mark Gatiss</h4>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/736x/47/46/bd/4746bd1bf2d9b10df73203a39e5cfa5c.jpg" alt="David Arnold">
+          </div>
+          <div class="book-info">
+            <span>Composer</span>
+            <h4>David Arnold</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="case-file-section">
+    <div class="vignette-overlay"></div>
+    <div class="case-content">
+      <h1 class="case-number">CASE No. 221B</h1>
+      <h2 class="subject-name">SHERLOCK HOLMES</h2>
+      <p class="description">"I am a consulting detective. Only one in the world. I invented the job."</p>
+
+      <div class="metadata">
+        <div class="data-item"><strong>LOCATION:</strong> LONDON, BAKER ST.</div>
+        <div class="data-item"><strong>STATUS:</strong> HIGH-FUNCTIONING SOCIOPATH</div>
+        <div class="data-item"><strong>THREAT LEVEL:</strong> CRITICAL</div>
+      </div>
+    </div>
+  </section>
+  <section id="recommendations" class="cinematic-section">
+    <div class="container display-flex">
+
+      <div class="text-content">
+        <p class="sub-label">IF YOU LIKED SHERLOCK</p>
+        <h2 class="main-title">THE ART OF <br> DEDUCTION</h2>
+        <div class="lin-decorator"></div>
+        <p class="description">
+          If you are a fan of Sherlock Holmes' brilliant mind, these series offer the same level of mystery, complex
+          characters, and dark atmosphere you'll love.
+        </p>
+        <a href="lopin.html" class="view-btn">EXPLORE MORE</a>
+      </div>
+
+      <div class="image-grid-fancy">
+        <div class="img-wrapper large">
+          <img src="https://i.pinimg.com/1200x/99/7e/fd/997efdb50550f030d8c10fe79dd43091.jpg" alt="Lupin">
+        </div>
+        <div class="img-wrapper medium">
+          <img src="https://i.pinimg.com/736x/8d/58/b6/8d58b6a2a92d83466f5397f08ef931ce.jpg" alt="Mindhunter">
+        </div>
+        <div class="img-wrapper small">
+          <img src="https://i.pinimg.com/1200x/da/cc/4b/dacc4b220fcf8c9ec56dc2f8e83f0bd4.jpg" alt="True Detective">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="stats" class="stats-section">
+    <div class="container stats-container">
+
+      <div class="corner-green corner-tl"></div>
+      <div class="corner-green corner-br"></div>
+
+      <div class="row g-0">
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item first-item">
+            <h1 class="stat-number">180+</h1>
+            <h6 class="stat-label">COUNTRIES</h6>
+            <p class="stat-text">Broadcast in over 180 territories, becoming a global cultural phenomenon.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <h1 class="stat-number">42</h1>
+            <h6 class="stat-label">BAFTA NOMINATIONS</h6>
+            <p class="stat-text">A record-breaking series in British television history with numerous nods.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <h1 class="stat-number">9</h1>
+            <h6 class="stat-label">EMMY WINS</h6>
+            <p class="stat-text">Including Lead Actor for Benedict Cumberbatch and Supporting for Martin Freeman.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-item">
+            <h1 class="stat-number">9.1</h1>
+            <h6 class="stat-label">IMDB RATING</h6>
+            <p class="stat-text">Consistently ranked as one of the highest-rated TV dramas of all time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="videoModal" class="video-overlay">
+    <div class="overlay-content">
+      <video id="fullVideo" controls>
+        <source src="imgs/triler.mp4" type="video/mp4" />
+      </video>
+      <div class="video-info-overlay">
+        <p class="subtitle">221B ARCHIVE</p>
+        <h2 class="title">SHERLOCK - OFFICIAL TRAILER</h2>
+        <p class="description">
+          Enter the world of deduction, danger, and brilliant strategy.
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer class="got-footer py-5">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+          <img src="imgs/logo.png" alt="Joker Logo" class="footer-logo">
+          <p class="mt-3 footer-slogan">PUT ON A HAPPY FACE. THE MADNESS BEGINS.</p>
+        </div>
+
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <ul class="footer-links d-flex justify-content-center gap-4 list-unstyled mb-0">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">MOVIE</a></li>
+            <li><a href="#">CAST</a></li>
+            <li><a href="#">AWARDS</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 text-center text-md-end">
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="footer-divider my-5">
+
+      <div class="row">
+        <div class="col-12 text-center copyright-text">
+          <p>&copy; 2026 WARNER BROS | All Rights Reserved. Created by <span class="designer-name">Mohamed
+              Cheffou</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="sherlock.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

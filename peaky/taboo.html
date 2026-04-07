@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboo | James Delaney</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505; 
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 10%;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            color: #ffffff;
+            border-bottom: 2px solid #333;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            gap: 50px;
+            background: linear-gradient(to right, #050505 40%, rgba(5,5,5,0.7)), 
+                        url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .sub-title {
+            color: #666;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            line-height: 0.85;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .highlight {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        .hero-content p {
+            max-width: 500px;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            border-left: 2px solid #333;
+            padding-left: 20px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: #ffffff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 900;
+            letter-spacing: 3px;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .btn-main:hover {
+            background-color: #444;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 80%;
+            border-radius: 2px;
+            filter: grayscale(100%) contrast(120%) brightness(0.8);
+            box-shadow: -25px 25px 0px #111; /* إطار أسود باهت */
+            transition: 0.5s;
+        }
+
+        .hero-image:hover img {
+            filter: grayscale(0%) contrast(110%);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding-top: 150px;
+                text-align: center;
+                height: auto;
+                padding-bottom: 80px;
+            }
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            .hero-content p {
+                border-left: none;
+                padding-left: 0;
+                margin: 0 auto 30px auto;
+            }
+            .hero-image img {
+                width: 100%;
+                box-shadow: -10px 10px 0px #111;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TABOO</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="sub-title">Mystery / Dark Drama / 1814</span>
+            <h1>JAMES <br> <span class="highlight">DELANEY</span></h1>
+            <p>Cru d'entre les morts, un aventurier revient à Londres pour venger son père et bâtir son propre empire commercial face à la puissante Compagnie des Indes orientales.</p>
+            <a href="https://www.imdb.com/fr/find/?q=taboo&ref_=tt_nv_srb_sm" target="_blank" class="btn-main">DISCOVER TRUTH</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.pinimg.com/736x/6d/4e/04/6d4e045276f4f1bd6c3b17490f178e98.jpg" alt="James Delaney, Taboo">
+        </div>
+    </section>
+
+</body>
+</html>

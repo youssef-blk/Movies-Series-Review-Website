@@ -1017,26 +1017,169 @@ body {
     }
 }
 
+/* 3 movis  */
+
+
+.cinematic-section {
+  background-color: #080808;
+  color: #fff;
+  padding: 100px 5%;
+  overflow: hidden;
+}
+
+.display-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.text-content { 
+  flex: 1; 
+  max-width: 450px; 
+}
+
+.section-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4CAF50;
+  border-bottom: 3px solid #7B1FA2;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-size: 3.8rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 25px;
+  letter-spacing: -2px;
+  color: #eee;
+}
+
+.lin-decorator {
+  width: 50px;
+  height: 5px;
+  background-color: #7B1FA2;
+  margin-bottom: 30px;
+}
+
+.description {
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.view-btn {
+  display: inline-block;
+  padding: 15px 35px;
+  border: 1px solid #4CAF50;
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: 0.4s;
+}
+
+.view-btn:hover {
+  background: #4CAF50;
+  color: #000;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+}
+
+.image-grid-fancy {
+  flex: 1.2;
+  position: relative;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+  transition: 0.6s;
+}
+
+.img-wrapper:hover img {
+  filter: grayscale(0%) contrast(100%);
+}
+
+.large {
+  grid-column: 4 / 13;
+  grid-row: 1 / 9;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.medium {
+  grid-column: 1 / 6;
+  grid-row: 6 / 11;
+  z-index: 3;
+  border: 8px solid #080808;
+}
+
+.small {
+  grid-column: 6 / 11;
+  grid-row: 9 / 13;
+  z-index: 2;
+  background-color: #7B1FA2;
+  padding: 4px;
+}
+
+.small img {
+  filter: grayscale(100%) sepia(100%) hue-rotate(250deg) saturate(400%) contrast(110%) !important;
+}
+
+.large::before {
+  content: "PSYCHO / THRILLER / 1976";
+  position: absolute;
+  top: 20px;
+  left: -35px;
+  transform: rotate(-90deg);
+  font-size: 0.7rem;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+  .display-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .image-grid-fancy {
+    width: 100%;
+    height: 450px;
+  }
+  .text-content {
+    max-width: 100%;
+  }
+}
 
 /* foter  */
-.got-footer {
-    /* Background biad ghame9 (Ghabri) */
-    background-color: #e5e5e5; 
+.got-footer {   background-color: #e5e5e5; 
     color: #1a1a1a;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 80px;
 }
 
 .footer-logo {
-    width: 110px;
-    /* Ila kan l-logo fih l-biad, had l-filter ghadi i-rejja3u k7el */
-    filter: brightness(0); 
+    width: 110px;   filter: brightness(0); 
     opacity: 0.8;
 }
 
 .footer-slogan {
     font-size: 11px;
-    /* Ktaba k7ela chwiya bhal l-mdad */
     color: #444; 
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -1044,7 +1187,6 @@ body {
 }
 
 .footer-links a {
-    /* Lon l-ktaba k7el bared */
     color: #333; 
     text-decoration: none;
     font-size: 12px;
@@ -1054,14 +1196,11 @@ body {
 }
 
 .footer-links a:hover {
-    /* Hover kwelli khder Joker ghame9 */
     color: #028a1b; 
 }
 
-/* Social Icons Styling */
 .social-icons a {
     color: #333;
-    /* Background dial daira dial icon sghira */
     background: rgba(0, 0, 0, 0.05); 
     width: 45px;
     height: 45px;
@@ -1076,13 +1215,12 @@ body {
 }
 
 .social-icons a:hover {
-    background: #1a1a1a; /* Kat-welli k7ela f hover */
-    color: #939393; /* Icon kat-welli b l-biad */
+    background: #1a1a1a; 
+    color: #939393; 
     transform: translateY(-5px);
 }
 
 .footer-divider {
-    /* L-khit l-westani i-koun k7el r9iiiii9 */
     border-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -1093,7 +1231,6 @@ body {
 }
 
 .designer-name {
-    /* Smiytk t-ban k7ela u wa3ra */
     color: #000; 
     font-weight: 800;
     text-transform: uppercase;
