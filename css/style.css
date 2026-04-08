@@ -617,6 +617,7 @@ body.modal-open{ overflow:hidden; }
   background: rgba(0,0,0,.85);
   backdrop-filter: blur(10px);
 }
+
 .card-modal__content{
   position:absolute;
   inset:0;
