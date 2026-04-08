@@ -687,6 +687,7 @@ body.modal-open{ overflow:hidden; }
   aspect-ratio: 2 / 3;
   padding: 0 5px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -760,7 +761,7 @@ body.modal-open{ overflow:hidden; }
   align-items: center;
   --color: hsl(0, 0%, 87%);
   --animation: 2s ease-in-out infinite;
-  padding-block: 60px;
+  padding-block: 140px;
 }
 
 .loader .circle {
