@@ -239,26 +239,25 @@ async function getMovies() {
     );
     let myData = await myRequest.json();
     allMovies.push(...myData.results);
-    allMovies = allMovies.filter(item => item.original_language === "en");
   }
 
   loader.style.display = "none";
 
-  
-  
+  console.log(allMovies);
 
   function renderMovieCard(movie) {
     let movieCard = document.createElement("div");
-    movieCard.classList.add("movie-card", "slide-in");
+    movieCard.classList.add("movie-card");
+    movieCard.dataset.id = movie.id;
+    movieCard.dataset.type = movie.media_type;
     movieCard.innerHTML = `
     <img
       src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
-      title="${movie.original_title}"
+      title="${movie.title}"
     />
     `;
-
 
     return movieCard;
   }
@@ -270,10 +269,8 @@ async function getMovies() {
   let isAnimating = false;
 
   document.querySelector(".movies #nextBtn").addEventListener("click", () => {
-    
     if (isAnimating) return;
     isAnimating = true;
-
 
     const cardWidth = moviesContainer.children[0].offsetWidth;
 
@@ -281,7 +278,6 @@ async function getMovies() {
     moviesContainer.style.transform = `translateX(-${cardWidth}px)`;
 
     moviesContainer.addEventListener("transitionend", function handler() {
-
       moviesContainer.removeEventListener("transitionend", handler);
 
       moviesContainer.appendChild(moviesContainer.firstChild);
@@ -290,15 +286,12 @@ async function getMovies() {
       moviesContainer.style.transform = "translateX(0)";
 
       isAnimating = false;
-
-    })
+    });
   });
-  
+
   document.querySelector(".movies #backBtn").addEventListener("click", () => {
-    
     if (isAnimating) return;
     isAnimating = true;
-
 
     const cardWidth = moviesContainer.children[0].offsetWidth;
 
@@ -306,7 +299,6 @@ async function getMovies() {
     moviesContainer.style.transform = `translateX(${cardWidth}px)`;
 
     moviesContainer.addEventListener("transitionend", function handler() {
-
       moviesContainer.removeEventListener("transitionend", handler);
 
       moviesContainer.prepend(moviesContainer.lastChild);
@@ -315,14 +307,18 @@ async function getMovies() {
       moviesContainer.style.transform = "translateX(0)";
 
       isAnimating = false;
-
-    })
+    });
   });
-  
-  
+
+  for (let ele of moviesContainer.children) {
+    ele.addEventListener("click", () => {
+      window.open(
+        `show.html?id=${ele.dataset.id}&type=${ele.dataset.type}`,
+        "_self",
+      );
+    });
+  }
 }
-
-
 
 //! W Hadi Function li katjib seriat men API
 async function getSeries() {
@@ -339,26 +335,26 @@ async function getSeries() {
     );
     let myData = await myRequest.json();
     allSeries.push(...myData.results);
-    allSeries = allSeries.filter(item => item.original_language === "en");
+    allSeries = allSeries.filter((item) => item.origin_country[0] !== "JP");
   }
 
   loader.style.display = "none";
 
   console.log(allSeries);
-  
 
   function renderSerieCard(serie) {
     let serieCard = document.createElement("div");
     serieCard.classList.add("serie-card");
+    serieCard.dataset.id = serie.id;
+    serieCard.dataset.type = serie.media_type;
     serieCard.innerHTML = `
     <img
       src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
-      title="${serie.original_title}"
+      title="${serie.name}"
     />
     `;
-
 
     return serieCard;
   }
@@ -370,10 +366,8 @@ async function getSeries() {
   let isAnimating = false;
 
   document.querySelector(".series #nextBtn").addEventListener("click", () => {
-    
     if (isAnimating) return;
     isAnimating = true;
-
 
     const cardWidth = seriesContainer.children[0].offsetWidth;
 
@@ -381,7 +375,6 @@ async function getSeries() {
     seriesContainer.style.transform = `translateX(-${cardWidth}px)`;
 
     seriesContainer.addEventListener("transitionend", function handler() {
-
       seriesContainer.removeEventListener("transitionend", handler);
 
       seriesContainer.appendChild(seriesContainer.firstChild);
@@ -390,15 +383,12 @@ async function getSeries() {
       seriesContainer.style.transform = "translateX(0)";
 
       isAnimating = false;
-
-    })
+    });
   });
-  
+
   document.querySelector(".series #backBtn").addEventListener("click", () => {
-    
     if (isAnimating) return;
     isAnimating = true;
-
 
     const cardWidth = seriesContainer.children[0].offsetWidth;
 
@@ -406,7 +396,6 @@ async function getSeries() {
     seriesContainer.style.transform = `translateX(${cardWidth}px)`;
 
     seriesContainer.addEventListener("transitionend", function handler() {
-
       seriesContainer.removeEventListener("transitionend", handler);
 
       seriesContainer.prepend(seriesContainer.lastChild);
@@ -415,11 +404,17 @@ async function getSeries() {
       seriesContainer.style.transform = "translateX(0)";
 
       isAnimating = false;
-
-    })
+    });
   });
-  
-  
+
+  for (let ele of seriesContainer.children) {
+    ele.addEventListener("click", () => {
+      window.open(
+        `show.html?id=${ele.dataset.id}&type=${ele.dataset.type}`,
+        "_self",
+      );
+    });
+  }
 }
 
 getMovies();

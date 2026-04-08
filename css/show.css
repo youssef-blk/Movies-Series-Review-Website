@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+}
+
+.container-fluid {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-fluid::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -2;
+}
+
+.container-fluid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.497);
+  z-index: -1;
+}
+
+nav {
+  padding: 30px;
+  height: 70px;
+}
+
+nav button {
+  background-color: transparent;
+  border: none;
+}
+
+nav button a {
+  color: #ffffff5f;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+nav button a:hover {
+  color: #ffffffa5;
+}
+
+nav button a i {
+  margin-right: 10px;
+}
+
+.row {
+  height: calc(100% - 70px);
+}
+
+.poster {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.poster:hover {
+  transform: scale(1.05);
+}
+
+.poster img {
+  max-width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.info .adult-div {
+  color: red;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.info .adult-div span {
+  background-color: red;
+  color: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  font-weight: 200;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 6rem);
+  letter-spacing: 3px;
+  transition: 0.3s;
+  margin-bottom: 0;
+  line-height: 1.1;
+}
+
+.original_title {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #ffffff5e;
+  font-size: clamp(14px, 2vw, 20px);
+  margin-top: 0;
+}
+
+.original_title .thePoint {
+  font-size: clamp(30px, 4.5vw, 50px);
+  color: red;
+}
+
+.sub_info div:first-child h3 {
+  color: red;
+}
+
+.sub_info h3 {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+
+
+.story {
+  font-size: clamp(15px, 1.8vw, 20px);
+  color: #9b9b9b;
+  width: 30em;
+  max-width: 100%;
+}
+
+.categories span {
+  background-color: #3c3c3c;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.btns {
+  align-items: center;
+}
+
+.btns button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 18px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 999px; /* Capsule shape */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btns button i {
+  font-size: 18px;
+}
+
+.btns button:hover {
+  background-color: rgba(255, 59, 59, 0.15); /* Theme accent glow */
+  border-color: #ff3b3b;
+  color: #ff3b3b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 59, 59, 0.25);
+}
+
+.btns .icon-btn {
+  padding: 18px 22px; /* make it circular-ish */
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN OVERRIDES
+   ========================================================= */
+
+@media (max-width: 992px) {
+  /* Allow scrolling on mobile/tablet since content stacks vertically */
+  .container-fluid {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 50px;
+  }
+
+  /* Override fixed row height and mx-5 px-5 Bootstrap paddings */
+  .row {
+    height: auto;
+    flex-direction: column;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    gap: 30px;
+  }
+
+  /* Override col-3 to take appropriate space */
+  .poster.col-3 {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 !important; /* override the pe-5 p-4 */
+    flex: none;
+    max-width: 100%;
+  }
+
+  /* Override col-9 and make everything centered */
+  .info.col-9 {
+    width: 100%;
+    flex: none;
+    max-width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  /* Center the flex items */
+  .info .adult-div,
+  .info .sub_info,
+  .info .categories,
+  .info .btns {
+    justify-content: center;
+  }
+
+  .sub_info {
+    flex-wrap: wrap;
+    column-gap: 20px !important;
+    row-gap: 15px;
+  }
+
+  /* Title font size is now fluidly handled scaling by clamp() globally */
+
+  .story {
+    width: 100%; /* Override 30em to avoid horizontal overflow */
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .poster.col-3 {
+    width: 80%; /* Even bigger poster on very small screens so it's legible */
+  }
+
+  /* Fonts scales flawlessly handled by fluid clamp() */
+
+  nav {
+    padding: 20px 15px;
+  }
+
+  .sub_info span, .sub_info span .fs-1 {
+    font-size: 1.5rem !important; /* Scale down the bootstrap fs-1 rating digits */
+  }
+}
