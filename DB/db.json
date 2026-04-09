@@ -11,6 +11,12 @@
       "email": "folan@gmail.com",
       "password": "123",
       "id": "9LVuoohBWxw"
+    },
+    {
+      "name": "mohamed",
+      "email": "mohamed@gmail.com",
+      "password": "mohamed123",
+      "id": "wR7p4Jll_jI"
     }
   ],
   "playlists": [
@@ -40,6 +46,24 @@
       "poster_path": "/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
       "vote_average": 8.23,
       "id": "lCKttEmYIw0"
+    },
+    {
+      "userId": "wR7p4Jll_jI",
+      "showId": "76479",
+      "type": "tv",
+      "title": "The Boys",
+      "poster_path": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg",
+      "vote_average": 8.439,
+      "id": "KQKaYx2Myfc"
+    },
+    {
+      "userId": "wR7p4Jll_jI",
+      "showId": "83533",
+      "type": "movie",
+      "title": "Avatar: Fire and Ash",
+      "poster_path": "/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
+      "vote_average": 7.371,
+      "id": "6JrnwhdYX2M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
