@@ -108,8 +108,6 @@ body {
 }
 .links a:hover::after{ width:100%; }
 
-/* Search (button + form expanding) */
-
 .links a:hover {
   color: #fff;
 }

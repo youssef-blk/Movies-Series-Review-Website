@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #141414; 
+    color: white;
+    padding: 40px;
+}
+
+.header {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+}
+.movie-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background: #222;
+}
+
+.movie-card:hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.movie-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.movie-info span {
+    color: #e50914;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
+
+.movie-card:hover .remove-btn {
+    display: block;
+}

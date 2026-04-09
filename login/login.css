@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url("https://i.pinimg.com/1200x/61/6d/24/616d2453e4e2c6b1ad51197a2f00b8c4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+}
+.login-card {
+    background: rgba(0, 0, 0, 0.85); 
+    backdrop-filter: blur(8px);
+    padding: 60px 50px; 
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px; 
+    text-align: left; 
+    box-shadow: 0 20px 35px rgba(0,0,0,0.7);
+}
+
+.login-card h2 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background: #333; 
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.input-group input:focus {
+    background: #454545;
+    border-bottom: 2px solid #e50914;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: #e50914;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #ff0a16;
+}
+
+.extra-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.extra-links a, .extra-links label {
+    color: #b3b3b3;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+.signup-text {
+    margin-top: 40px;
+    color: #737373;
+    font-size: 16px;
+}
+
+.signup-text a {
+    color: #fff;
+    text-decoration: none;
+}
+.home i{
+  color: #fff;
+}
