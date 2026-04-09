@@ -1,10 +1,3 @@
 const user =[];
+const signup = document.getElementById("signup-text")
 
-
-async function getUsers() {
-  let myRequest = await fetch("data.json");
-
-  let data = await myRequest.json();
-
-  
-}
