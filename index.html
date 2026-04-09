@@ -28,42 +28,32 @@
        HERO (Slider)
        ========================================================= -->
     <header class="hero" id="home">
-      <nav class="main-nav" id="nav-id">
-        <a class="logo" href="#home" aria-label="ShowTime Home">
+     <nav class="main-nav" id="nav-id">
+  <a class="logo" href="#home" aria-label="ShowTime Home">
           <img src="images/logo.png" alt="ShowTime logo" />
         </a>
+  <ul class="links" aria-label="Primary">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#series">Series</a></li>
+    <li><a href="#movies">Movies</a></li>
+    <li><a href="#trending">Trending</a></li>
+  </ul>
 
-        <ul class="links" aria-label="Primary">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#series">Series</a></li>
-          <li><a href="#movies">Movies</a></li>
-          <li><a href="#trending">Trending</a></li>
-        </ul>
+  <div class="nav-actions">
+    <button class="icon-btn" id="searchBtn">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
 
-        <div class="search">
-          <button
-            class="icon-btn"
-            type="button"
-            aria-label="Open search"
-            id="searchBtn"
-          >
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+    <button class="icon-btn" id="playlistBtn">
+     <i class="fa-regular fa-bookmark"></i>
+    </button>
 
-          <form action="#" id="searchForm" role="search" aria-label="Search">
-            <input
-              type="text"
-              name="search"
-              id="searchInput"
-              placeholder="Search..."
-              autocomplete="off"
-            />
-            <button class="icon-btn" type="submit" aria-label="Submit search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
-      </nav>
+    <button class="icon-btn" id="loginBtn">
+      <i class="fa-solid fa-circle-user"></i>
+    </button>
+  </div>
+
+</nav>
 
       <div class="hero-media">
         <img id="bg" src="images/dark.jpg" alt="Featured background" />
