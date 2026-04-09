@@ -97,24 +97,6 @@ setInterval(() => {
   }, 800);
 }, 10000);
 
-let searchBtn = document.getElementById("searchBtn");
-let searchForm = document.getElementById("searchForm");
-
-searchForm.onsubmit = function (e) {
-  e.preventDefault();
-};
-
-searchBtn.addEventListener("click", function () {
-  searchForm.classList.toggle("show");
-  searchBtn.classList.toggle("hide");
-  searchForm.firstElementChild.focus();
-});
-
-searchForm.firstElementChild.onblur = function () {
-  searchForm.classList.toggle("show");
-  searchBtn.classList.toggle("hide");
-  searchForm.firstElementChild.value = "";
-};
 // hero inmation
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -96,11 +96,6 @@ body{
 .links a:hover::after{ width:100%; }
 
 /* Search (button + form expanding) */
-.search{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
 
 .icon-btn{
   border:0;
@@ -110,43 +105,14 @@ body{
   padding:6px;
 }
 
-#searchForm{
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-
-  width:0;
-  transition:.25s;
-}
-#searchForm.show{ width: 230px; }
-
-#searchInput{
-  width:100%;
-  background: transparent;
-  color:#fff;
-  padding: 6px 34px 6px 12px;
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 6px;
-  outline:none;
-}
-#searchInput:focus{ border-color: rgba(255,255,255,.55); }
-
-#searchForm button{
-  position:absolute;
-  right:8px;
-  top:50%;
-  transform: translateY(-50%);
-}
-
 /* Mobile nav small tweak */
 @media (max-width: 900px){
   .main-nav{ padding: 16px 20px; }
-  .links{ display:none; } /* إلى بغيتي hamburger من بعد نقادوه */
+  .links{ display:none; }
 }
 
 /* =========================================================
-   HERO / SLIDER
+  HERO / SLIDER
    ========================================================= */
 .hero{
   height: 100vh;
@@ -689,6 +655,15 @@ body.modal-open{ overflow:hidden; }
   padding: 0 5px;
   box-sizing: border-box;
   cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.movies-container .movie-card:hover,
+.series-container .serie-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  z-index: 10;
 }
 
 @media (max-width: 1200px) {
@@ -724,7 +699,16 @@ body.modal-open{ overflow:hidden; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  filter: brightness(0.85);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.movies-container .movie-card:hover img,
+.series-container .serie-card:hover img {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 59, 59, 0.2);
+  filter: brightness(1.1);
 }
 
 
@@ -897,3 +881,31 @@ body.modal-open{ overflow:hidden; }
   }
 }
 
+
+
+/** Search Overlay*/
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.search-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  z-index: 999;
+}
