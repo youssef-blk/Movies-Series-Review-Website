@@ -25,8 +25,8 @@
 
   <body>
     <!-- =========================================================
-       HERO (Slider)
-       ========================================================= -->
+      HERO (Slider)
+      ========================================================= -->
     <header class="hero" id="home">
      <nav class="main-nav" id="nav-id">
   <a class="logo" href="#home" aria-label="ShowTime Home">
@@ -387,6 +387,21 @@
           &times;
         </button>
         <h2 class="card-modal__title" id="cardModalTitle"></h2>
+      </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-backdrop"></div>
+      <div class="search-content">
+        <button class="close-search-btn">&times;</button>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Type a movie or series name..."
+          autocomplete="off"
+        />
+
+        <div class="search-results" id="searchResults"></div>
       </div>
     </div>
 
