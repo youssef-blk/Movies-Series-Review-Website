@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "name": "Youssef",
+      "email": "youssef@gmail.com",
+      "password": "123",
+      "id": "c15AHR9hZ4M"
+    },
+    {
+      "name": "folan",
+      "email": "folan@gmail.com",
+      "password": "123",
+      "id": "9LVuoohBWxw"
+    },
+    {
+      "name": "mohamed",
+      "email": "mohamed@gmail.com",
+      "password": "mohamed123",
+      "id": "wR7p4Jll_jI"
+    }
+  ],
+  "playlists": [
+    {
+      "userId": "c15AHR9hZ4M",
+      "showId": "1171145",
+      "type": "movie",
+      "title": "Crime 101",
+      "poster_path": "/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg",
+      "vote_average": 7,
+      "id": "im7iIqsJIiw"
+    },
+    {
+      "userId": "9LVuoohBWxw",
+      "showId": "289219",
+      "type": "tv",
+      "title": "Star Wars: Maul - Shadow Lord",
+      "poster_path": "/fTfLd3s9yBNOzbFHD2aXvwEs93H.jpg",
+      "vote_average": 7.05,
+      "id": "LcCfhcTYfCs"
+    },
+    {
+      "userId": "9LVuoohBWxw",
+      "showId": "1405",
+      "type": "tv",
+      "title": "Dexter",
+      "poster_path": "/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
+      "vote_average": 8.23,
+      "id": "lCKttEmYIw0"
+    },
+    {
+      "userId": "wR7p4Jll_jI",
+      "showId": "76479",
+      "type": "tv",
+      "title": "The Boys",
+      "poster_path": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg",
+      "vote_average": 8.439,
+      "id": "KQKaYx2Myfc"
+    },
+    {
+      "userId": "wR7p4Jll_jI",
+      "showId": "83533",
+      "type": "movie",
+      "title": "Avatar: Fire and Ash",
+      "poster_path": "/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
+      "vote_average": 7.371,
+      "id": "6JrnwhdYX2M"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

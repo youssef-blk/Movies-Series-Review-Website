@@ -68,6 +68,48 @@ async function getData(id, type) {
     span.textContent = element.name;
     document.querySelector(".categories").appendChild(span);
   });
+
+  // Attach Add to Playlist Event Listener
+  const addToPlaylistBtn = document.querySelector(".primary-btn");
+  if (addToPlaylistBtn) {
+    addToPlaylistBtn.addEventListener("click", async () => {
+      const userId = localStorage.getItem('userId');
+      
+      if (!userId) {
+        alert("Please log in to add items to your playlist.");
+        window.location.href = "login/login.html";
+        return;
+      }
+
+      const showData = {
+        userId: userId,
+        showId: id,
+        type: type,
+        title: type === "movie" ? data.title : data.name,
+        poster_path: data.poster_path,
+        vote_average: data.vote_average
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/playlists', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(showData)
+        });
+
+        if (response.ok) {
+          alert("Added to playlist!");
+        } else {
+          alert("Failed to add to playlist.");
+        }
+      } catch (error) {
+        console.error("Error adding to playlist:", error);
+        alert("Could not connect to the backend server.");
+      }
+    });
+  }
 }
 
 getData(id, type);

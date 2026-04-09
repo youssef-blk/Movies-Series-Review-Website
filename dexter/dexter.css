@@ -291,7 +291,108 @@ body {
   font-size: 14px;
   letter-spacing: 1px;
 }
+/* sectin 1  */
+.harry-code-section {
+    background-color: #0d0d0d; /* K7al ghami9 */
+    color: #ffffff;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+}
 
+.content-container {
+    max-width: 1100px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Left Side Styles */
+.text-side {
+    flex: 1;
+}
+
+.red-line {
+    width: 40px;
+    height: 3px;
+    background-color: #e50914;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.quote {
+    border-left: 2px solid #e50914;
+    padding-left: 20px;
+    font-style: italic;
+    color: #999;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Rules Style */
+.rule-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rule-number {
+    display: block;
+    color: #e50914;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.rule-text {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Right Side Styles (Microscope) */
+.image-side {
+    flex: 1;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-side img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.7) contrast(1.2);
+}
+
+.lab-tag {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05); /* Hidden text effect */
+    z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .content-container {
+        flex-direction: column;
+    }
+    .title { font-size: 2rem; }
+}
 /* --- Gallery & News --- */
 .gallery-wall {
   display: grid;
