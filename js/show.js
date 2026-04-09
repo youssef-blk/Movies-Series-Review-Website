@@ -30,21 +30,25 @@ async function getData(id, type) {
   if (type === "movie") {
     document.querySelector(".title").textContent = data.title;
     document.querySelector(".original_title .name").textContent = data.original_title;
+    document.querySelector(".original_title .year").textContent = new Date(
+    data.release_date,
+  ).getFullYear();
   }
 
 
   if (type === "tv") {
     document.querySelector(".title").textContent = data.name;
     document.querySelector(".original_title .name").textContent = data.original_name;
+    document.querySelector(".original_title .year").textContent = new Date(
+    data.first_air_date,
+  ).getFullYear();
   }
 
   if (!data.adult) {
     document.querySelector(".adult-div").remove();
   }
 
-  document.querySelector(".original_title .year").textContent = new Date(
-    data.release_date,
-  ).getFullYear();
+  
   document.querySelector(".rating span span").textContent =
     data.vote_average.toFixed(1);
 

@@ -225,8 +225,6 @@ async function getMovies() {
 
   loader.style.display = "none";
 
-  console.log(allMovies);
-
   function renderMovieCard(movie) {
     let movieCard = document.createElement("div");
     movieCard.classList.add("movie-card");
@@ -322,8 +320,6 @@ async function getSeries() {
 
   loader.style.display = "none";
 
-  console.log(allSeries);
-
   function renderSerieCard(serie) {
     let serieCard = document.createElement("div");
     serieCard.classList.add("serie-card");
@@ -401,3 +397,81 @@ async function getSeries() {
 
 getMovies();
 getSeries();
+
+const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
+const searchBtn = document.getElementById("searchBtn");
+const searchOverlay = document.getElementById("searchOverlay");
+const closeBtn = document.getElementById("closeSearchOverlay");
+const backdrop = document.getElementById("searchBackdrop");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
+let timeout;
+
+searchBtn.addEventListener("click", () => {
+  searchOverlay.classList.add("is-active");
+  searchInput.focus();
+});
+
+closeBtn.addEventListener("click", () => {
+  searchOverlay.classList.remove("is-active");
+});
+
+searchOverlay.addEventListener("click", (e) => {
+  if (
+    e.target === searchOverlay ||
+    e.target === backdrop ||
+    e.target.classList.contains("search-content")
+  ) {
+    searchOverlay.classList.remove("is-active");
+  }
+});
+
+searchInput.addEventListener("input", () => {
+  clearTimeout(timeout);
+
+  timeout = setTimeout(() => {
+    let value = searchInput.value.trim();
+    async function getData(value) {
+      let respond = await fetch(
+        `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${value}`,
+      );
+
+      let data = await respond.json();
+      searchResults.innerHTML = "";
+      for (let ele of data.results) {
+        if (ele.media_type == "person") {
+          continue;
+        }
+        let div = document.createElement("div");
+        div.className = "search-item";
+        div.dataset.id = ele.id;
+        div.dataset.type = ele.media_type;
+        let imgPath = ele.backdrop_path || ele.poster_path;
+        let imgElement = imgPath
+          ? `<img src="https://image.tmdb.org/t/p/w200${imgPath}" class="search-item-img" alt="poster">`
+          : `<div class="search-item-img placeholder"></div>`;
+
+        div.innerHTML = `
+          <div class="search-item-info">
+            ${imgElement}
+            <span class="title">${ele.media_type == "movie" ? ele.title : ele.name}</span>
+          </div>
+          <span class="year">(${ele.media_type == "movie" ? (ele.release_date ? new Date(ele.release_date).getFullYear() : "N/A") : ele.first_air_date ? new Date(ele.first_air_date).getFullYear() : "N/A"})</span>
+        `;
+        searchResults.appendChild(div);
+      }
+
+      for (let ele of searchResults.children) {
+        ele.addEventListener("click", () => {
+          window.open(
+            `show.html?id=${ele.dataset.id}&type=${ele.dataset.type}`,
+            "_self",
+          );
+        });
+      }
+    }
+
+    getData(value);
+  }, 300);
+});

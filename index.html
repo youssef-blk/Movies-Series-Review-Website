@@ -28,32 +28,31 @@
       HERO (Slider)
       ========================================================= -->
     <header class="hero" id="home">
-     <nav class="main-nav" id="nav-id">
-  <a class="logo" href="#home" aria-label="ShowTime Home">
+      <nav class="main-nav" id="nav-id">
+        <a class="logo" href="#home" aria-label="ShowTime Home">
           <img src="images/logo.png" alt="ShowTime logo" />
         </a>
-  <ul class="links" aria-label="Primary">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#series">Series</a></li>
-    <li><a href="#movies">Movies</a></li>
-    <li><a href="#trending">Trending</a></li>
-  </ul>
+        <ul class="links" aria-label="Primary">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#series">Series</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#trending">Trending</a></li>
+        </ul>
 
-  <div class="nav-actions">
-    <button class="icon-btn" id="searchBtn">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+        <div class="nav-actions">
+          <button class="icon-btn" id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
 
-    <button class="icon-btn" id="playlistBtn">
-     <i class="fa-regular fa-bookmark"></i>
-    </button>
+          <button class="icon-btn" id="playlistBtn">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
 
-    <button class="icon-btn" id="loginBtn">
-      <i class="fa-solid fa-circle-user"></i>
-    </button>
-  </div>
-
-</nav>
+          <button class="icon-btn" id="loginBtn">
+            <i class="fa-solid fa-circle-user"></i>
+          </button>
+        </div>
+      </nav>
 
       <div class="hero-media">
         <img id="bg" src="images/dark.jpg" alt="Featured background" />
@@ -391,9 +390,9 @@
     </div>
 
     <div class="search-overlay" id="searchOverlay">
-      <div class="search-backdrop"></div>
+      <div class="search-backdrop" id="searchBackdrop"></div>
       <div class="search-content">
-        <button class="close-search-btn">&times;</button>
+        <button class="close-search-btn" id="closeSearchOverlay">&times;</button>
         <input
           type="text"
           id="searchInput"
@@ -401,7 +400,9 @@
           autocomplete="off"
         />
 
-        <div class="search-results" id="searchResults"></div>
+        <div class="search-results" id="searchResults">
+          <!-- <div class="search-item"><span class="title">Squid Game</span> <span class="year">(2021)</span></div> -->
+        </div>
       </div>
     </div>
 
