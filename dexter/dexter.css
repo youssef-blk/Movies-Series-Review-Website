@@ -386,13 +386,14 @@ body {
     z-index: 1;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .content-container {
         flex-direction: column;
     }
     .title { font-size: 2rem; }
 }
+/* section 2  */
+
 /* --- Gallery & News --- */
 .gallery-wall {
   display: grid;
