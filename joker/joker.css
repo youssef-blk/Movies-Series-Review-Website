@@ -852,7 +852,6 @@ body {
     padding: 60px 20px;
 }
 
-/* L-9nat l-khdrin (Corners) */
 .corner-green {
     position: absolute;
     width: 35px;
@@ -865,16 +864,15 @@ body {
 .corner-tl {
     top: 0;
     left: 0;
-    border-width: 3px 0 0 3px; /* Top u Left */
+    border-width: 3px 0 0 3px; 
 }
 
 .corner-br {
     bottom: 0;
     right: 0;
-    border-width: 0 3px 3px 0; /* Bottom u Right */
+    border-width: 0 3px 3px 0;
 }
 
-/* Stat Items */
 .stat-item {
     padding: 10px 40px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -882,7 +880,7 @@ body {
 }
 
 .first-item {
-    border-left: none; /* Box l-uwwla bla border isir */
+    border-left: none; 
 }
 
 .stat-number {
@@ -908,7 +906,6 @@ body {
     max-width: 240px;
 }
 
-/* Hover Effects */
 .stat-item:hover .stat-number {
     color: #03b724;
     transform: translateY(-5px);

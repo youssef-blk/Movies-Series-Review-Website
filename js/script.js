@@ -475,3 +475,140 @@ searchInput.addEventListener("input", () => {
     getData(value);
   }, 300);
 });
+
+// section number 
+const recType = document.getElementById("rec-type");
+const recCategory = document.getElementById("rec-category");
+const recYear = document.getElementById("rec-year");
+const recLanguage = document.getElementById("rec-language");
+const getRecommendationBtn = document.getElementById("get-recommendation-btn");
+const recommendationResults = document.getElementById("recommendation-results");
+
+const typesList = ["movie", "series"];
+const categoriesList = ["28", "18", "35", "878", "53"];
+const yearsList = ["2024", "2023", "2022", "old"];
+const languagesList = ["en", "es", "ko", "fr"];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const simpleCounters = document.querySelectorAll('.stat-number-simple');
+    
+    const animateCounters = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 100;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(() => animateCounters(counter), 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Kat-khdem l-animation ghir l l-elements li banu
+                animateCounters(entry.target);
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    simpleCounters.forEach(c => statsObserver.observe(c));
+});
+getRecommendationBtn.addEventListener("click", () => {
+  let type = recType.value;
+  let categorie = recCategory.value;
+  let year = recYear.value;
+  let lang = recLanguage.value;
+
+  if (!type) type = typesList[Math.floor(Math.random() * typesList.length)];
+  if (!categorie) categorie = categoriesList[Math.floor(Math.random() * categoriesList.length)];
+  if (!year) year = yearsList[Math.floor(Math.random() * yearsList.length)];
+  if (!lang) lang = languagesList[Math.floor(Math.random() * languagesList.length)];
+
+  let apiType = type === "series" ? "tv" : type;
+  let url = `https://api.themoviedb.org/3/discover/${apiType}?api_key=${API_KEY}`;
+  if (categorie) url += `&with_genres=${categorie}`;
+  if (year) {
+    if (year === "old") {
+      url += `&before_year=2000`;
+    } else {
+      url += `&primary_release_year=${year}`;
+    }
+  }
+  if (lang) url += `&with_original_language=${lang}`;
+
+  async function fetchRecommendation() {
+    let response = await fetch(url);
+    let data = await response.json();
+    recommendationResults.innerHTML = "";
+    
+    if (!data.results || data.results.length === 0) {
+      recommendationResults.innerHTML = "<p>No recommendations found. Try different criteria!</p>";
+      return;
+    }
+    
+    let results = data.results.slice(0, 3);
+    
+    results.forEach((item, index) => {
+      let card = document.createElement("div");
+      let isCenter = results.length === 3 && index === 1;
+      card.className = "rec-card" + (isCenter ? " center-card" : "");
+      
+      let imgPath = item.poster_path 
+        ? `https://image.tmdb.org/t/p/w500${item.poster_path}` 
+        : 'images/dark.jpg';
+        
+      card.innerHTML = `
+        <img src="${imgPath}" alt="${item.title || item.name}" />
+        <div class="rec-card-info">
+          <h4>${item.title || item.name}</h4>
+          <p>${(item.release_date || item.first_air_date || "").split('-')[0] || "N/A"}</p>
+        </div>
+      `;
+      
+      card.addEventListener("click", () => {
+        window.open(
+          `show.html?id=${item.id}&type=${apiType}`,
+          "_self"
+        );
+      });
+      
+      recommendationResults.appendChild(card);
+    });
+  }
+  fetchRecommendation();
+});
+const counters = document.querySelectorAll('.counter');
+const speed = 200; 
+
+const startCounter = () => {
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startCounter();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+observer.observe(document.querySelector('.experience-stats-section'));

@@ -374,6 +374,77 @@
         </div>
       </div>
     </div>
+
+    <!-- =========================================================
+      RECOMMENDATION / FIND MATCH SECTION
+      ========================================================= -->
+    <section class="recommendation-section pt-5 pb-5" id="recommendation">
+      <div class="custom-container">
+        <h2 class="section-title section-title--top5">Find Your Match</h2>
+        <p class="text-center mb-5" style="max-width: 600px; margin: 0 auto; line-height: 1.6; color: rgba(255, 255, 255, 0.7);">
+          Select your preferences below and discover a new movie or series exactly to your taste!
+        </p>
+        
+        <form id="recommendation-form" class="recommendation-form">
+          <div class="form-group-wrap">
+            <div class="custom-select-wrapper">
+              <label for="rec-type">Type</label>
+              <select id="rec-type" class="custom-select">
+                <option value="">Any Type</option>
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+              </select>
+            </div>
+
+            <div class="custom-select-wrapper">
+              <label for="rec-category">Category</label>
+              <select id="rec-category" class="custom-select">
+                <option value="">Any Category</option>
+                <option value="28">Action</option>
+                <option value="18">Drama</option>
+                <option value="35">Comedy</option>
+                <option value="878">Sci-Fi</option>
+                <option value="53">Thriller</option>
+              </select>
+            </div>
+
+            <div class="custom-select-wrapper">
+              <label for="rec-year">Year</label>
+              <select id="rec-year" class="custom-select">
+                <option value="">Any Year</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="old">Older</option>
+              </select>
+            </div>
+
+            <div class="custom-select-wrapper">
+              <label for="rec-language">Language</label>
+              <select id="rec-language" class="custom-select">
+                <option value="">Any Language</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="ko">Korean</option>
+                <option value="fr">French</option>
+              </select>
+            </div>
+            
+            <div class="btn-wrap">
+              <button type="button" id="get-recommendation-btn" class="recommend-btn">
+                Surprise Me <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="recommendation-results" id="recommendation-results">
+          
+        </div>
+      </div>
+    </section>
+
+
     <!-- =========================================================
       MODAL (cinematic transition) 
       ========================================================= -->
@@ -411,7 +482,65 @@
         </div>
       </div>
     </div>
+    <section class="experience-minimal-section">
+    <div class="container">
+        <div class="stats-wrapper-simple">
+            <div class="stat-box-simple">
+                <span class="stat-number-simple" data-target="15">0</span>
+                <span class="stat-plus">Y</span>
+                <p class="stat-label-simple">EXPERIENCE</p>
+            </div>
 
+            <div class="stat-box-simple">
+                <span class="stat-number-simple" data-target="850">0</span>
+                <span class="stat-plus">+</span>
+                <p class="stat-label-simple">PROJECTS</p>
+            </div>
+
+            <div class="stat-box-simple">
+                <span class="stat-number-simple" data-target="120">0</span>
+                <span class="stat-plus">K</span>
+                <p class="stat-label-simple">COMMUNITY</p>
+            </div>
+
+            <div class="stat-box-simple">
+                <span class="stat-number-simple" data-target="98">0</span>
+                <span class="stat-plus">%</span>
+                <p class="stat-label-simple">ACCURACY</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="minimal-footer">
+    <div class="container">
+        <div class="footer-main-row">
+            <div class="footer-logo-box">
+                <h2 class="logo-text">SERIES<span>FLIX</span></h2>
+                <p class="logo-sub">Cinematic Archives</p>
+            </div>
+
+            <div class="credits-names">
+                <div class="name-item">
+                    <span class="role">DEVELOPED BY</span>
+                    <span class="full-name">MOHAMED CHEFFOU</span>
+                </div>
+                <div class="name-divider"></div>
+                <div class="name-item">
+                    <span class="role">DESIGNED BY</span>
+                    <span class="full-name">YOUSSEF BLKASM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-line">
+            <p>&copy; 2026 SERIESFLIX PROTOCOL.</p>
+            <div class="social-minimal">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
     <!-- JS -->
     <script src="js/script.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
