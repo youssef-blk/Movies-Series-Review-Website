@@ -59,6 +59,7 @@
       </nav>
 
       <div class="hero-media">
+        <div class="hero-overlay"></div>
         <img id="bg" src="images/dark.jpg" alt="Featured background" />
       </div>
 
@@ -79,13 +80,20 @@
           four families...
         </p>
 
-        <div class="show-credits">
-          <span class="label">Director:</span>
-          <span id="show-director">Baran bo Odar</span>
+        <div class="show-credits mb-4">
+          <span class="label">Type:</span>
+          <span id="show-type" style="text-transform: capitalize;">Series</span>
           <span class="sep">|</span>
-          <span class="label">Main character:</span>
-          <span id="show-stars">Jonas Kahnwald</span>
+          <span class="label">Original Language:</span>
+          <span id="show-language" style="text-transform: uppercase;">EN</span>
+          <span class="sep">|</span>
+          <span class="label">Popularity:</span>
+          <span id="show-popularity">High</span>
         </div>
+
+        <button class="recommend-btn btn-hero" id="hero-action-btn">
+            View Details <i class="fa-solid fa-circle-play"></i>
+        </button>
       </div>
     </header>
 

@@ -181,11 +181,21 @@ body {
   position: absolute;
   inset: 0;
 }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 2;
+}
+
 #bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity 0.8s ease-in-out;
+  position: relative;
+  z-index: 1;
 }
 
 /* Dark overlay باش النص يبان واضح */
@@ -193,8 +203,31 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(5, 5, 5, 1));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(5, 5, 5, 1));
   pointer-events: none;
+  z-index: 3;
+}
+
+.btn-hero {
+  border: none;
+  background: #e50914;
+  color: white;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-hero:hover {
+  background: #f40612;
+  transform: scale(1.05);
 }
 
 /* Hero info */
@@ -203,7 +236,7 @@ body {
   left: 40px;
   bottom: 12%;
   z-index: 5;
-  max-width: 680px;
+  max-width: 880px;
 
   transition:
     transform 0.8s ease,

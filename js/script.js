@@ -1,101 +1,204 @@
-const slides = [
-  {
-    img: "images/dark.jpg",
-    title: "DARK",
-    categories: ["Sci-Fi", "Thriller", "Mystery"],
-    year: 2017,
-    rating: 8.7,
-    director: "Baran bo Odar",
-    stars: ["Jonas Kahnwald"],
-    p: "A complex supernatural thriller where the disappearance of two children exposes the double lives and fractured relationships among four families. This mind-bending saga explores the dark secrets of a small town across generations...",
-  },
-  {
-    img: "images/vikings.jpg",
-    title: "VIKINGS",
-    categories: ["Action", "Drama", "History"],
-    year: 2013,
-    rating: 8.5,
-    director: "Michael Hirst",
-    stars: ["Ragnar Lothbrok"],
-    p: "The brutal and epic journey of Ragnar Lothbrok, a restless warrior who seeks to explore and raid distant shores across the ocean. Witness the rise of a legendary Norse king and the fierce battles that shaped the Viking Age...",
-  },
-  {
-    img: "images/from.jpg",
-    title: "FROM",
-    categories: ["Horror", "Mystery", "Thriller"],
-    year: 2022,
-    rating: 7.8,
-    director: "Jack Bender",
-    stars: ["Boyd Stevens"],
-    p: "Unravel the terrifying mystery of a nightmare town in middle America that traps everyone who enters. As the residents struggle to maintain a sense of normalcy, they must also survive the threats of the surrounding forest...",
-  },
-  {
-    img: "images/mindhunter.jpg",
-    title: "MINDHUNTER",
-    categories: ["Crime", "Drama", "Thriller"],
-    year: 2017,
-    rating: 8.6,
-    director: "David Fincher",
-    stars: ["Holden Ford"],
-    p: "Set in the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder. By interviewing imprisoned serial killers, they hope to understand how these monsters think to solve ongoing cases...",
-  },
-  {
-    img: "images/joker.jpg",
-    title: "THE JOKER",
-    categories: ["Crime", "Drama", "Thriller"],
-    year: 2019,
-    rating: 8.4,
-    director: "Todd Phillips",
-    stars: ["Arthur Fleck"],
-    p: "A deep and haunting character study of Arthur Fleck, a man disregarded by society who eventually transforms into a criminal mastermind. This story explores the origins of Gotham's most iconic villain...",
-  },
-];
+// const slides = [
+//   {
+//     img: "images/dark.jpg",
+//     title: "DARK",
+//     categories: ["Sci-Fi", "Thriller", "Mystery"],
+//     year: 2017,
+//     rating: 8.7,
+//     director: "Baran bo Odar",
+//     stars: ["Jonas Kahnwald"],
+//     p: "A complex supernatural thriller where the disappearance of two children exposes the double lives and fractured relationships among four families. This mind-bending saga explores the dark secrets of a small town across generations...",
+//   },
+//   {
+//     img: "images/vikings.jpg",
+//     title: "VIKINGS",
+//     categories: ["Action", "Drama", "History"],
+//     year: 2013,
+//     rating: 8.5,
+//     director: "Michael Hirst",
+//     stars: ["Ragnar Lothbrok"],
+//     p: "The brutal and epic journey of Ragnar Lothbrok, a restless warrior who seeks to explore and raid distant shores across the ocean. Witness the rise of a legendary Norse king and the fierce battles that shaped the Viking Age...",
+//   },
+//   {
+//     img: "images/from.jpg",
+//     title: "FROM",
+//     categories: ["Horror", "Mystery", "Thriller"],
+//     year: 2022,
+//     rating: 7.8,
+//     director: "Jack Bender",
+//     stars: ["Boyd Stevens"],
+//     p: "Unravel the terrifying mystery of a nightmare town in middle America that traps everyone who enters. As the residents struggle to maintain a sense of normalcy, they must also survive the threats of the surrounding forest...",
+//   },
+//   {
+//     img: "images/mindhunter.jpg",
+//     title: "MINDHUNTER",
+//     categories: ["Crime", "Drama", "Thriller"],
+//     year: 2017,
+//     rating: 8.6,
+//     director: "David Fincher",
+//     stars: ["Holden Ford"],
+//     p: "Set in the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder. By interviewing imprisoned serial killers, they hope to understand how these monsters think to solve ongoing cases...",
+//   },
+//   {
+//     img: "images/joker.jpg",
+//     title: "THE JOKER",
+//     categories: ["Crime", "Drama", "Thriller"],
+//     year: 2019,
+//     rating: 8.4,
+//     director: "Todd Phillips",
+//     stars: ["Arthur Fleck"],
+//     p: "A deep and haunting character study of Arthur Fleck, a man disregarded by society who eventually transforms into a criminal mastermind. This story explores the origins of Gotham's most iconic villain...",
+//   },
+// ];
 
-let i = 1;
+const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
+let heroSlides = [];
+let currentHeroIndex = 0;
+
+// Hero DOM Elements
 const bg = document.getElementById("bg");
 const desc = document.getElementById("desc");
 const title = document.getElementById("show-title");
 const categories = document.getElementById("show-categories");
 const year = document.getElementById("show-year");
 const rating = document.getElementById("show-rating");
-const director = document.getElementById("show-director");
-const stars = document.getElementById("show-stars");
 const infoContainer = document.querySelector(".hero-info");
 
-function renderSlide(slide) {
-  bg.src = slide.img;
-  title.innerText = slide.title;
-  desc.textContent = slide.p;
+const showType = document.getElementById("show-type");
+const showLanguage = document.getElementById("show-language");
+const showPopularity = document.getElementById("show-popularity");
+const heroActionBtn = document.getElementById("hero-action-btn");
 
-  if (categories) categories.textContent = (slide.categories || []).join(", ");
-  if (year) year.textContent = slide.year ?? "";
-  if (rating) rating.textContent = slide.rating ?? "";
-  if (director) director.textContent = slide.director ?? "";
-  if (stars) stars.textContent = (slide.stars || []).join(", ");
-  if (slide.rating > 8) {
-    rating.style.color = "#44fe47d9";
-  } else {
-    rating.style.color = "yellow";
-  }
+// TMDB Genre Map (To map genre_ids to actual categories)
+const genreMap = {
+  28: "Action",
+  12: "Adventure",
+  16: "Animation",
+  35: "Comedy",
+  80: "Crime",
+  99: "Documentary",
+  18: "Drama",
+  10751: "Family",
+  14: "Fantasy",
+  36: "History",
+  27: "Horror",
+  10402: "Music",
+  9648: "Mystery",
+  10749: "Romance",
+  878: "Sci-Fi",
+  10770: "TV Movie",
+  53: "Thriller",
+  10752: "War",
+  37: "Western",
+  10759: "Action & Adventure",
+  10762: "Kids",
+  10763: "News",
+  10764: "Reality",
+  10765: "Sci-Fi & Fantasy",
+  10766: "Soap",
+  10767: "Talk",
+  10768: "War & Politics",
+};
+
+async function getSlidesData() {
+  let myMoviesRequest = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+  );
+  let mySeriesRequest = await fetch(
+    `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`,
+  );
+
+  let movies = await myMoviesRequest.json();
+  let series = await mySeriesRequest.json();
+
+  movies = movies.results;
+  series = series.results;
+
+  movies.forEach((mv) => {
+    console.log(mv)
+    let genres = [];
+    mv.genre_ids.forEach((g) => genres.push(genreMap[g]));
+
+    let slideObj = {
+      id: mv.id,
+      bg: mv.backdrop_path ? `https://image.tmdb.org/t/p/original${mv.backdrop_path}` : 'images/dark.jpg',
+      desc: mv.overview,
+      title: mv.title,
+      categories: genres,
+      year: new Date(mv.release_date).getFullYear(),
+      rate: mv.vote_average,
+      type: "movie",
+      lang: mv.original_language,
+      popularity:
+      mv.popularity > 1000 ? "High" : mv.popularity > 100 ? "Medium" : "Low",
+    };
+
+    heroSlides.push(slideObj);
+  });
+  series.forEach((sr) => {
+    console.log(sr);
+    let genres = [];
+    sr.genre_ids.forEach((g) => genres.push(genreMap[g]));
+
+    let slideObj = {
+      id: sr.id,
+      bg: sr.backdrop_path ? `https://image.tmdb.org/t/p/original${sr.backdrop_path}` : 'images/dark.jpg',
+      desc: sr.overview,
+      title: sr.name,
+      categories: genres,
+      year: new Date(sr.first_air_date).getFullYear(),
+      rate: sr.vote_average,
+      type: "tv",
+      lang: sr.original_language,
+      popularity:
+      sr.popularity > 1000 ? "High" : sr.popularity > 100 ? "Medium" : "Low",
+    };
+
+    heroSlides.push(slideObj);
+  });
+
+
+  heroSlides.sort(() => Math.random() - 0.5);
+
+
+  renderSlide(heroSlides[currentHeroIndex]);
+
+  setInterval(() => {
+    infoContainer.classList.add("fade-out");
+    bg.style.opacity = 0;
+
+    setTimeout(() => {
+      currentHeroIndex++;
+      if (currentHeroIndex >= heroSlides.length) currentHeroIndex = 0;
+      
+      renderSlide(heroSlides[currentHeroIndex]);
+
+      infoContainer.classList.remove("fade-out");
+      bg.style.opacity = 1;
+    }, 800);
+  }, 10000)
+
 }
 
-renderSlide(slides[0]);
+function renderSlide(slide) {
+  bg.src = slide.bg;
+  desc.textContent = slide.desc;
+  title.textContent = slide.title;
+  categories.textContent = slide.categories.join(" | ");
+  year.textContent = slide.year;
+  rating.textContent = slide.rate.toFixed(1);
+  showType.textContent = slide.type;
+  showLanguage.textContent = slide.lang;
+  showPopularity.textContent = slide.popularity;
 
-setInterval(() => {
-  bg.style.opacity = 0;
-  infoContainer.classList.add("fade-out");
+  rating.style.color = slide.rate >= 8 ? "green" : (slide.rate >= 5 ? "yellow" : "red"); 
 
-  setTimeout(() => {
-    renderSlide(slides[i]);
+  heroActionBtn.onclick = () => {
+    window.open(`show.html?id=${slide.id}&type=${slide.type}`, "_self");
+  };
+}
 
-    bg.style.opacity = 1;
-    infoContainer.classList.remove("fade-out");
-    i++;
-    if (i === slides.length) {
-      i = 0;
-    }
-  }, 800);
-}, 10000);
+getSlidesData();
 
 // hero inmation
 
@@ -208,8 +311,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //! Hadi Function li katjib l aflam men API
 async function getMovies() {
-  const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
-
   let allMovies = [];
 
   let moviesContainer = document.getElementById("movies-container");
@@ -302,8 +403,6 @@ async function getMovies() {
 
 //! W Hadi Function li katjib seriat men API
 async function getSeries() {
-  const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
-
   let allSeries = [];
 
   let seriesContainer = document.getElementById("series-container");
@@ -398,7 +497,6 @@ async function getSeries() {
 getMovies();
 getSeries();
 
-const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
 const searchBtn = document.getElementById("searchBtn");
 const searchOverlay = document.getElementById("searchOverlay");
 const closeBtn = document.getElementById("closeSearchOverlay");
@@ -476,7 +574,7 @@ searchInput.addEventListener("input", () => {
   }, 300);
 });
 
-// section number 
+// section number
 const recType = document.getElementById("rec-type");
 const recCategory = document.getElementById("rec-category");
 const recYear = document.getElementById("rec-year");
@@ -485,37 +583,51 @@ const getRecommendationBtn = document.getElementById("get-recommendation-btn");
 const recommendationResults = document.getElementById("recommendation-results");
 
 const typesList = ["movie", "series"];
-const categoriesList = ["28", "18", "35", "878", "53", "27", "10749", "16", "80", "96"];
+const categoriesList = [
+  "28",
+  "18",
+  "35",
+  "878",
+  "53",
+  "27",
+  "10749",
+  "16",
+  "80",
+  "96",
+];
 const yearsList = ["2024", "2023", "2022", "old"];
 const languagesList = ["en", "es", "ko", "fr", "ar", "ja"];
 
-document.addEventListener('DOMContentLoaded', () => {
-    const simpleCounters = document.querySelectorAll('.stat-number-simple');
-    
-    const animateCounters = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / 100;
+document.addEventListener("DOMContentLoaded", () => {
+  const simpleCounters = document.querySelectorAll(".stat-number-simple");
 
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(() => animateCounters(counter), 20);
-        } else {
-            counter.innerText = target;
+  const animateCounters = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+    const increment = target / 100;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(() => animateCounters(counter), 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Kat-khdem l-animation ghir l l-elements li banu
+          animateCounters(entry.target);
+          statsObserver.unobserve(entry.target);
         }
-    };
+      });
+    },
+    { threshold: 0.5 },
+  );
 
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Kat-khdem l-animation ghir l l-elements li banu
-                animateCounters(entry.target);
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    simpleCounters.forEach(c => statsObserver.observe(c));
+  simpleCounters.forEach((c) => statsObserver.observe(c));
 });
 getRecommendationBtn.addEventListener("click", () => {
   let type = recType.value;
@@ -524,9 +636,12 @@ getRecommendationBtn.addEventListener("click", () => {
   let lang = recLanguage.value;
 
   if (!type) type = typesList[Math.floor(Math.random() * typesList.length)];
-  if (!categorie) categorie = categoriesList[Math.floor(Math.random() * categoriesList.length)];
+  if (!categorie)
+    categorie =
+      categoriesList[Math.floor(Math.random() * categoriesList.length)];
   if (!year) year = yearsList[Math.floor(Math.random() * yearsList.length)];
-  if (!lang) lang = languagesList[Math.floor(Math.random() * languagesList.length)];
+  if (!lang)
+    lang = languagesList[Math.floor(Math.random() * languagesList.length)];
 
   let apiType = type === "series" ? "tv" : type;
   let url = `https://api.themoviedb.org/3/discover/${apiType}?api_key=${API_KEY}`;
@@ -544,72 +659,75 @@ getRecommendationBtn.addEventListener("click", () => {
     let response = await fetch(url);
     let data = await response.json();
     recommendationResults.innerHTML = "";
-    
+
     if (!data.results || data.results.length === 0) {
-      recommendationResults.innerHTML = "<p>No recommendations found. Try different criteria!</p>";
+      recommendationResults.innerHTML =
+        "<p>No recommendations found. Try different criteria!</p>";
       return;
     }
-    
-    let startIndex = Math.floor(Math.random() * Math.max(0, data.results.length - 3 + 1));
+
+    let startIndex = Math.floor(
+      Math.random() * Math.max(0, data.results.length - 3 + 1),
+    );
     let results = data.results.slice(startIndex, startIndex + 3);
-    
+
     results.forEach((item, index) => {
       let card = document.createElement("div");
       let isCenter = results.length === 3 && index === 1;
       card.className = "rec-card" + (isCenter ? " center-card" : "");
-      
-      let imgPath = item.poster_path 
-        ? `https://image.tmdb.org/t/p/w500${item.poster_path}` 
-        : 'images/dark.jpg';
-        
+
+      let imgPath = item.poster_path
+        ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+        : "images/dark.jpg";
+
       card.innerHTML = `
         <img src="${imgPath}" alt="${item.title || item.name}" />
         <div class="rec-card-info">
           <h4>${item.title || item.name}</h4>
-          <p>${(item.release_date || item.first_air_date || "").split('-')[0] || "N/A"}</p>
+          <p>${(item.release_date || item.first_air_date || "").split("-")[0] || "N/A"}</p>
         </div>
       `;
-      
+
       card.addEventListener("click", () => {
-        window.open(
-          `show.html?id=${item.id}&type=${apiType}`,
-          "_self"
-        );
+        window.open(`show.html?id=${item.id}&type=${apiType}`, "_self");
       });
-      
+
       recommendationResults.appendChild(card);
     });
   }
   fetchRecommendation();
 });
-const counters = document.querySelectorAll('.counter');
-const speed = 200; 
+const counters = document.querySelectorAll(".counter");
+const speed = 200;
 
 const startCounter = () => {
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / speed;
+  counters.forEach((counter) => {
+    const updateCount = () => {
+      const target = +counter.getAttribute("data-target");
+      const count = +counter.innerText;
+      const inc = target / speed;
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 15);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    });
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 15);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            startCounter();
-            observer.unobserve(entry.target);
-        }
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startCounter();
+        observer.unobserve(entry.target);
+      }
     });
-}, { threshold: 0.5 });
+  },
+  { threshold: 0.5 },
+);
 
-observer.observe(document.querySelector('.experience-stats-section'));
+observer.observe(document.querySelector(".platform-stats-section"));
