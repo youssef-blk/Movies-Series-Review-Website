@@ -29,8 +29,8 @@
       ========================================================= -->
     <header class="hero" id="home">
       <nav class="main-nav" id="nav-id">
-        <a class="logo" href="#home" aria-label="ShowTime Home">
-          <img src="images/logo.png" alt="ShowTime logo" />
+        <a class="logo" href="#home" aria-label="ShowTime Home" style="text-decoration: none;">
+          <h2 class="logo-text m-0">SERIES<span>FLIX</span></h2>
         </a>
         <ul class="links" aria-label="Primary">
           <li><a href="#home">Home</a></li>
@@ -299,7 +299,7 @@
       </div>
     </section>
 
-    <div class="movies pt-5 pb-5">
+    <div class="movies pt-5 pb-5" id="movies">
       <h2 class="section-title section-title--top5">Movies</h2>
       <div
         class="container-fluid d-flex justify-content-center align-items-center gap-1"
@@ -337,8 +337,8 @@
       </div>
     </div>
 
-    <div class="series pt-5 pb-5">
-      <h2 class="section-title section-title--top5">TV SHows</h2>
+    <div class="series pt-5 pb-5" id="trending">
+      <h2 class="section-title section-title--top5">TV Shows</h2>
       <div
         class="container-fluid d-flex justify-content-center align-items-center gap-1"
       >
@@ -381,10 +381,19 @@
     <section class="recommendation-section pt-5 pb-5" id="recommendation">
       <div class="custom-container">
         <h2 class="section-title section-title--top5">Find Your Match</h2>
-        <p class="text-center mb-5" style="max-width: 600px; margin: 0 auto; line-height: 1.6; color: rgba(255, 255, 255, 0.7);">
-          Select your preferences below and discover a new movie or series exactly to your taste!
+        <p
+          class="text-center mb-5"
+          style="
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+          "
+        >
+          Select your preferences below and discover a new movie or series
+          exactly to your taste!
         </p>
-        
+
         <form id="recommendation-form" class="recommendation-form">
           <div class="form-group-wrap">
             <div class="custom-select-wrapper">
@@ -436,21 +445,22 @@
                 <option value="ja">Japanese</option>
               </select>
             </div>
-            
+
             <div class="btn-wrap">
-              <button type="button" id="get-recommendation-btn" class="recommend-btn">
+              <button
+                type="button"
+                id="get-recommendation-btn"
+                class="recommend-btn"
+              >
                 Surprise Me <i class="fa-solid fa-wand-magic-sparkles"></i>
               </button>
             </div>
           </div>
         </form>
 
-        <div class="recommendation-results" id="recommendation-results">
-          
-        </div>
+        <div class="recommendation-results" id="recommendation-results"></div>
       </div>
     </section>
-
 
     <!-- =========================================================
       MODAL (cinematic transition) 
@@ -489,65 +499,94 @@
         </div>
       </div>
     </div>
-    <section class="experience-minimal-section">
-    <div class="container">
+
+    <section class="platform-stats-section pt-5 pb-5">
+      <div class="container">
+        <h2 class="section-title section-title--top5 text-center mb-5">
+          Our Cinematic Universe
+        </h2>
         <div class="stats-wrapper-simple">
-            <div class="stat-box-simple">
-                <span class="stat-number-simple" data-target="15">0</span>
-                <span class="stat-plus">Y</span>
-                <p class="stat-label-simple">EXPERIENCE</p>
-            </div>
+          <div class="stat-box-simple">
+            <span class="stat-number-simple" data-target="15">0</span>
+            <span class="stat-plus">K+</span>
+            <p class="stat-label-simple">MOVIES</p>
+          </div>
 
-            <div class="stat-box-simple">
-                <span class="stat-number-simple" data-target="850">0</span>
-                <span class="stat-plus">+</span>
-                <p class="stat-label-simple">PROJECTS</p>
-            </div>
+          <div class="stat-box-simple">
+            <span class="stat-number-simple" data-target="850">0</span>
+            <span class="stat-plus">+</span>
+            <p class="stat-label-simple">SERIES</p>
+          </div>
 
-            <div class="stat-box-simple">
-                <span class="stat-number-simple" data-target="120">0</span>
-                <span class="stat-plus">K</span>
-                <p class="stat-label-simple">COMMUNITY</p>
-            </div>
+          <div class="stat-box-simple">
+            <span class="stat-number-simple" data-target="120">0</span>
+            <span class="stat-plus">K</span>
+            <p class="stat-label-simple">USERS</p>
+          </div>
 
-            <div class="stat-box-simple">
-                <span class="stat-number-simple" data-target="98">0</span>
-                <span class="stat-plus">%</span>
-                <p class="stat-label-simple">ACCURACY</p>
-            </div>
+          <div class="stat-box-simple">
+            <span class="stat-number-simple" data-target="98">0</span>
+            <span class="stat-plus">%</span>
+            <p class="stat-label-simple">MATCH RATE</p>
+          </div>
         </div>
-    </div>
-</section>
-<footer class="minimal-footer">
-    <div class="container">
-        <div class="footer-main-row">
-            <div class="footer-logo-box">
-                <h2 class="logo-text">SERIES<span>FLIX</span></h2>
-                <p class="logo-sub">Cinematic Archives</p>
-            </div>
+      </div>
+    </section>
 
-            <div class="credits-names">
+    <footer class="rich-footer pt-5 pb-4">
+      <div class="container">
+        <div class="row footer-top mb-4">
+          <div class="col-md-4 footer-about mb-4 mb-md-0">
+            <h2 class="logo-text">SERIES<span>FLIX</span></h2>
+            <p class="footer-desc mt-3">
+              Your ultimate destination for cinematic archives, trending series,
+              and blockbuster movies. Dive into our curated collections and let
+              the binge-watching begin.
+            </p>
+          </div>
+
+          <div
+            class="col-md-4 footer-links mb-4 mb-md-0 d-flex flex-column align-items-md-center"
+          >
+            <div>
+              <h4 class="footer-title">Quick Links</h4>
+              <ul class="list-unstyled mt-3">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#series">Series</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#recommendation">Find Match</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-md-4 footer-credits d-flex flex-column align-items-md-end"
+          >
+            <div>
+              <h4 class="footer-title">Developed By</h4>
+              <div class="credits-names mt-3">
                 <div class="name-item">
-                    <span class="role">DEVELOPED BY</span>
-                    <span class="full-name">MOHAMED CHEFFOU</span>
+                  <span class="full-name mb-1">MOHAMED CHEFFOU</span>
+                  <span class="full-name">YOUSSEF BELKASSEM</span>
                 </div>
-                <div class="name-divider"></div>
-                <div class="name-item">
-                    <span class="role">DESIGNED BY</span>
-                    <span class="full-name">YOUSSEF BLKASM</span>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
 
-        <div class="footer-bottom-line">
-            <p>&copy; 2026 SERIESFLIX PROTOCOL.</p>
-            <div class="social-minimal">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+        <div class="footer-bottom-line mt-4">
+          <p class="mb-3 mb-md-0">
+            &copy; 2026 SERIESFLIX PROTOCOL. All Rights Reserved.
+          </p>
+          <div class="social-minimal">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
     <!-- JS -->
     <script src="js/script.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

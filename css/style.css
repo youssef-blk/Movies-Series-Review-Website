@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --bg: #000;
   --panel: #050505;
@@ -1385,135 +1389,26 @@ body.modal-open {
     transform: scale(1.05);
   }
 }
-/* foooter  */
-.minimal-footer {
-  background-color: #ffffff;
-  padding: 60px 0 30px;
-  color: #1a1a1a;
-  border-top: 1px solid #eeeeee;
-  font-family: "Inter", sans-serif;
-}
-
-.footer-main-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-/* Logo Style */
-.logo-text {
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: -1px;
-  margin: 0;
-}
-
-.logo-text span {
-  color: #e50914; /* L-7mer l-wa7id l-m-3ye9 */
-}
-
-.logo-sub {
-  font-size: 10px;
-  color: #999;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-top: 5px;
-}
-
-/* Credits Style */
-.credits-names {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.name-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.role {
-  font-size: 8px;
-  color: #e50914; /* Point 7mar sghir */
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 4px;
-}
-
-.full-name {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.name-divider {
-  width: 1px;
-  height: 30px;
-  background: #eeeeee;
-}
-
-/* Bottom Bar */
-.footer-bottom-line {
-  border-top: 1px solid #fafafa;
-  padding-top: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #bbb;
-  font-weight: 500;
-}
-
-.social-minimal a {
-  color: #ccc;
-  margin-left: 20px;
-  transition: 0.3s;
-  font-size: 1.1rem;
-}
-
-.social-minimal a:hover {
-  color: #1a1a1a;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-main-row {
-    flex-direction: column;
-    text-align: center;
-    gap: 35px;
-  }
-  .credits-names {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .name-divider {
-    display: none;
-  }
-  .footer-bottom-line {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
 /* sction nmber  */
-.experience-minimal-section {
+.platform-stats-section {
+  font-family: "Inter", sans-serif;
   background-color: #000000;
-  padding: 120px 0;
-  color: #ffffff;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
+  color: #ffffff;
 }
 
-.experience-minimal-section::before {
+.platform-stats-section::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   background: radial-gradient(
     circle,
-    rgba(229, 9, 20, 0.1) 0%,
+    rgba(229, 9, 20, 0.15) 0%,
     transparent 70%
   );
   transform: translate(-50%, -50%);
@@ -1522,45 +1417,187 @@ body.modal-open {
 
 .stats-wrapper-simple {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
 }
 
 .stat-box-simple {
   text-align: center;
-  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  flex: 1;
+  min-width: 200px;
+  max-width: 260px;
+}
+
+.stat-box-simple:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(229, 9, 20, 0.15);
+  border-color: rgba(229, 9, 20, 0.3);
 }
 
 .stat-number-simple {
-  font-size: 4rem;
-  font-weight: 800;
-  font-family: "Inter", sans-serif;
-  letter-spacing: -2px;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
 }
 
 .stat-plus {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #e50914;
   font-weight: 900;
-  margin-left: -10px;
+  margin-left: 5px;
 }
 
 .stat-label-simple {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: bold;
-  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  margin-top: 15px;
   text-transform: uppercase;
 }
 
+/* foooter  */
+.rich-footer {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  border-top: 1px solid #222;
+  font-family: "Inter", sans-serif;
+}
+
+.footer-top {
+  padding-bottom: 20px;
+}
+
+/* Logo Style */
+.logo-text {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.logo-text span {
+  color: #e50914;
+}
+
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #999;
+}
+
+.footer-title {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 40px;
+  height: 3px;
+  background-color: #e50914;
+}
+
+.footer-links ul li {
+  margin-bottom: 15px;
+}
+
+.footer-links ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.footer-links ul li a:hover {
+  color: #e50914;
+  padding-left: 5px;
+}
+
+/* Credits Style */
+.footer-credits .credits-names {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.name-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #cccccc;
+}
+
+/* Bottom Bar */
+.footer-bottom-line {
+  border-top: 1px solid #1a1a1a;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.social-minimal a {
+  color: #888;
+  margin-left: 20px;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+.social-minimal a:hover {
+  color: #e50914;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .stat-number-simple {
     font-size: 3rem;
   }
   .stats-wrapper-simple {
-    gap: 60px;
+    gap: 30px;
+  }
+  
+  .footer-links {
+    margin-top: 20px;
+  }
+  
+  .footer-credits {
+    margin-top: 20px;
+  }
+  
+  .footer-bottom-line {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .social-minimal {
+    margin-top: 15px;
+  }
+  .social-minimal a {
+    margin: 0 10px;
   }
 }
