@@ -485,9 +485,9 @@ const getRecommendationBtn = document.getElementById("get-recommendation-btn");
 const recommendationResults = document.getElementById("recommendation-results");
 
 const typesList = ["movie", "series"];
-const categoriesList = ["28", "18", "35", "878", "53"];
+const categoriesList = ["28", "18", "35", "878", "53", "27", "10749", "16", "80", "96"];
 const yearsList = ["2024", "2023", "2022", "old"];
-const languagesList = ["en", "es", "ko", "fr"];
+const languagesList = ["en", "es", "ko", "fr", "ar", "ja"];
 
 document.addEventListener('DOMContentLoaded', () => {
     const simpleCounters = document.querySelectorAll('.stat-number-simple');
@@ -550,7 +550,8 @@ getRecommendationBtn.addEventListener("click", () => {
       return;
     }
     
-    let results = data.results.slice(0, 3);
+    let startIndex = Math.floor(Math.random() * Math.max(0, data.results.length - 3 + 1));
+    let results = data.results.slice(startIndex, startIndex + 3);
     
     results.forEach((item, index) => {
       let card = document.createElement("div");
