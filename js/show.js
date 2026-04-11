@@ -21,10 +21,10 @@ async function getData(id, type) {
     .querySelector(".container-fluid")
     .style.setProperty(
       "--bg-image",
-      `url(https://image.tmdb.org/t/p/w500${data.backdrop_path})`,
+      `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
     );
   document.querySelector("img").src =
-    `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+    `https://image.tmdb.org/t/p/original${data.poster_path}`;
 
 
   if (type === "movie") {

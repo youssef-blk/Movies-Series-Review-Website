@@ -238,7 +238,7 @@ async function getMovies() {
     movieCard.dataset.type = movie.media_type;
     movieCard.innerHTML = `
     <img
-      src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+      src="https://image.tmdb.org/t/p/original${movie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
       title="${movie.title}"
@@ -331,7 +331,7 @@ async function getSeries() {
     serieCard.dataset.type = serie.media_type;
     serieCard.innerHTML = `
     <img
-      src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
+      src="https://image.tmdb.org/t/p/original${serie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
       title="${serie.name}"
@@ -582,7 +582,7 @@ getRecommendationBtn.addEventListener("click", () => {
       card.className = "rec-card" + (isCenter ? " center-card" : "");
 
       let imgPath = item.poster_path
-        ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+        ? `https://image.tmdb.org/t/p/original${item.poster_path}`
         : "images/dark.jpg";
 
       card.innerHTML = `
