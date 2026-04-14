@@ -1,56 +1,3 @@
-// const slides = [
-//   {
-//     img: "images/dark.jpg",
-//     title: "DARK",
-//     categories: ["Sci-Fi", "Thriller", "Mystery"],
-//     year: 2017,
-//     rating: 8.7,
-//     director: "Baran bo Odar",
-//     stars: ["Jonas Kahnwald"],
-//     p: "A complex supernatural thriller where the disappearance of two children exposes the double lives and fractured relationships among four families. This mind-bending saga explores the dark secrets of a small town across generations...",
-//   },
-//   {
-//     img: "images/vikings.jpg",
-//     title: "VIKINGS",
-//     categories: ["Action", "Drama", "History"],
-//     year: 2013,
-//     rating: 8.5,
-//     director: "Michael Hirst",
-//     stars: ["Ragnar Lothbrok"],
-//     p: "The brutal and epic journey of Ragnar Lothbrok, a restless warrior who seeks to explore and raid distant shores across the ocean. Witness the rise of a legendary Norse king and the fierce battles that shaped the Viking Age...",
-//   },
-//   {
-//     img: "images/from.jpg",
-//     title: "FROM",
-//     categories: ["Horror", "Mystery", "Thriller"],
-//     year: 2022,
-//     rating: 7.8,
-//     director: "Jack Bender",
-//     stars: ["Boyd Stevens"],
-//     p: "Unravel the terrifying mystery of a nightmare town in middle America that traps everyone who enters. As the residents struggle to maintain a sense of normalcy, they must also survive the threats of the surrounding forest...",
-//   },
-//   {
-//     img: "images/mindhunter.jpg",
-//     title: "MINDHUNTER",
-//     categories: ["Crime", "Drama", "Thriller"],
-//     year: 2017,
-//     rating: 8.6,
-//     director: "David Fincher",
-//     stars: ["Holden Ford"],
-//     p: "Set in the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder. By interviewing imprisoned serial killers, they hope to understand how these monsters think to solve ongoing cases...",
-//   },
-//   {
-//     img: "images/joker.jpg",
-//     title: "THE JOKER",
-//     categories: ["Crime", "Drama", "Thriller"],
-//     year: 2019,
-//     rating: 8.4,
-//     director: "Todd Phillips",
-//     stars: ["Arthur Fleck"],
-//     p: "A deep and haunting character study of Arthur Fleck, a man disregarded by society who eventually transforms into a criminal mastermind. This story explores the origins of Gotham's most iconic villain...",
-//   },
-// ];
-
 const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
 let heroSlides = [];
 let currentHeroIndex = 0;
@@ -115,13 +62,12 @@ async function getSlidesData() {
   series = series.results;
 
   movies.forEach((mv) => {
-    console.log(mv)
     let genres = [];
     mv.genre_ids.forEach((g) => genres.push(genreMap[g]));
 
     let slideObj = {
       id: mv.id,
-      bg: mv.backdrop_path ? `https://image.tmdb.org/t/p/original${mv.backdrop_path}` : 'images/dark.jpg',
+      bg: mv.backdrop_path ? `https://image.tmdb.org/t/p/w1280${mv.backdrop_path}` : 'images/dark.jpg',
       desc: mv.overview,
       title: mv.title,
       categories: genres,
@@ -136,13 +82,12 @@ async function getSlidesData() {
     heroSlides.push(slideObj);
   });
   series.forEach((sr) => {
-    console.log(sr);
     let genres = [];
     sr.genre_ids.forEach((g) => genres.push(genreMap[g]));
 
     let slideObj = {
       id: sr.id,
-      bg: sr.backdrop_path ? `https://image.tmdb.org/t/p/original${sr.backdrop_path}` : 'images/dark.jpg',
+      bg: sr.backdrop_path ? `https://image.tmdb.org/t/p/w1280${sr.backdrop_path}` : 'images/dark.jpg',
       desc: sr.overview,
       title: sr.name,
       categories: genres,
@@ -182,7 +127,7 @@ async function getSlidesData() {
 
 function renderSlide(slide) {
   bg.src = slide.bg;
-  desc.textContent = slide.desc;
+  desc.textContent = slide.desc.slice(0, slide.desc.length / 2 + slide.desc.length / 3) + " ...";
   title.textContent = slide.title;
   categories.textContent = slide.categories.join(" | ");
   year.textContent = slide.year;
@@ -203,46 +148,6 @@ getSlidesData();
 // hero inmation
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.gsap) {
-    let tl = gsap.timeline();
-
-    tl.from("#show-title", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power2.out",
-    });
-
-    tl.from(
-      "#desc",
-      {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-      },
-      "-=0.5",
-    );
-
-    tl.from(
-      ".show-meta",
-      {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-      },
-      "-=0.4",
-    );
-
-    tl.from(
-      ".show-credits",
-      {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-      },
-      "-=0.3",
-    );
-  }
 
   const modal = document.getElementById("cardModal");
   const modalTitle = document.getElementById("cardModalTitle");
@@ -332,7 +237,7 @@ async function getMovies() {
     movieCard.dataset.id = movie.id;
     movieCard.dataset.type = movie.media_type;
     movieCard.innerHTML = `
-    <img
+    <img loading="lazy"
       src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
@@ -425,7 +330,7 @@ async function getSeries() {
     serieCard.dataset.id = serie.id;
     serieCard.dataset.type = serie.media_type;
     serieCard.innerHTML = `
-    <img
+    <img loading="lazy"
       src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
@@ -547,7 +452,7 @@ searchInput.addEventListener("input", () => {
         div.dataset.type = ele.media_type;
         let imgPath = ele.backdrop_path || ele.poster_path;
         let imgElement = imgPath
-          ? `<img src="https://image.tmdb.org/t/p/w200${imgPath}" class="search-item-img" alt="poster">`
+          ? `<img loading="lazy" src="https://image.tmdb.org/t/p/w200${imgPath}" class="search-item-img" alt="poster">`
           : `<div class="search-item-img placeholder"></div>`;
 
         div.innerHTML = `
@@ -681,7 +586,7 @@ getRecommendationBtn.addEventListener("click", () => {
         : "images/dark.jpg";
 
       card.innerHTML = `
-        <img src="${imgPath}" alt="${item.title || item.name}" />
+        <img loading="lazy" src="${imgPath}" alt="${item.title || item.name}" />
         <div class="rec-card-info">
           <h4>${item.title || item.name}</h4>
           <p>${(item.release_date || item.first_air_date || "").split("-")[0] || "N/A"}</p>

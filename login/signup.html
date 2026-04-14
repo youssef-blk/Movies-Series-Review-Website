@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/all.min.css" />
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="login.css">
     <title>Sign Up - Movie Streaming</title>
 </head>
+
 <body>
     <button class="btn home"> <a href="../index.html"><i><i class="fa-regular fa-house"></i></i></a></button>
     <div class="login-card">
@@ -24,12 +26,19 @@
             </div>
             <button type="submit" class="login-btn">Sign Up</button>
         </form>
-        
+
         <div class="signup-text">
             Already have an account? <a href="login.html"><b>Sign in now.</b></a>
         </div>
     </div>
-
+    <div id="toastPopup">
+        <i id="toastIcon" class="fas fa-exclamation-circle"></i>
+        <div>
+            <strong id="toastTitle">Attention</strong>
+            <span id="toastMessage">Message </span>
+        </div>
+    </div>
     <script src="signup.js"></script>
 </body>
+
 </html>

@@ -23,7 +23,7 @@
 
       <div class="row mx-5 px-5 align-items-center">
         <div class="poster col-3 p-4 pe-5">
-          <img src="" alt="">
+          <img loading="lazy" src="" alt="">
         </div>
         <div class="info col-9">
           <div class="adult-div d-flex align-items-center gap-3">
@@ -63,8 +63,20 @@
 
 
 
+<div id="toastPopup" style="display:none; position:fixed; top:20px; right:20px; background:#e63946; color:white; padding:15px 25px; border-radius:8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index:10000; align-items:center; gap:12px; font-family: sans-serif; border-left: 5px solid #b91c1c; animation: slideIn 0.5s ease-out;">
+  <i class="fas fa-exclamation-circle" style="font-size:20px;"></i>
+  <div>
+    <strong style="display:block; font-size:14px;">Attention!</strong>
+    <span id="toastMessage" style="font-size:13px;">Please log in first.</span>
+  </div>
+</div>
 
-    
+<style>
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+</style>
     <!-- Fichier JS -->
     <script src="js/show.js"></script>
     <!-- Bootsrap -->

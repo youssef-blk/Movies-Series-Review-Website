@@ -17,7 +17,7 @@ signupForm.addEventListener('submit', async (e) => {
         const existingUsers = await checkRes.json();
         
         if (existingUsers.length > 0) {
-            alert('An account with this email already exists.');
+           showToast('An account with this email already exists.');
             return;
         }
 
@@ -31,10 +31,35 @@ signupForm.addEventListener('submit', async (e) => {
         
         localStorage.setItem('userId', newUser.id);
         localStorage.setItem('userName', newUser.name);
-        alert('Signup successful!');
+       showToast('Signup successful!', 'success');
         window.location.href = '../index.html'; // Go to home page
     } catch (error) {
         console.error('Error signing up:', error);
-        alert('Failed to connect to the server. Is json-server running?');
+        showToast('Server not working.');
     }
 });
+
+function showToast(message, type = "error") {
+    const toast = document.getElementById("toastPopup");
+    const text = document.getElementById("toastMessage");
+    const title = document.getElementById("toastTitle");
+    const icon = document.getElementById("toastIcon");
+
+    text.textContent = message;
+
+    if (type === "success") {
+        toast.classList.add("success");
+        title.textContent = "Success";
+        icon.className = "fas fa-check-circle";
+    } else {
+        toast.classList.remove("success");
+        title.textContent = "Error";
+        icon.className = "fas fa-exclamation-circle";
+    }
+
+    toast.style.display = "flex";
+
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 3000);
+}

@@ -23,18 +23,15 @@
       "email": "mm@gmail.com",
       "password": "123",
       "id": "7GG9jM9M-lE"
+    },
+    {
+      "name": "hhh",
+      "email": "hhh@gmail.com",
+      "password": "123",
+      "id": "S4PDjdwxhTk"
     }
   ],
   "playlists": [
-    {
-      "userId": "c15AHR9hZ4M",
-      "showId": "1171145",
-      "type": "movie",
-      "title": "Crime 101",
-      "poster_path": "/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg",
-      "vote_average": 7,
-      "id": "im7iIqsJIiw"
-    },
     {
       "userId": "9LVuoohBWxw",
       "showId": "289219",
@@ -70,6 +67,24 @@
       "poster_path": "/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
       "vote_average": 8.5,
       "id": "F90wBoe_KLE"
+    },
+    {
+      "userId": "S4PDjdwxhTk",
+      "showId": "840464",
+      "type": "movie",
+      "title": "Greenland 2: Migration",
+      "poster_path": "/z2tqCJLsw6uEJ8nJV8BsQXGa3dr.jpg",
+      "vote_average": 6.501,
+      "id": "b_Sp45jAgJA"
+    },
+    {
+      "userId": "S4PDjdwxhTk",
+      "showId": "1641319",
+      "type": "movie",
+      "title": "Sniper: No Nation",
+      "poster_path": "/3T9nAX0jAp0iT18ex25BlZEpRDb.jpg",
+      "vote_average": 6,
+      "id": "aX1gTyvAnzA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

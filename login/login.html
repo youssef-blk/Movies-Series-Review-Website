@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
- 
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
     <link rel="stylesheet" href="../css/all.min.css" />
     <meta charset="UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
     <title>Login - Movie Streaming</title>
 </head>
+
 <body>
-  <button class="btn home"> <a href="../index.html"><i><i class="fa-regular fa-house"></i></i></a></button>
+    <button class="btn home"> <a href="../index.html"><i><i class="fa-regular fa-house"></i></i></a></button>
     <div class="login-card">
         <h2>Sign In</h2>
         <form id="loginForm">
@@ -23,12 +25,20 @@
             </div>
             <button type="submit" class="login-btn">Sign In</button>
         </form>
-        
+
         <div class="signup-text">
             New to our site? <a href="signup.html"><b>Sign up now.</b></a>
         </div>
     </div>
-    
+    <div id="toastPopup">
+        <i id="toastIcon" class="fas fa-exclamation-circle"></i>
+        <div>
+            <strong id="toastTitle">Attention</strong>
+            <span id="toastMessage">Message </span>
+        </div>
+    </div>
     <script src="login.js"></script>
+
 </body>
+
 </html>

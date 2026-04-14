@@ -8,6 +8,10 @@ const API_KEY = "fba6dc6bc271f716822f95918f1c6f7f";
 console.log(id);
 console.log(type);
 
+function goToLogin() {
+  window.location.href = "login/login.html";
+}
+
 async function getData(id, type) {
   let myRequest = await fetch(
     `https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}`,
@@ -21,34 +25,33 @@ async function getData(id, type) {
     .querySelector(".container-fluid")
     .style.setProperty(
       "--bg-image",
-      `url(https://image.tmdb.org/t/p/w500${data.backdrop_path})`,
+      `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`,
     );
   document.querySelector("img").src =
     `https://image.tmdb.org/t/p/w500${data.poster_path}`;
 
-
   if (type === "movie") {
     document.querySelector(".title").textContent = data.title;
-    document.querySelector(".original_title .name").textContent = data.original_title;
+    document.querySelector(".original_title .name").textContent =
+      data.original_title;
     document.querySelector(".original_title .year").textContent = new Date(
-    data.release_date,
-  ).getFullYear();
+      data.release_date,
+    ).getFullYear();
   }
-
 
   if (type === "tv") {
     document.querySelector(".title").textContent = data.name;
-    document.querySelector(".original_title .name").textContent = data.original_name;
+    document.querySelector(".original_title .name").textContent =
+      data.original_name;
     document.querySelector(".original_title .year").textContent = new Date(
-    data.first_air_date,
-  ).getFullYear();
+      data.first_air_date,
+    ).getFullYear();
   }
 
   if (!data.adult) {
     document.querySelector(".adult-div").remove();
   }
 
-  
   document.querySelector(".rating span span").textContent =
     data.vote_average.toFixed(1);
 
@@ -61,23 +64,21 @@ async function getData(id, type) {
 
   document.querySelector(".language span").textContent = data.original_language;
   document.querySelector(".origin span").textContent = data.origin_country[0];
-  document.querySelector(".story").textContent = data.overview
+  document.querySelector(".story").textContent = data.overview;
 
-  data.genres.forEach(element => {
+  data.genres.forEach((element) => {
     let span = document.createElement("span");
     span.textContent = element.name;
     document.querySelector(".categories").appendChild(span);
   });
 
-  // Attach Add to Playlist Event Listener
   const addToPlaylistBtn = document.querySelector(".primary-btn");
   if (addToPlaylistBtn) {
     addToPlaylistBtn.addEventListener("click", async () => {
-      const userId = localStorage.getItem('userId');
-      
+      const userId = localStorage.getItem("userId");
+
       if (!userId) {
-        alert("Please log in to add items to your playlist.");
-        window.location.href = "login/login.html";
+       showToast("Please log in first.");
         return;
       }
 
@@ -87,34 +88,52 @@ async function getData(id, type) {
         type: type,
         title: type === "movie" ? data.title : data.name,
         poster_path: data.poster_path,
-        vote_average: data.vote_average
+        vote_average: data.vote_average,
       };
 
       try {
-        const response = await fetch('http://localhost:3000/playlists', {
-          method: 'POST',
+        const response = await fetch("http://localhost:3000/playlists", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(showData)
+          body: JSON.stringify(showData),
         });
 
         if (response.ok) {
-          alert("Added to playlist!");
+          showToast("Added to playlist!", true);
         } else {
-          alert("Failed to add to playlist.");
+          showToast("Failed to add to playlist.");
         }
       } catch (error) {
         console.error("Error adding to playlist:", error);
-        alert("Could not connect to the backend server.");
+        showToast("Could not connect to the backend server.");
       }
     });
   }
 }
+function showToast(messageText, isSuccess = false) {
+  const toast = document.getElementById("toastPopup");
+  const message = document.getElementById("toastMessage");
 
+  message.textContent = messageText;
+
+  if (isSuccess) {
+    toast.style.background = "#2ecc71";
+    toast.style.borderLeft = "5px solid #27ae60";
+  } else {
+    toast.style.background = "#e63946";
+    toast.style.borderLeft = "5px solid #b91c1c";
+  }
+
+  toast.style.display = "flex";
+
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 3000);
+}
 getData(id, type);
-
 
 document.querySelector("nav button").addEventListener("click", () => {
   window.history.back();
-})
+});

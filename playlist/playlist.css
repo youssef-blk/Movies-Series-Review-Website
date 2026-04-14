@@ -85,3 +85,44 @@ body {
 .movie-card:hover .remove-btn {
     display: block;
 }
+
+/* popup  */
+#toastPopup {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #e63946;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 10000;
+  align-items: center;
+  gap: 12px;
+  font-family: sans-serif;
+  border-left: 5px solid #b91c1c;
+  animation: slideIn 0.4s ease;
+}
+
+#toastPopup.success {
+  background: #2ecc71;
+  border-left: 5px solid #27ae60;
+}
+
+#toastPopup i {
+  font-size: 20px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.movie-card {
+  transition: 0.3s;
+}
+
+.movie-card.removing {
+  opacity: 0;
+  transform: scale(0.8);
+}

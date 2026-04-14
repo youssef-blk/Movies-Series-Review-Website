@@ -271,3 +271,22 @@ nav button a i {
     font-size: 1.5rem !important; /* Scale down the bootstrap fs-1 rating digits */
   }
 }
+/* popup */
+#toastPopup {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #e63946;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 10000;
+  align-items: center;
+  gap: 12px;
+  font-family: sans-serif;
+  border-left: 5px solid #b91c1c;
+  animation: slideIn 0.5s ease-out;
+  transition: opacity 0.3s ease;
+}
