@@ -17,6 +17,12 @@
       "email": "mohamed@gmail.com",
       "password": "mohamed123",
       "id": "wR7p4Jll_jI"
+    },
+    {
+      "name": "mm",
+      "email": "mm@gmail.com",
+      "password": "123",
+      "id": "7GG9jM9M-lE"
     }
   ],
   "playlists": [
@@ -46,6 +52,24 @@
       "poster_path": "/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
       "vote_average": 8.23,
       "id": "lCKttEmYIw0"
+    },
+    {
+      "userId": "7GG9jM9M-lE",
+      "showId": "1049471",
+      "type": "movie",
+      "title": "Outcome",
+      "poster_path": "/kSzcpfbTy2pXHGvrVU2WhQTo6oU.jpg",
+      "vote_average": 5.1,
+      "id": "MbQ-ppK2XJI"
+    },
+    {
+      "userId": "7GG9jM9M-lE",
+      "showId": "1399",
+      "type": "tv",
+      "title": "Game of Thrones",
+      "poster_path": "/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+      "vote_average": 8.5,
+      "id": "F90wBoe_KLE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
