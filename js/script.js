@@ -127,7 +127,7 @@ async function getSlidesData() {
 
 function renderSlide(slide) {
   bg.src = slide.bg;
-  desc.textContent = slide.desc;
+  desc.textContent = slide.desc.slice(0, slide.desc.length / 2 + slide.desc.length / 3) + " ...";
   title.textContent = slide.title;
   categories.textContent = slide.categories.join(" | ");
   year.textContent = slide.year;
