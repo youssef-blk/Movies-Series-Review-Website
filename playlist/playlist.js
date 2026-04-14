@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.innerHTML = `
                 <button class="remove-btn" data-id="${item.id}" title="Remove"><i class="fa-solid fa-trash"></i></button>
                 <a href="../show.html?type=${item.type}&id=${item.showId}">
-                    <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}">
+                    <img loading="lazy" src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}">
                 </a>
                 <div class="movie-info">
                     <h3>${item.title}</h3>

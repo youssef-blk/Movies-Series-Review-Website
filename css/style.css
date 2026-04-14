@@ -45,7 +45,7 @@ body {
 }
 
 .custom-container {
-  width: min(1200px, 100%);
+  width: min(1500px, 100%);
   margin: 0 auto;
   padding: 0 40px;
 }

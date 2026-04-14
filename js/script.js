@@ -67,7 +67,7 @@ async function getSlidesData() {
 
     let slideObj = {
       id: mv.id,
-      bg: mv.backdrop_path ? `https://image.tmdb.org/t/p/original${mv.backdrop_path}` : 'images/dark.jpg',
+      bg: mv.backdrop_path ? `https://image.tmdb.org/t/p/w1280${mv.backdrop_path}` : 'images/dark.jpg',
       desc: mv.overview,
       title: mv.title,
       categories: genres,
@@ -87,7 +87,7 @@ async function getSlidesData() {
 
     let slideObj = {
       id: sr.id,
-      bg: sr.backdrop_path ? `https://image.tmdb.org/t/p/original${sr.backdrop_path}` : 'images/dark.jpg',
+      bg: sr.backdrop_path ? `https://image.tmdb.org/t/p/w1280${sr.backdrop_path}` : 'images/dark.jpg',
       desc: sr.overview,
       title: sr.name,
       categories: genres,
@@ -237,8 +237,8 @@ async function getMovies() {
     movieCard.dataset.id = movie.id;
     movieCard.dataset.type = movie.media_type;
     movieCard.innerHTML = `
-    <img
-      src="https://image.tmdb.org/t/p/original${movie.poster_path}"
+    <img loading="lazy"
+      src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
       title="${movie.title}"
@@ -330,8 +330,8 @@ async function getSeries() {
     serieCard.dataset.id = serie.id;
     serieCard.dataset.type = serie.media_type;
     serieCard.innerHTML = `
-    <img
-      src="https://image.tmdb.org/t/p/original${serie.poster_path}"
+    <img loading="lazy"
+      src="https://image.tmdb.org/t/p/w500${serie.poster_path}"
       alt="The Joker poster"
       class="img-fluid"
       title="${serie.name}"
@@ -452,7 +452,7 @@ searchInput.addEventListener("input", () => {
         div.dataset.type = ele.media_type;
         let imgPath = ele.backdrop_path || ele.poster_path;
         let imgElement = imgPath
-          ? `<img src="https://image.tmdb.org/t/p/w200${imgPath}" class="search-item-img" alt="poster">`
+          ? `<img loading="lazy" src="https://image.tmdb.org/t/p/w200${imgPath}" class="search-item-img" alt="poster">`
           : `<div class="search-item-img placeholder"></div>`;
 
         div.innerHTML = `
@@ -582,11 +582,11 @@ getRecommendationBtn.addEventListener("click", () => {
       card.className = "rec-card" + (isCenter ? " center-card" : "");
 
       let imgPath = item.poster_path
-        ? `https://image.tmdb.org/t/p/original${item.poster_path}`
+        ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
         : "images/dark.jpg";
 
       card.innerHTML = `
-        <img src="${imgPath}" alt="${item.title || item.name}" />
+        <img loading="lazy" src="${imgPath}" alt="${item.title || item.name}" />
         <div class="rec-card-info">
           <h4>${item.title || item.name}</h4>
           <p>${(item.release_date || item.first_air_date || "").split("-")[0] || "N/A"}</p>
