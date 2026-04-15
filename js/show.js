@@ -78,7 +78,7 @@ async function getData(id, type) {
       const userId = localStorage.getItem("userId");
 
       if (!userId) {
-       showToast("Please log in first.");
+        showToast("Please log in first.");
         return;
       }
 

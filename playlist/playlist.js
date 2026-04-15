@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const API_URL = "http://localhost:3000";
 
   if (!userId) {
-    moviesGrid.innerHTML =
-      '<p style="color:white;text-align:center;">Please <a href="../login/login.html" style="color:#007bff;">log in</a> to view your playlist.</p>';
+    moviesGrid.innerHTML = `
+      <div class="empty-playlist-msg">
+        <p>Please <a href="../login/login.html">log in</a> to view your playlist.</p>
+      </div>`;
     headerCount.textContent = "0 Items";
     return;
   }
@@ -21,8 +23,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // empty state
     if (playlist.length === 0) {
-      moviesGrid.innerHTML =
-        '<p style="color:white;text-align:center;">Your playlist is empty.</p>';
+      moviesGrid.innerHTML = `
+        <div class="empty-playlist-msg">
+          <p>Your playlist is empty. Let's find something <a href="../index.html">to watch</a>!</p>
+        </div>`;
       return;
     }
 
@@ -76,8 +80,10 @@ document.addEventListener("DOMContentLoaded", async () => {
               showToast("Removed from playlist", "success");
 
               if (currentCount === 0) {
-                moviesGrid.innerHTML =
-                  '<p style="color:white;text-align:center;">Your playlist is empty.</p>';
+                moviesGrid.innerHTML = `
+                  <div class="empty-playlist-msg">
+                    <p>Your playlist is empty. Let's find something <a href="../index.html">to watch</a>!</p>
+                  </div>`;
               }
             }, 300);
           } else {

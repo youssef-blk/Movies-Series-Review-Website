@@ -3,27 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="playlist.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>My Playlist</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="playlist.css">
+    <title>ShowTime - My Playlist</title>
 </head>
 <body>
 
-    <div class="header">
-        <h1><i class="fa-solid fa-play"></i> MY PLAYLIST</h1>
-        <span>12 Movies</span>
+
+    <!-- MAIN PAGE CONTAINER -->
+    <div class="playlist-container custom-container pt-5 pb-5">
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="header mt-4 pt-2">
+            <h1><i class="fa-solid fa-bookmark"></i> MY PLAYLIST</h1>
+            <span>0 Items</span>
+        </div>
+
+        <div class="movies-grid mt-4" id="moviesGrid">
+            <!-- Movies/Shows will be dynamically injected here -->
+        </div>
     </div>
 
-    <div class="movies-grid" id="moviesGrid">
-        <!-- Movies will be dynamically injected here -->
-    </div>
- <div id="toastPopup">
+    <!-- TOAST POPUP -->
+    <div id="toastPopup">
         <i id="toastIcon" class="fas fa-exclamation-circle"></i>
         <div>
             <strong id="toastTitle">Attention</strong>
-            <span id="toastMessage">Message </span>
+            <span id="toastMessage">Message</span>
         </div>
     </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="playlist.js"></script>
 </body>
 </html>

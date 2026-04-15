@@ -1,128 +1,285 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+/* =========================================================
+   PLAYLIST STYLES
+   ========================================================= */
 
 body {
-    background-color: #141414; 
+    background-color: var(--bg, #000); 
     color: white;
-    padding: 40px;
+}
+
+.playlist-container {
+    min-height: 100vh;
+    padding-top: 40px; 
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.back-btn i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover {
+    color: white;
+}
+
+.back-btn:hover i {
+    transform: translateX(-5px);
 }
 
 .header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 20px;
     margin-bottom: 40px;
-    border-bottom: 2px solid #e50914;
-    padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .header h1 {
-    font-size: 28px;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+.header h1 i {
+    color: #e50914; /* Netflix red accent */
+    font-size: 0.9em;
+}
+
+.header span {
+    font-size: 14px;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 700;
 }
 
 .movies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 30px;
 }
+
+/* Movie Card Modern Design */
 .movie-card {
     position: relative;
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    background: #0a0a0a;
     cursor: pointer;
-    background: #222;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-card:hover {
-    transform: scale(1.08);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.15);
     z-index: 10;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.movie-card a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
 .movie-card img {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
+    transition: opacity 0.3s, transform 0.5s ease;
+}
+
+.movie-card:hover img {
+    opacity: 0.8;
+    transform: scale(1.05);
 }
 
 .movie-info {
-    padding: 15px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    padding: 18px;
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .movie-info h3 {
     font-size: 16px;
-    margin-bottom: 5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .movie-info span {
     color: #e50914;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
+/* Remove button sleek design */
 .remove-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.6);
+    top: 15px;
+    right: 15px;
+    background: rgba(229, 9, 20, 0.8);
+    backdrop-filter: blur(5px);
     color: white;
-    border: none;
-    padding: 5px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     cursor: pointer;
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .movie-card:hover .remove-btn {
-    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* popup  */
+.remove-btn:hover {
+    background: #ff0f1b;
+    transform: scale(1.15) !important;
+}
+
+/* Removing animation */
+.movie-card.removing {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    pointer-events: none;
+}
+
+/* Empty state styling */
+.empty-playlist-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.empty-playlist-msg p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.empty-playlist-msg a {
+    color: #e50914;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: 0.3s;
+}
+
+.empty-playlist-msg a:hover {
+    color: #ff3b3b;
+    border-bottom-color: #ff3b3b;
+}
+
+/* Toast popup (refreshed styling to match app) */
 #toastPopup {
   display: none;
   position: fixed;
-  top: 20px;
+  top: 100px;
   right: 20px;
-  background: #e63946;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  background: rgba(22, 22, 22, 0.95);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
   z-index: 10000;
   align-items: center;
-  gap: 12px;
-  font-family: sans-serif;
-  border-left: 5px solid #b91c1c;
-  animation: slideIn 0.4s ease;
+  gap: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 5px solid #e63946;
+  animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #toastPopup.success {
-  background: #2ecc71;
-  border-left: 5px solid #27ae60;
+  border-left: 5px solid #2ecc71;
 }
 
 #toastPopup i {
-  font-size: 20px;
+  font-size: 24px;
+}
+
+#toastPopup.success i {
+    color: #2ecc71;
+}
+
+#toastPopup:not(.success) i {
+    color: #e63946;
+}
+
+#toastTitle {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+#toastMessage {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    font-weight: 400;
 }
 
 @keyframes slideIn {
   from { transform: translateX(120%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
-}
-.movie-card {
-  transition: 0.3s;
-}
-
-.movie-card.removing {
-  opacity: 0;
-  transform: scale(0.8);
 }
