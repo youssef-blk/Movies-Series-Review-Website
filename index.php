@@ -1,0 +1,540 @@
+<?php
+session_start();
+
+?>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="css/all.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>ShowTime</title>
+</head>
+
+<body>
+  <!-- =========================================================
+      HERO (Slider)
+      ========================================================= -->
+  <header class="hero" id="home">
+    <nav class="main-nav" id="nav-id">
+      <a class="logo" href="#home" aria-label="ShowTime Home" style="text-decoration: none;">
+        <h2 class="logo-text m-0">SERIES<span>FLIX</span></h2>
+      </a>
+      <ul class="links" aria-label="Primary">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#series">Series</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#trending">Trending</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="icon-btn" id="playlistBtn">
+          <a href="playlist/playlist.html">
+            <i class="fa-regular fa-bookmark"></i>
+          </a>
+        </button>
+
+        <?php if (isset($_SESSION['user_id'])): ?>
+        <div class="user-dropdown">
+          <button class="user-trigger">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="user-name" id="user-name"><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
+            <i class="fa-solid fa-chevron-down caret"></i>
+          </button>
+
+          <div class="dropdown-content">
+            <a href="Profile/Profile.php"><i class="fa-solid fa-user me-2"></i> Profile</a>
+            <a href="Profile/Settings.php"><i class="fa-solid fa-gear me-2"></i> Settings</a>
+            <div class="divider"></div>
+            <a href="login/logout.php" class="logout-btn"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
+          </div>
+        </div>
+        <?php else: ?>
+        <a href="login/login.php" class="login-link-btn">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>Login</span>
+        </a>
+        <?php endif; ?>
+      </div>
+    </nav>
+
+    <div class="hero-media">
+      <div class="hero-overlay"></div>
+      <img loading="lazy" id="bg" src="images/dark.jpg" alt="Featured background" />
+    </div>
+
+    <div class="hero-info" id="slider-content">
+      <div class="show-meta">
+        <span id="show-categories">Sci‑Fi, Thriller, Mystery</span>
+        <span class="dot">•</span>
+        <span id="show-year">2017</span>
+        <span class="dot">•</span>
+        <span class="ten"><span id="show-rating">8.7</span>/10</span>
+      </div>
+
+      <h1 id="show-title">DARK</h1>
+
+      <p id="desc" class="hero-desc">
+        A complex supernatural thriller where the disappearance of two
+        children exposes the double lives and fractured relationships among
+        four families...
+      </p>
+
+      <div class="show-credits mb-4">
+        <span class="label">Type:</span>
+        <span id="show-type" style="text-transform: capitalize;">Series</span>
+        <span class="sep">|</span>
+        <span class="label">Original Language:</span>
+        <span id="show-language" style="text-transform: uppercase;">EN</span>
+        <span class="sep">|</span>
+        <span class="label">Popularity:</span>
+        <span id="show-popularity">High</span>
+      </div>
+
+      <button class="recommend-btn btn-hero" id="hero-action-btn">
+        View Details <i class="fa-solid fa-circle-play"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="custom-container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="subtitle">WHO WE ARE</span>
+          <h2 class="title">A Cinematic Platform For Video Enthusiasts.</h2>
+          <p class="description">
+            Dive into high‑energy showreels, cinematic films, and the best
+            series. We curate experiences that turn heads, blending
+            storytelling with high‑end visuals.
+          </p>
+
+          <div class="features">
+            <div class="feature-item">
+              <span class="feature-title">Cinematic Vision</span>
+              <p>High-end visuals that tell stories.</p>
+            </div>
+            <div class="feature-item">
+              <span class="feature-title">Top Selections</span>
+              <p>Curating the best of entertainment.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual" aria-label="Poster wall">
+          <div class="poster-wall">
+            <div class="poster-col scroll-up">
+              <div class="poster-group">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/87/22/29/8722292a92fa6659f1e07f2f6fb18051.jpg"
+                  alt="Poster 1" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/26/79/d0/2679d0567d163671f988adfb83951397.jpg"
+                  alt="Poster 2" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/f6/0c/0e/f60c0e79d04781510017ad1e49882024.jpg"
+                  alt="Poster 3" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/53/d4/91/53d491950018e7923cc9f17ed1d45fbc.jpg"
+                  alt="Poster 4" />
+                <img loading="lazy" src="https://i.pinimg.com/1200x/87/22/29/8722292a92fa6659f1e07f2f6fb18051.jpg"
+                  alt="Poster 1 duplicate" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/26/79/d0/2679d0567d163671f988adfb83951397.jpg"
+                  alt="Poster 2 duplicate" />
+              </div>
+            </div>
+
+            <div class="poster-col scroll-down">
+              <div class="poster-group">
+                <img loading="lazy" src="https://i.pinimg.com/736x/cd/ea/30/cdea30993a49ca91bf6a69d4ae225845.jpg"
+                  alt="Poster 5" />
+                <img loading="lazy" src="https://i.pinimg.com/1200x/77/13/39/77133967b31e226e7ffe005345edcec4.jpg"
+                  alt="Poster 6" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/88/48/4b/88484b6fc3cbb4504da1a17a25ce7421.jpg"
+                  alt="Poster 7" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/da/68/12/da68128d21dd068e53a972a0e6274bf5.jpg"
+                  alt="Poster 8" />
+
+                <img loading="lazy" src="https://i.pinimg.com/736x/cd/ea/30/cdea30993a49ca91bf6a69d4ae225845.jpg"
+                  alt="Poster 5 duplicate" />
+                <img loading="lazy" src="https://i.pinimg.com/1200x/77/13/39/77133967b31e226e7ffe005345edcec4.jpg"
+                  alt="Poster 6 duplicate" />
+              </div>
+            </div>
+            <div class="poster-col scroll-up">
+              <div class="poster-group">
+                <img loading="lazy" src="https://i.pinimg.com/1200x/01/d5/39/01d5392ce063b8bd69867fabfeab395b.jpg"
+                  alt="Poster 9" />
+                <img loading="lazy" src="https://i.pinimg.com/1200x/ed/8e/8c/ed8e8c579d1f89e02a4ca17f364f37c5.jpg"
+                  alt="Poster 10" />
+                <img loading="lazy" src="https://i.pinimg.com/1200x/5a/d0/87/5ad0879157e650975e269177b9b5ed6b.jpg"
+                  alt="Poster 11" />
+                <img loading="lazy" src="https://i.pinimg.com/736x/d8/a2/5e/d8a25ee4948ca0c87a2efda4fcbd242a.jpg"
+                  alt="Poster 12" />
+
+                <img loading="lazy" src="https://i.pinimg.com/1200x/01/d5/39/01d5392ce063b8bd69867fabfeab395b.jpg"
+                  alt="Poster 9 duplicate" />
+                <img loading="lazy" src="https://i.pinimg.com/1200x/ed/8e/8c/ed8e8c579d1f89e02a4ca17f364f37c5.jpg"
+                  alt="Poster 10 duplicate" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- marquee -->
+      <div class="about-marquee" aria-hidden="true">
+        <div class="about-marquee__track">
+          <span>
+            CINEMATOGRAPHY • SHOWREEL • SERIES • STREAMING • MOTION DESIGN •
+            CREATIVE DIRECTION • CINEMATOGRAPHY • SHOWREEL • SERIES •
+            STREAMING • MOTION DESIGN • CREATIVE DIRECTION •
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section" id="series">
+    <div class="custom-container">
+      <h2 class="section-title section-title--top5">
+        TOP 5 MUST‑WATCH SERIES
+      </h2>
+
+      <div class="cards-wrap">
+        <div class="card" id="sherlock" style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/4e/cb/db/4ecbdbaea22ad23148a96883ef576046.jpg&quot;);
+            ">
+          <div class="card-content">
+            <span class="card-badge">Series</span>
+            <h3>Sherlock</h3>
+            <p>Solving crimes in modern London.</p>
+          </div>
+        </div>
+
+        <div class="card" id="joker" style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/f5/12/eb/f512eb6b25a922859e3f306e8717fc76.jpg&quot;);
+            ">
+          <div class="card-content">
+            <span class="card-badge">Movie</span>
+            <h3>The Joker</h3>
+            <p>The dark origin of Gotham's villain.</p>
+          </div>
+        </div>
+
+        <div class="card" id="dexter" style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/f8/4c/77/f84c77ddc66b724d78d5d8e51945065b.jpg&quot;);
+            ">
+          <div class="card-content">
+            <span class="card-badge">Series</span>
+            <h3>Dexter</h3>
+            <p>A forensics expert by day, vigilante by night.</p>
+          </div>
+        </div>
+
+        <div class="card" id="got" style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/2c/2a/bd/2c2abd1b2a647c3cfe56362ab9ef1fd2.jpg&quot;);
+            ">
+          <div class="card-content">
+            <span class="card-badge">Series</span>
+            <h3>Game of Thrones</h3>
+            <p>Battle for the Iron Throne.</p>
+          </div>
+        </div>
+
+        <div class="card" id="peaky" style="
+              background-image: url(&quot;https://i.pinimg.com/1200x/d5/02/6b/d5026b08d37c61edc43aa1c627374815.jpg&quot;);
+            ">
+          <div class="card-content">
+            <span class="card-badge">Trending</span>
+            <h3>Peaky Blinders</h3>
+            <p>Birmingham's notorious crime family.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="movies pt-5 pb-5" id="movies">
+    <h2 class="section-title section-title--top5">Movies</h2>
+    <div class="container-fluid d-flex justify-content-center align-items-center gap-1">
+      <div class="arrow-back">
+        <i class="fa-solid fa-angle-left" id="backBtn"></i>
+      </div>
+
+      <div class="slider-viewport" id="slider-viewport">
+        <div class="loader">
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+        </div>
+
+        <div class="movies-container" id="movies-container"></div>
+      </div>
+
+      <div class="arrow-next">
+        <i class="fa-solid fa-angle-right" id="nextBtn"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="series pt-5 pb-5" id="trending">
+    <h2 class="section-title section-title--top5">TV Shows</h2>
+    <div class="container-fluid d-flex justify-content-center align-items-center gap-1">
+      <div class="arrow-back">
+        <i class="fa-solid fa-angle-left" id="backBtn"></i>
+      </div>
+
+      <div class="slider-viewport" id="slider-viewport">
+        <div class="loader">
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+          <div class="circle">
+            <div class="dot"></div>
+            <div class="outline"></div>
+          </div>
+        </div>
+
+        <div class="series-container" id="series-container"></div>
+      </div>
+
+      <div class="arrow-next">
+        <i class="fa-solid fa-angle-right" id="nextBtn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+      RECOMMENDATION / FIND MATCH SECTION
+      ========================================================= -->
+  <section class="recommendation-section pt-5 pb-5" id="recommendation">
+    <div class="custom-container">
+      <h2 class="section-title section-title--top5">Find Your Match</h2>
+      <p class="text-center mb-5" style="
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+          ">
+        Select your preferences below and discover a new movie or series
+        exactly to your taste!
+      </p>
+
+      <form id="recommendation-form" class="recommendation-form">
+        <div class="form-group-wrap">
+          <div class="custom-select-wrapper">
+            <label for="rec-type">Type</label>
+            <select id="rec-type" class="custom-select">
+              <option value="">Any Type</option>
+              <option value="movie">Movie</option>
+              <option value="series">Series</option>
+            </select>
+          </div>
+
+          <div class="custom-select-wrapper">
+            <label for="rec-category">Category</label>
+            <select id="rec-category" class="custom-select">
+              <option value="">Any Category</option>
+              <option value="28">Action</option>
+              <option value="18">Drama</option>
+              <option value="35">Comedy</option>
+              <option value="878">Sci-Fi</option>
+              <option value="53">Thriller</option>
+              <option value="27">Horror</option>
+              <option value="10749">Romance</option>
+              <option value="16">Animation</option>
+              <option value="80">Crime</option>
+              <option value="96">Mystery</option>
+            </select>
+          </div>
+
+          <div class="custom-select-wrapper">
+            <label for="rec-year">Year</label>
+            <select id="rec-year" class="custom-select">
+              <option value="">Any Year</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="old">Older</option>
+            </select>
+          </div>
+
+          <div class="custom-select-wrapper">
+            <label for="rec-language">Language</label>
+            <select id="rec-language" class="custom-select">
+              <option value="">Any Language</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="ko">Korean</option>
+              <option value="fr">French</option>
+              <option value="ar">Arabic</option>
+              <option value="ja">Japanese</option>
+            </select>
+          </div>
+
+          <div class="btn-wrap">
+            <button type="button" id="get-recommendation-btn" class="recommend-btn">
+              Surprise Me <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="recommendation-results" id="recommendation-results"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+      MODAL (cinematic transition) 
+      ========================================================= -->
+  <div class="card-modal" id="cardModal" aria-hidden="true">
+    <div class="card-modal__backdrop" data-card-modal-close></div>
+
+    <div class="card-modal__content" role="dialog" aria-modal="true">
+      <button class="card-modal__close" type="button" aria-label="Close" data-card-modal-close>
+        &times;
+      </button>
+      <h2 class="card-modal__title" id="cardModalTitle"></h2>
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-backdrop" id="searchBackdrop"></div>
+    <div class="search-content">
+      <button class="close-search-btn" id="closeSearchOverlay">
+        &times;
+      </button>
+      <input type="text" id="searchInput" placeholder="Type a movie or series name..." autocomplete="off" />
+
+      <div class="search-results" id="searchResults">
+        <!-- <div class="search-item"><span class="title">Squid Game</span> <span class="year">(2021)</span></div> -->
+      </div>
+    </div>
+  </div>
+
+  <section class="platform-stats-section pt-5 pb-5">
+    <div class="container">
+      <h2 class="section-title section-title--top5 text-center mb-5">
+        Our Cinematic Universe
+      </h2>
+      <div class="stats-wrapper-simple">
+        <div class="stat-box-simple">
+          <span class="stat-number-simple" data-target="15">0</span>
+          <span class="stat-plus">K+</span>
+          <p class="stat-label-simple">MOVIES</p>
+        </div>
+
+        <div class="stat-box-simple">
+          <span class="stat-number-simple" data-target="9">0</span>
+          <span class="stat-plus">K+</span>
+          <p class="stat-label-simple">SERIES</p>
+        </div>
+
+        <div class="stat-box-simple">
+          <span class="stat-number-simple" data-target="120">0</span>
+          <span class="stat-plus">K</span>
+          <p class="stat-label-simple">USERS</p>
+        </div>
+
+        <div class="stat-box-simple">
+          <span class="stat-number-simple" data-target="98">0</span>
+          <span class="stat-plus">%</span>
+          <p class="stat-label-simple">MATCH RATE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rich-footer pt-5 pb-4">
+    <div class="container">
+      <div class="row footer-top mb-4">
+        <div class="col-md-4 footer-about mb-4 mb-md-0">
+          <h2 class="logo-text">SERIES<span>FLIX</span></h2>
+          <p class="footer-desc mt-3">
+            Your ultimate destination for cinematic archives, trending series,
+            and blockbuster movies. Dive into our curated collections and let
+            the binge-watching begin.
+          </p>
+        </div>
+
+        <div class="col-md-4 footer-links mb-4 mb-md-0 d-flex flex-column align-items-md-center">
+          <div>
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="list-unstyled mt-3">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#series">Series</a></li>
+              <li><a href="#movies">Movies</a></li>
+              <li><a href="#recommendation">Find Match</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 footer-credits d-flex flex-column align-items-md-end">
+          <div>
+            <h4 class="footer-title">Developed By</h4>
+            <div class="credits-names mt-3">
+              <div class="name-item">
+                <span class="full-name mb-1">MOHAMED CHEFFOU</span>
+                <span class="full-name">YOUSSEF BELKASSEM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-line mt-4">
+        <p class="mb-3 mb-md-0">
+          &copy; 2026 SERIESFLIX PROTOCOL. All Rights Reserved.
+        </p>
+        <div class="social-minimal">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- JS -->
+  <script src="js/script.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

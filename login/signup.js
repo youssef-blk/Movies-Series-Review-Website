@@ -1,43 +1,24 @@
-const signupForm = document.getElementById("signupForm");
+// const signupForm = document.getElementById("signupForm");
 const nameInput = document.getElementById("nameInput");
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 
-const API_URL = "http://localhost:3000";
+// const API_URL = "http://localhost:3000";
 
-signupForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const name = nameInput.value;
-  const email = emailInput.value;
-  const password = passwordInput.value;
+// signupForm.addEventListener("submit",  (e) => {
+//   e.preventDefault();
+//   const name = nameInput.value;
+//   const email = emailInput.value;
+//   const password = passwordInput.value;
+//   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+//   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+//   const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+//   if (!nameRegex.test(name) || !emailRegex.test(email) || !passwordRegex.test(password)) {
+//     e.preventDefault();
+//     showToast("Please check your inputs.");
+//   }
 
-  try {
-    // Check if email already exists
-    const checkRes = await fetch(`${API_URL}/users?email=${email}`);
-    const existingUsers = await checkRes.json();
-
-    if (existingUsers.length > 0) {
-      showToast("An account with this email already exists.");
-      return;
-    }
-
-    // Create new user
-    const response = await fetch(`${API_URL}/users`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
-    });
-    const newUser = await response.json();
-
-    localStorage.setItem("userId", newUser.id);
-    localStorage.setItem("userName", newUser.name);
-    showToast("Signup successful!", "success");
-    window.location.href = "../index.html"; // Go to home page
-  } catch (error) {
-    console.error("Error signing up:", error);
-    showToast("Server not working.");
-  }
-});
+// });
 
 function showToast(message, type = "error") {
   const toast = document.getElementById("toastPopup");
