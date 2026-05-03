@@ -15,7 +15,7 @@ const showType = document.getElementById("show-type");
 const showLanguage = document.getElementById("show-language");
 const showPopularity = document.getElementById("show-popularity");
 const heroActionBtn = document.getElementById("hero-action-btn");
-const userName = document.getElementById("user-name");
+
 // TMDB Genre Map (To map genre_ids to actual categories)
 const genreMap = {
   28: "Action",
@@ -127,7 +127,7 @@ async function getSlidesData() {
 
 function renderSlide(slide) {
   bg.src = slide.bg;
-  desc.textContent = slide.desc.slice(0, slide.desc.length / 4) + " ...";
+  desc.textContent = slide.desc.slice(0, slide.desc.length / 2 + slide.desc.length / 3) + " ...";
   title.textContent = slide.title;
   categories.textContent = slide.categories.join(" | ");
   year.textContent = slide.year;
@@ -636,13 +636,3 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(document.querySelector(".platform-stats-section"));
-userName.addEventListener("click", () => {
-  const dropdown = document.querySelector(".user-dropdown .dropdown-content");
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-});
-document.addEventListener("click", (e) => {
-  const dropdown = document.querySelector(".user-dropdown .dropdown-content");
-  if (!e.target.closest(".user-dropdown")) {
-    dropdown.style.display = "none";
-  }
-});

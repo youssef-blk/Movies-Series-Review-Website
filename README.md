@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Cinematic Movies & Series Hub
 
 Welcome to the **Movies & Series Review Website**! This repository hosts a beautifully crafted, responsive web application tailored for movie and TV enthusiasts to explore, discover, review, and curate collections of their favorite cinematic content.
@@ -56,6 +55,3 @@ To run this project locally with full features (including the user playlist and 
 ---
 
 *Developed with a passion for web development and cinema.*
-=======
-# SeriesFlix_Movies-Series-Review-Website
->>>>>>> 011b11104af6fc65dfc2189e7141cef2c2f8fc2a
